@@ -10,7 +10,7 @@ public class LaunchActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-f
+
     @Override
     protected void initLogic() {
 
