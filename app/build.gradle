@@ -1,0 +1,111 @@
+apply plugin: 'com.android.application'
+
+def SERVICE_URL_DEBUG = "\"http://dev.cloudcns.com/lottery-service/service\""
+def RESOURCE_URL_DEBUG = "\"http://dev.cloudcns.com/lottery-resource/upload\""
+def SERVICE_URL_PRERELEASE = "\"http://dev.cloudcns.com/lottery-service/service\""
+def RESOURCE_URL_PRERELEASE = "\"http://dev.cloudcns.com/lottery-resource/upload\""
+def SERVICE_URL_RELEASE = "\"http://dev.cloudcns.com/lottery-service/service\""
+def RESOURCE_URL_RELEASE = "\"http://dev.cloudcns.com/lottery-resource/upload\""
+def APP_NAME = "二维码追溯"
+def APP_ID = "101100"
+def VERSION_CODE = 2
+def VERSION_NAME = "1.0.1"
+def VERSION_TEXT = "测试一下好不好用"
+def VERSION_KEY = "1"
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.hualing.qrcodetracker"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+//    signingConfigs {
+//        key {
+//            keyAlias 'lottery'
+//            keyPassword 'com.cloudcns.lottery'
+//            storeFile file('D:/ZgsProject/lottery/document/key/android/lottery.keystore')
+//            storePassword 'com.cloudcns'
+//        }
+//    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "APP_ID", "\"" + APP_ID + "\""
+            buildConfigField "String", "APP_NAME", "\"" + APP_NAME + "\""
+            buildConfigField "boolean", "API_DEBUG", "true"
+            buildConfigField "String", "SERVICE_URL", SERVICE_URL_DEBUG
+            buildConfigField "String", "RESOURCE_URL", RESOURCE_URL_DEBUG
+            manifestPlaceholders = [APP_LABEL: APP_NAME + "开发"]
+//            signingConfig  signingConfigs.key
+        }
+        prerelease {
+            buildConfigField "String", "APP_ID", "\"" + APP_ID + "\""
+            buildConfigField "String", "APP_NAME", "\"" + APP_NAME + "\""
+            buildConfigField "boolean", "API_DEBUG", "true"
+            buildConfigField "String", "SERVICE_URL", SERVICE_URL_PRERELEASE
+            buildConfigField "String", "RESOURCE_URL", RESOURCE_URL_PRERELEASE
+            minifyEnabled false
+            manifestPlaceholders = [APP_LABEL: APP_NAME + "测试"]
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig  signingConfigs.key
+        }
+        release {
+            buildConfigField "String", "APP_ID", "\"" + APP_ID + "\""
+            buildConfigField "String", "APP_NAME", "\"" + APP_NAME + "\""
+            buildConfigField "boolean", "API_DEBUG", "false"
+            buildConfigField "String", "SERVICE_URL", SERVICE_URL_RELEASE
+            buildConfigField "String", "RESOURCE_URL", RESOURCE_URL_RELEASE
+            minifyEnabled false
+            manifestPlaceholders = [APP_LABEL: APP_NAME]
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig  signingConfigs.key
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+def fileWriter(path, stringBuffer) {
+    new File(path).withWriter('UTF-8') {
+        within ->
+            within.append(stringBuffer)
+    }
+}
+
+task writeAppInfo << {
+    def appInfo = "APP_ID:" + APP_ID + "\r\nVERSION_CODE:" + VERSION_CODE + "\r\nVERSION_NAME:" + VERSION_NAME + "\r\nVERSION_TEXT:" + VERSION_TEXT + "\r\nVERSION_KEY:" + VERSION_KEY + "\r\n";
+    fileWriter(rootDir.getAbsolutePath() + '/build/version.txt', appInfo);
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.alibaba:fastjson:1.2.10'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.squareup.okio:okio:1.5.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    compile 'com.facebook.fresco:fresco:0.12.0'
+    compile 'com.jakewharton:butterknife:8.8.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.0'
+}
