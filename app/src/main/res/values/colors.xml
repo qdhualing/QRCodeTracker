@@ -2,5 +2,7 @@
 <resources>
     <color name="colorPrimary">#303030</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#20B2AA</color>
+
+    <color name="titleBar_textColor">@android:color/white</color>
 </resources>

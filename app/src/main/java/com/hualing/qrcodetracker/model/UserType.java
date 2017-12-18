@@ -9,9 +9,11 @@ package com.hualing.qrcodetracker.model;
  * @updateDes
  */
 
-public enum UserType {
+public class UserType {
 
-    EMPLOYEE,
-    GUEST
+    public static final int EMPLOYEE = 0;
+    public static final int GUEST = 1;
+    public static final int NON_SELECTED = -1;
+
 
 }

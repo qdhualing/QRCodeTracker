@@ -9,11 +9,18 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.hualing.qrcodetracker.R;
+import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
+import com.hualing.qrcodetracker.global.GlobalData;
+import com.hualing.qrcodetracker.util.AllActivitiesHolder;
+import com.hualing.qrcodetracker.util.DoubleClickExitUtil;
+import com.hualing.qrcodetracker.util.IntentUtil;
+import com.hualing.qrcodetracker.util.SharedPreferenceUtil;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
-public class MainActivity extends BaseActivity {
+public class EmployeeMainActivity extends BaseActivity {
 
     @BindView(R.id.toolBar)
     Toolbar mToolBar;
@@ -51,29 +58,29 @@ public class MainActivity extends BaseActivity {
         mDrawerToggle.syncState();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         //修改成主界面跟随侧滑栏移动
-//        mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
-//            @Override
-//            public void onDrawerSlide(View drawerView, float slideOffset) {
-//                View mContent = mDrawerLayout.getChildAt(0);
-//                ViewHelper.setTranslationX(mContent,
-//                        mMenu.getMeasuredWidth() * slideOffset);
-//            }
-//
-//            @Override
-//            public void onDrawerOpened(View drawerView) {
-//
-//            }
-//
-//            @Override
-//            public void onDrawerClosed(View drawerView) {
-//
-//            }
-//
-//            @Override
-//            public void onDrawerStateChanged(int newState) {
-//
-//            }
-//        });
+        //        mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+        //            @Override
+        //            public void onDrawerSlide(View drawerView, float slideOffset) {
+        //                View mContent = mDrawerLayout.getChildAt(0);
+        //                ViewHelper.setTranslationX(mContent,
+        //                        mMenu.getMeasuredWidth() * slideOffset);
+        //            }
+        //
+        //            @Override
+        //            public void onDrawerOpened(View drawerView) {
+        //
+        //            }
+        //
+        //            @Override
+        //            public void onDrawerClosed(View drawerView) {
+        //
+        //            }
+        //
+        //            @Override
+        //            public void onDrawerStateChanged(int newState) {
+        //
+        //            }
+        //        });
 
     }
 
@@ -89,6 +96,22 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.activity_main;
+        return R.layout.activity_employee_main;
+    }
+
+    @OnClick(R.id.exitBtn)
+    public void onViewClicked() {
+        GlobalData.userId = "";
+        //之后获取和用户相关的服务就不需要额外传userId了
+        YoniClient.getInstance().setUser(GlobalData.userId);
+        //清除本地密码
+        SharedPreferenceUtil.logout();
+        AllActivitiesHolder.finishAllAct();
+        IntentUtil.openActivity(this,UserTypePickActivity.class);
+    }
+
+    @Override
+    public void onBackPressed() {
+        DoubleClickExitUtil.tryExit();
     }
 }

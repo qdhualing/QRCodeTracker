@@ -34,8 +34,6 @@ public class GlobalData {
     // 用户Id
     public static String userId;
 
-    private
-
     // 业务服务器地址
 //    public static String mainServiceUrl;
     // 资源服务器地址

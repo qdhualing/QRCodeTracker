@@ -2,6 +2,10 @@ package com.hualing.qrcodetracker.activities;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.hualing.qrcodetracker.R;
@@ -12,14 +16,13 @@ import com.hualing.qrcodetracker.bean.LoginResult;
 import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.global.TheApplication;
-import com.hualing.qrcodetracker.model.UserType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.IntentUtil;
 import com.hualing.qrcodetracker.util.SharedPreferenceUtil;
+import com.hualing.qrcodetracker.widget.TitleBar;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
+import butterknife.BindView;
+import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -27,9 +30,19 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class LaunchActivity extends BaseActivity {
+public class EmployeeLoginActivity extends BaseActivity {
 
-    private static final long DELAY = 3000;
+    // UI references.
+    @BindView(R.id.title)
+    TitleBar mTitle;
+    @BindView(R.id.email)
+    AutoCompleteTextView mEmailView;
+    @BindView(R.id.password)
+    EditText mPasswordView;
+    @BindView(R.id.login_progress)
+    View mProgressView;
+    @BindView(R.id.login_form)
+    View mLoginFormView;
     private MainDao mainDao;
 
     @Override
@@ -39,28 +52,70 @@ public class LaunchActivity extends BaseActivity {
 
     @Override
     protected void initLogic() {
-        new Timer().schedule(new TimerTask() {
+        mTitle.setRightButtonEnable(false);
+        mTitle.setEvents(new TitleBar.AddClickEvents() {
             @Override
-            public void run() {
-                if (SharedPreferenceUtil.getUserType()== UserType.NON_SELECTED) {
-                    IntentUtil.openActivity(LaunchActivity.this,UserTypePickActivity.class);
-                }else if(SharedPreferenceUtil.getUserType()== UserType.EMPLOYEE){
-                    if (SharedPreferenceUtil.ifHasLocalUserInfo()) {
-                        //测试
-                        IntentUtil.openActivity(LaunchActivity.this,EmployeeMainActivity.class);
-//                        toLogin();
-                    }else {
-                        IntentUtil.openActivity(LaunchActivity.this,EmployeeLoginActivity.class);
-                    }
-                }else if (SharedPreferenceUtil.getUserType()== UserType.GUEST){
-                    IntentUtil.openActivity(LaunchActivity.this,GuestMainActivity.class);
-                }
-                AllActivitiesHolder.removeAct(LaunchActivity.this);
+            public void clickLeftButton() {
+                AllActivitiesHolder.removeAct(EmployeeLoginActivity.this);
             }
-        },DELAY);
+
+            @Override
+            public void clickRightButton() {
+
+            }
+        });
     }
 
-    private void toLogin(){
+    @Override
+    protected void getDataFormWeb() {
+
+    }
+
+    @Override
+    protected void debugShow() {
+
+    }
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_employee_login;
+    }
+
+    private void toLogin() {
+        // Reset errors.
+        mEmailView.setError(null);
+        mPasswordView.setError(null);
+
+        // Store values at the time of the login attempt.
+        String userName = mEmailView.getText().toString();
+        String password = mPasswordView.getText().toString();
+
+        View focusView = null;
+
+        if (TextUtils.isEmpty(userName)) {
+            mEmailView.setError(getString(R.string.error_field_required));
+            focusView = mEmailView;
+            focusView.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password) || !isPasswordValid(password)) {
+            mPasswordView.setError(getString(R.string.error_invalid_password));
+            focusView = mPasswordView;
+            focusView.requestFocus();
+            return;
+        }
+
+
+        //测试
+        SharedPreferenceUtil.rememberUser(userName,password);
+        IntentUtil.openActivity(EmployeeLoginActivity.this, EmployeeMainActivity.class);
+
+//                loginByWeb(userName,password);
+
+    }
+
+    private void loginByWeb(final String userName, final String password) {
         mainDao = YoniClient.getInstance().create(MainDao.class);
 
         final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
@@ -90,25 +145,26 @@ public class LaunchActivity extends BaseActivity {
                             GlobalData.userId = String.valueOf(loginResult.getUserId());
                             //之后获取和用户相关的服务就不需要额外传userId了
                             YoniClient.getInstance().setUser(GlobalData.userId);
-                            AllActivitiesHolder.removeAct(LaunchActivity.this);
-                            IntentUtil.openActivity(LaunchActivity.this,EmployeeMainActivity.class);
+                            AllActivitiesHolder.removeAct(EmployeeLoginActivity.this);
+
+                            //保存信息
+                            SharedPreferenceUtil.rememberUser(userName,password);
+                            IntentUtil.openActivity(EmployeeLoginActivity.this, EmployeeMainActivity.class);
+
                         }
                     }
                 });
     }
 
-    @Override
-    protected void getDataFormWeb() {
 
+    private boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        return password.length() >= 6;
     }
 
-    @Override
-    protected void debugShow() {
-
-    }
-
-    @Override
-    protected int getLayoutResId() {
-        return R.layout.activity_launch;
+    @OnClick(R.id.email_sign_in_button)
+    public void onViewClicked() {
+        toLogin();
     }
 }
+
