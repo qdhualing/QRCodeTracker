@@ -14,19 +14,19 @@ import android.widget.Toast;
 
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
-import com.hualing.qrcodetracker.util.DoubleClickExitUtil;
-import com.hualing.qrcodetracker.util.IntentUtil;
+import com.hualing.qrcodetracker.widget.TitleBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 import cn.bingoogolapple.qrcode.core.QRCodeView;
 import cn.bingoogolapple.qrcode.zxing.ZXingView;
 
-public class GuestMainActivity extends BaseActivity implements QRCodeView.Delegate {
+public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
 
+    @BindView(R.id.title)
+    TitleBar mTitle;
     @BindView(R.id.zxingview)
     ZXingView mZxingview;
 
@@ -40,6 +40,19 @@ public class GuestMainActivity extends BaseActivity implements QRCodeView.Delega
 
     @Override
     protected void initLogic() {
+        mTitle.setRightButtonEnable(false);
+        mTitle.setEvents(new TitleBar.AddClickEvents() {
+            @Override
+            public void clickLeftButton() {
+                AllActivitiesHolder.removeAct(ScanActivity.this);
+            }
+
+            @Override
+            public void clickRightButton() {
+
+            }
+        });
+
         //6.0以上先授权
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkPermission4Version6Up();
@@ -132,8 +145,7 @@ public class GuestMainActivity extends BaseActivity implements QRCodeView.Delega
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //关闭此页，无法使用扫描功能
-                            AllActivitiesHolder.removeAct(GuestMainActivity.this);
-                            IntentUtil.openActivity(GuestMainActivity.this,UserTypePickActivity.class);
+                            AllActivitiesHolder.removeAct(ScanActivity.this);
                         }
                     }).create().show();
                     //                    Toast.makeText(TheApplication.getContext(), "您已拒绝了授权申请，无法使用扫码功能，请通过授权或者手动在系统设置中打开权限", Toast.LENGTH_LONG).show();
@@ -144,27 +156,6 @@ public class GuestMainActivity extends BaseActivity implements QRCodeView.Delega
             startScan();
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    private void vibrate() {
-        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-        vibrator.vibrate(200);
-    }
-
-    @Override
-    public void onScanQRCodeSuccess(String result) {
-        Log.i("Scan", "result:" + result);
-        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
-        vibrate();
-        //        mZxingview.startSpot();
-        //这里扫描二维码应该是获取到原料或产品的id，调服务把id和unctionType传给服务器，服务器根据FunctionType判断是去哪个表里、
-        // 找，根据id查找到具体的某个原料或产品，返回结果应该是需要手动录入的表的列名
-
-    }
-
-    @Override
-    public void onScanQRCodeOpenCameraError() {
-        Log.e("Scan", "打开相机出错");
     }
 
     @Override
@@ -179,17 +170,27 @@ public class GuestMainActivity extends BaseActivity implements QRCodeView.Delega
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.activity_guest_main;
+        return R.layout.activity_scan;
+    }
+
+    private void vibrate() {
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        vibrator.vibrate(200);
     }
 
     @Override
-    public void onBackPressed() {
-        DoubleClickExitUtil.tryExit();
+    public void onScanQRCodeSuccess(String result) {
+        Log.i("Scan", "result:" + result);
+        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+        vibrate();
+//        mZxingview.startSpot();
+        //这里扫描二维码应该是获取到原料或产品的id，调服务把id和unctionType传给服务器，服务器根据FunctionType判断是去哪个表里、
+        // 找，根据id查找到具体的某个原料或产品，返回结果应该是需要手动录入的表的列名
+
     }
 
-    @OnClick(R.id.quitBtn)
-    public void onViewClicked() {
-        AllActivitiesHolder.finishAllAct();
-        IntentUtil.openActivity(this,UserTypePickActivity.class);
+    @Override
+    public void onScanQRCodeOpenCameraError() {
+        Log.e("Scan", "打开相机出错");
     }
 }

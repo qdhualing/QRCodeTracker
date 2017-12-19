@@ -8,4 +8,6 @@
     <dimen name="titleBar_Height">50dp</dimen>
     <dimen name="titleBar_textSize">20sp</dimen>
 
+    <dimen name="functionItemHeight">80dp</dimen>
+
 </resources>

@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import com.hualing.qrcodetracker.BuildConfig;
 import com.hualing.qrcodetracker.aframework.yoni.AuthorizationInterceptor;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
+import com.hualing.qrcodetracker.model.FunctionType;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -33,6 +34,9 @@ import java.util.Enumeration;
 public class GlobalData {
     // 用户Id
     public static String userId;
+
+    //当前功能业务线
+    public static int currentFunctionType = FunctionType.NON_SELECTED ;
 
     // 业务服务器地址
 //    public static String mainServiceUrl;
@@ -234,82 +238,15 @@ public class GlobalData {
         public static final String INIT = "000";
         /* 用户登录 */
         public static final String LOGIN = "001";
-        /* 用户注册 */
-        public static final String REG = "002";
-        /* 重置密码 */
-        public static final String RESET_PASSWORD = "003";
-        /* 修改密码 */
-        public static final String CHANGE_PASSWORD = "004";
-        /* 发送验证码 */
-        public static final String SEND_AUTH_CODE = "005";
-        /* 检查更新 */
-        public static final String CHECK_UPDATE = "006";
 
-        /*个人信息*/
-        public static final String GET_USER_INFO = "101";
-        public static final String UPDATE_USER_INFO = "102";
+        /* 来料入库/余料退库 */
+        public static final String MATERAIL_IN = "100";
+        /* 原料出库/车间领料 */
+        public static final String MATERAIL_OUT= "101";
+        /* 半成品/成品入库 */
+        public static final String PRODUCT_IN = "102";
+        /* 成品出库/产品入库 */
+        public static final String PRODUCT_OUT = "103";
 
-
-        public static final String GET_HOME_INFO = "201";
-
-        public static final String GET_HPJX_INFO = "301";
-        public static final String GET_HPJX_UL_INFO = "311";
-        public static final String GET_HPJX_UL_EQUIP_INFO = "312";
-        public static final String ADD_HPJX_UL = "313";
-
-        public static final String GET_HPJX_SL_INFO = "321";
-        public static final String GET_HPJX_SL_EQUIP_INFO = "322";
-        public static final String ADD_HPJX_SL = "323";
-
-        public static final String GET_HPJX_FBL_INFO = "331";
-        public static final String ADD_HPJX_FBL = "333";
-
-        public static final String GET_QXZB_INFO = "401";
-
-        public static final String GET_QXZB_UL_INFO = "411";
-        public static final String GET_QXZB_UL_EQUIP_INFO = "412";
-        public static final String ADD_QXZB_UL = "413";
-        public static final String GET_QXZB_UL_RM = "414";
-
-        public static final String GET_QXZB_SL_INFO = "421";
-        public static final String GET_QXZB_SL_EQUIP_INFO = "422";
-        public static final String ADD_QXZB_SL = "423";
-        public static final String GET_QXZB_SL_RM = "424";
-
-        public static final String GET_QXZB_FBL_INFO = "431";
-        public static final String GET_QXZB_FBL_EQUIP_INFO = "432";
-        public static final String ADD_QXZB_FBL = "433";
-        public static final String GET_QXZB_FBL_RM = "434";
-
-        public static final String GET_JDZY_INFO = "501";
-        public static final String ADD_JDZY = "502";
-
-        public static final String GET_BTDZ_INFO = "601";
-        public static final String ADD_BTDZ = "602";
-
-        public static final String GET_BFHT_LIST = "701";
-        public static final String GET_BFHT_INFO = "702";
-        public static final String ADD_BFHT = "703";
-
-        public static final String GET_SIGN_IN_DATA = "103";
-        public static final String SIGN_IN = "104";
-
-        public static final String GET_HPJX_EQUIP_LIST = "340";
-        public static final String USE_HPJX_EQUIP = "341";
-        public static final String GET_QXZB_EQUIP_LIST = "440";
-        public static final String USE_QXZB_EQUIP = "441";
-        public static final String SEND_MSG = "704";
-        public static final String GET_MSG = "705";
-        public static final String GET_LOAD_PAGE_URL = "100";
-        public static final String GET_QXZB_UL_COST = "415";
-        public static final String GET_QXZB_SL_COST = "425";
-        public static final String GET_QXZB_FBL_COST = "435";
-
-
-        public static final String BIND_BANK_CARD = "105";
-        public static final String GET_BINDED_LIST = "106";
-        public static final String UNBIND_BANK_CARD = "107";
-        public static final String GET_BANK_CARD_INFO = "108";
-        public static final String GET_ALL_BANK_INFO = "109";
     }
 }

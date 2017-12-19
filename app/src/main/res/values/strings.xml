@@ -18,4 +18,15 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <array name="functionItems">
+        <item>来料入库/余料退库</item>
+        <item>原料出库/车间领料</item>
+        <item>半成品/成品入库</item>
+        <item>成品出库/产品入库</item>
+    </array>
+
+    <string name="qrCodeTip">请将扫描框对准二维码</string>
+
+
 </resources>
