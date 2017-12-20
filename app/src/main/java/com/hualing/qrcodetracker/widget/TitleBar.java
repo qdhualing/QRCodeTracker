@@ -101,10 +101,10 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
             mDefTitleTextSize = typedArray.getDimensionPixelSize(attr,16);
         } else if (attr == R.styleable.TitleBar_leftButton_size) {
             //左按钮大小
-            mDefLeftButtonSize = typedArray.getDimensionPixelSize(attr, getPxFromDp(35));
+            mDefLeftButtonSize = typedArray.getDimensionPixelSize(attr, getPxFromDp(20));
         } else if (attr == R.styleable.TitleBar_rightButton_size) {
             //右按钮大小
-            mDefRightButtonSize = typedArray.getDimensionPixelSize(attr, getPxFromDp(35));
+            mDefRightButtonSize = typedArray.getDimensionPixelSize(attr, getPxFromDp(20));
         } else if (attr == R.styleable.TitleBar_text_content) {
             //右按钮大小
             mDefTextContent = typedArray.getString(attr);

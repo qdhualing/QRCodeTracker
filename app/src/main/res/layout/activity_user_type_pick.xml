@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
 
-    <TextView
+    <com.hualing.qrcodetracker.widget.TitleBar
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:text="请选择您的用户身份"
-        android:textSize="17sp"
-        />
+        android:layout_height="@dimen/titleBar_Height"
+        app:background_color="@color/colorPrimary"
+        app:text_content="登陆模式"
+        app:title_textColor="@color/titleBar_textColor"
+        app:title_textSize="@dimen/titleBar_textSize">
+    </com.hualing.qrcodetracker.widget.TitleBar>
 
     <LinearLayout
         android:id="@+id/selectEmployee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:padding="15dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="@dimen/userTypePicSize"
             android:layout_height="@dimen/userTypePicSize"
+            android:background="@drawable/shape_icon_back"
             fresco:actualImageScaleType="fitXY"
             fresco:placeholderImage="@drawable/type_employee"
             fresco:roundAsCircle="true"/>
@@ -45,14 +49,15 @@
         android:id="@+id/selectGuest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:padding="15dp"
         android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:padding="15dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="@dimen/userTypePicSize"
             android:layout_height="@dimen/userTypePicSize"
+            android:background="@drawable/shape_icon_back"
             fresco:actualImageScaleType="fitXY"
             fresco:placeholderImage="@drawable/type_guest"
             fresco:roundAsCircle="true"/>
@@ -62,8 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:textColor="@android:color/black"
-            android:text="我是客户"/>
+            android:text="我是客户"
+            android:textColor="@android:color/black"/>
 
     </LinearLayout>
 

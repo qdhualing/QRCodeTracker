@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:fresco="http://schemas.android.com/apk/res-auto"
               android:id="@+id/menu"
+              android:clickable="true"
               android:layout_width="320dp"
               android:layout_height="match_parent"
               android:layout_gravity="start"
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="姓名:"
             android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+            android:textSize="17sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,7 +48,7 @@
             android:layout_marginLeft="15dp"
             android:text="库里"
             android:textColor="@android:color/darker_gray"
-            android:textSize="16sp"/>
+            android:textSize="17sp"/>
 
     </LinearLayout>
 
@@ -59,9 +60,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="级别:"
+            android:text="身份:"
             android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+            android:textSize="17sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,14 +70,17 @@
             android:layout_marginLeft="15dp"
             android:text="领料人"
             android:textColor="@android:color/darker_gray"
-            android:textSize="16sp"/>
+            android:textSize="17sp"/>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/exitBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:background="#404040"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="80dp"
         android:text="退出"/>

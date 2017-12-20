@@ -18,6 +18,7 @@ import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.model.FunctionType;
+import com.hualing.qrcodetracker.model.UserType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.DoubleClickExitUtil;
 import com.hualing.qrcodetracker.util.IntentUtil;
@@ -54,7 +55,7 @@ public class EmployeeMainActivity extends BaseActivity {
 
     @Override
     protected void initLogic() {
-        mToolBar.setTitle("二维码追溯");//设置Toolbar标题
+        mToolBar.setTitle("二维码追溯-员工模式");//设置Toolbar标题
         mToolBar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(mToolBar);
         getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用

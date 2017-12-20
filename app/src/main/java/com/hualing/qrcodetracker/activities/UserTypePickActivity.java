@@ -26,6 +26,13 @@ public class UserTypePickActivity extends BaseActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        //只要是显示此页，那么置为未选择模式
+        SharedPreferenceUtil.setUserType(UserType.NON_SELECTED);
+    }
+
+    @Override
     protected void initLogic() {
 
     }

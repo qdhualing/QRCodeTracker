@@ -25,13 +25,36 @@
         app:qrcv_isScanLineReverse="true"
         app:qrcv_qrCodeTipText="@string/qrCodeTip"/>
 
-    <Button
+    <android.support.v7.widget.CardView
         android:id="@+id/quitBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/item_back"
-        android:textColor="@android:color/white"
+        android:layout_height="@dimen/functionItemHeight"
         android:layout_alignParentBottom="true"
-        android:text="退出客户模式"/>
+        app:cardElevation="5dp"
+        app:contentPadding="10dp"
+        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="@color/item_back"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="退出客户模式"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <com.hualing.qrcodetracker.widget.TitleBar
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBar_Height"
+        app:background_color="@color/colorPrimary"
+        app:text_content="二维码追溯-客户模式"
+        app:title_textColor="@color/titleBar_textColor"
+        app:title_textSize="@dimen/titleBar_textSize">
+    </com.hualing.qrcodetracker.widget.TitleBar>
 
 </RelativeLayout>

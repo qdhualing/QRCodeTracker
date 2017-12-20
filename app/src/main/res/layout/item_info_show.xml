@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="10dp"
+    >
+
+    <TextView
+        android:id="@+id/attribute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="120dp"
+        android:text="阿斯达岁的asd:"
+        android:textColor="#6B6B6B"
+        android:textSize="@dimen/infoShowTextSize"
+        />
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/infoShowTextSize"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/inputValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/infoShowTextSize"
+        android:visibility="gone"/>
+
+</LinearLayout>
