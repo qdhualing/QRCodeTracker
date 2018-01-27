@@ -237,7 +237,7 @@ public class GlobalData {
         /* 初始化服务 */
         public static final String INIT = "000";
         /* 用户登录 */
-        public static final String LOGIN = "001";
+        public static final String LOGIN = "login";
 
         /* 来料入库/余料退库 */
         public static final String MATERAIL_IN = "100";

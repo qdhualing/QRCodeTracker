@@ -50,7 +50,7 @@ public class LaunchActivity extends BaseActivity {
                         IntentUtil.openActivity(LaunchActivity.this,EmployeeMainActivity.class);
 //                        toLogin();
                     }else {
-                        IntentUtil.openActivity(LaunchActivity.this,EmployeeLoginActivity.class);
+//                        IntentUtil.openActivity(LaunchActivity.this,EmployeeLoginActivity.class);
                     }
                 }else if (SharedPreferenceUtil.getUserType()== UserType.GUEST){
                     IntentUtil.openActivity(LaunchActivity.this,GuestMainActivity.class);
