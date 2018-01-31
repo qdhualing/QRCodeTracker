@@ -10,9 +10,10 @@ import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.hualing.qrcodetracker.R;
+import com.hualing.qrcodetracker.global.GlobalData;
+import com.hualing.qrcodetracker.model.FunctionType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.widget.TitleBar;
 
@@ -181,11 +182,37 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
     @Override
     public void onScanQRCodeSuccess(String result) {
         Log.i("Scan", "result:" + result);
-        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
         vibrate();
 //        mZxingview.startSpot();
-        //这里扫描二维码应该是获取到原料或产品的id，调服务把id和unctionType传给服务器，服务器根据FunctionType判断是去哪个表里、
-        // 找，根据id查找到具体的某个原料或产品，返回结果应该是需要手动录入的表的列名
+        //获取到二维码id
+        Intent intent = null;
+        switch (GlobalData.currentFunctionType){
+            case FunctionType.MATERIAL_IN:
+                intent = new Intent(this, DataInputActivity.class);
+                break;
+            case FunctionType.MATERIAL_OUT:
+                intent = new Intent(this, DataInputActivity.class);
+                break;
+            case FunctionType.HALF_PRODUCT_IN:
+                intent = new Intent(this, DataInputActivity.class);
+                break;
+            case FunctionType.PRODUCT_IN:
+                intent = new Intent(this, DataInputActivity.class);
+                break;
+            case FunctionType.PRODUCT_OUT:
+                intent = new Intent(this, DataInputActivity.class);
+                break;
+            case FunctionType.MATERIAL_THROW:
+                intent = new Intent(this, DataInputActivity.class);
+                break;
+            case FunctionType.MATERIAL_RETURN:
+                intent = new Intent(this, DataInputActivity.class);
+                break;
+        }
+        intent.putExtra("qrCodeId",result);
+        startActivity(intent);
+        AllActivitiesHolder.removeAct(this);
 
     }
 

@@ -99,19 +99,19 @@ public class EmployeeLoginActivity extends BaseActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(password) || !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
+        if (TextUtils.isEmpty(password) /*|| !isPasswordValid(password)*/) {
+//            mPasswordView.setError(getString(R.string.error_invalid_password));
+            mPasswordView.setError("密码不能为空");
             focusView = mPasswordView;
             focusView.requestFocus();
             return;
         }
 
-
         //测试
-        SharedPreferenceUtil.rememberUser(userName,password);
-        IntentUtil.openActivity(EmployeeLoginActivity.this, EmployeeMainActivity.class);
+//        SharedPreferenceUtil.rememberUser(userName, password);
+//        IntentUtil.openActivity(EmployeeLoginActivity.this, EmployeeMainActivity.class);
 
-//                loginByWeb(userName,password);
+        loginByWeb(userName, password);
 
     }
 
@@ -122,8 +122,9 @@ public class EmployeeLoginActivity extends BaseActivity {
         progressDialog.show();
 
         final LoginParams loginParams = new LoginParams();
-        loginParams.setUserName(SharedPreferenceUtil.getUserInfo()[0]);
-        loginParams.setPassword(SharedPreferenceUtil.getUserInfo()[1]);
+        loginParams.setUserName(userName);
+//        loginParams.setPassword(Cipher.MD5(password));
+        loginParams.setPassword(password);
 
         Observable.create(new ObservableOnSubscribe<ActionResult<LoginResult>>() {
             @Override
@@ -143,12 +144,15 @@ public class EmployeeLoginActivity extends BaseActivity {
                         } else {
                             LoginResult loginResult = result.getResult();
                             GlobalData.userId = String.valueOf(loginResult.getUserId());
+                            GlobalData.userName = loginResult.getUserName();
+                            GlobalData.realName = loginResult.getTrueName();
                             //之后获取和用户相关的服务就不需要额外传userId了
                             YoniClient.getInstance().setUser(GlobalData.userId);
                             AllActivitiesHolder.removeAct(EmployeeLoginActivity.this);
 
                             //保存信息
-                            SharedPreferenceUtil.rememberUser(userName,password);
+//                            SharedPreferenceUtil.rememberUser(userName, Cipher.MD5(password));
+                            SharedPreferenceUtil.rememberUser(userName, password);
                             IntentUtil.openActivity(EmployeeLoginActivity.this, EmployeeMainActivity.class);
 
                         }

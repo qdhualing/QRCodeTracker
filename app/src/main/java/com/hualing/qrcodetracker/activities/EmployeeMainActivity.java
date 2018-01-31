@@ -18,7 +18,6 @@ import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.model.FunctionType;
-import com.hualing.qrcodetracker.model.UserType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.DoubleClickExitUtil;
 import com.hualing.qrcodetracker.util.IntentUtil;
@@ -44,6 +43,10 @@ public class EmployeeMainActivity extends BaseActivity {
     LinearLayout mMenu;
     @BindView(R.id.functionList)
     RecyclerView mRecyclerView;
+    @BindView(R.id.nickName)
+    TextView mNickName;
+    @BindView(R.id.realName)
+    TextView mRealName;
     private ActionBarDrawerToggle mDrawerToggle;
 
     private List mFunctionsData;
@@ -55,7 +58,8 @@ public class EmployeeMainActivity extends BaseActivity {
 
     @Override
     protected void initLogic() {
-        mToolBar.setTitle("二维码追溯-员工模式");//设置Toolbar标题
+        mToolBar.setTitle("二维码追溯员工端");//设置Toolbar标题
+        //        mToolBar.setTitle("二维码追溯-员工模式");//设置Toolbar标题
         mToolBar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(mToolBar);
         getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
@@ -80,24 +84,13 @@ public class EmployeeMainActivity extends BaseActivity {
                 this, LinearLayoutManager.VERTICAL, 20, getResources().getColor(R.color.divide_gray_color)));
 
         mFunctionsData = new ArrayList<Map>();
-        String[] names = getResources().getStringArray(R.array.functionItems);
-        Map map1 = new HashMap();
-        map1.put("name", names[0]);
-        map1.put("type", FunctionType.MATERIAL_IN);
-        Map map2 = new HashMap();
-        map2.put("name", names[1]);
-        map2.put("type", FunctionType.MATERIAL_OUT);
-        Map map3 = new HashMap();
-        map3.put("name", names[2]);
-        map3.put("type", FunctionType.PRODUCT_IN);
-        Map map4 = new HashMap();
-        map4.put("name", names[3]);
-        map4.put("type", FunctionType.PRODUCT_OUT);
-        mFunctionsData.add(map1);
-        mFunctionsData.add(map2);
-        mFunctionsData.add(map3);
-        mFunctionsData.add(map4);
+
+        initFunctionData();
+
         mRecyclerView.setAdapter(new MyRecyclerAdapter());
+
+        mNickName.setText(GlobalData.userName);
+        mRealName.setText(GlobalData.realName);
 
         //修改成主界面跟随侧滑栏移动
         //        mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
@@ -126,6 +119,38 @@ public class EmployeeMainActivity extends BaseActivity {
 
     }
 
+    private void initFunctionData() {
+        String[] names = getResources().getStringArray(R.array.functionItems);
+        Map map1 = new HashMap();
+        map1.put("name", names[0]);
+        map1.put("type", FunctionType.MATERIAL_IN);
+        Map map2 = new HashMap();
+        map2.put("name", names[1]);
+        map2.put("type", FunctionType.MATERIAL_OUT);
+        Map map3 = new HashMap();
+        map3.put("name", names[2]);
+        map3.put("type", FunctionType.HALF_PRODUCT_IN);
+        Map map4 = new HashMap();
+        map4.put("name", names[3]);
+        map4.put("type", FunctionType.PRODUCT_IN);
+        Map map5 = new HashMap();
+        map5.put("name", names[4]);
+        map5.put("type", FunctionType.PRODUCT_OUT);
+        Map map6 = new HashMap();
+        map6.put("name", names[5]);
+        map6.put("type", FunctionType.MATERIAL_THROW);
+        Map map7 = new HashMap();
+        map7.put("name", names[6]);
+        map7.put("type", FunctionType.MATERIAL_RETURN);
+        mFunctionsData.add(map1);
+        mFunctionsData.add(map2);
+        mFunctionsData.add(map3);
+        mFunctionsData.add(map4);
+        mFunctionsData.add(map5);
+        mFunctionsData.add(map6);
+        mFunctionsData.add(map7);
+    }
+
     @Override
     protected void getDataFormWeb() {
 
@@ -148,7 +173,8 @@ public class EmployeeMainActivity extends BaseActivity {
         //清除本地密码
         SharedPreferenceUtil.logout();
         AllActivitiesHolder.finishAllAct();
-        IntentUtil.openActivity(this, UserTypePickActivity.class);
+        //        IntentUtil.openActivity(this, UserTypePickActivity.class);
+        IntentUtil.openActivity(this, EmployeeLoginActivity.class);
     }
 
     @Override
@@ -174,7 +200,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 @Override
                 public void onClick(View v) {
                     GlobalData.currentFunctionType = type;
-                    IntentUtil.openActivity(EmployeeMainActivity.this,ScanActivity.class);
+                    IntentUtil.openActivity(EmployeeMainActivity.this, ScanActivity.class);
                 }
             });
         }
@@ -187,6 +213,7 @@ public class EmployeeMainActivity extends BaseActivity {
         public class MyViewHolder extends RecyclerView.ViewHolder {
             TextView mFunctionName;
             CardView mClickArea;
+
             public MyViewHolder(View itemView) {
                 super(itemView);
                 mFunctionName = itemView.findViewById(R.id.functionName);

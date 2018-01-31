@@ -94,6 +94,8 @@ public class YoniClient {
 			RequestBody body = new FormEncodingBuilder().add("json",
 					requestString).build();
 
+			url += params.getFunc();
+
 			Request request = new Request.Builder().url(url).post(body).build();
 			Response response = okHttpClient.newCall(request).execute();
 			String responseString = response.body().string();

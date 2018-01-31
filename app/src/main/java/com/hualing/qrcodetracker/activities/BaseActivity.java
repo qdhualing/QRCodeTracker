@@ -3,8 +3,6 @@ package com.hualing.qrcodetracker.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-
-import com.hualing.qrcodetracker.BuildConfig;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 
 import butterknife.ButterKnife;
@@ -51,11 +49,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         unBinder = ButterKnife.bind(this);
         AllActivitiesHolder.addAct(this);
         initLogic();
-        if (BuildConfig.API_DEBUG){
-            debugShow();
-        }else{
-            getDataFormWeb();
-        }
+//        if (BuildConfig.API_DEBUG){
+//            debugShow();
+//        }else{
+//            getDataFormWeb();
+//        }
+        getDataFormWeb();
 
     }
 

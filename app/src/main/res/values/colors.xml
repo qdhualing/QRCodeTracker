@@ -8,6 +8,8 @@
 
     <color name="divide_gray_color">@android:color/darker_gray</color>
 
+    <color name="divide_dark_gray_color">#878787</color>
+
     <color name="item_back">#20B2AA</color>
 
 </resources>

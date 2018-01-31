@@ -38,15 +38,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="姓名:"
+            android:text="昵称:"
             android:textColor="@android:color/black"
             android:textSize="17sp"/>
 
         <TextView
+            android:id="@+id/nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="库里"
+            android:text="游客"
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"/>
 
@@ -60,15 +61,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="身份:"
+            android:text="真实姓名:"
             android:textColor="@android:color/black"
             android:textSize="17sp"/>
 
         <TextView
+            android:id="@+id/realName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="领料人"
+            android:text="未知"
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"/>
 

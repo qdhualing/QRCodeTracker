@@ -42,7 +42,7 @@ public class TheApplication extends Application {
     private static SharedPreferences sSharedPreferences;
 
     //此App一些信息的存储文件夹路径
-    private static final String appDirectoryPath = File.separator + "mnt" + File.separator + "sdcard" + File.separator + "lottery";
+    private static final String appDirectoryPath = File.separator + "mnt" + File.separator + "sdcard" + File.separator + "qrcodetracker";
     //此App一些信息的存储文件夹
     private static File appRootDirectory;
 

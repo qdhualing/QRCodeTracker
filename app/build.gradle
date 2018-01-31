@@ -1,10 +1,13 @@
 apply plugin: 'com.android.application'
 
-def SERVICE_URL_DEBUG = "\"http://192.168.0.6:8080/qrcodetracker/\""
+//def SERVICE_URL_DEBUG = "\"http://192.168.0.6:8080/qrcodetracker/\""
+def SERVICE_URL_DEBUG = "\"http://120.27.5.36:8080/qrcodetracker/\""
 def RESOURCE_URL_DEBUG = "\"http://192.168.0.6:8080/qrcodetracker/upload\""
-def SERVICE_URL_PRERELEASE = "\"http://192.168.0.6:8080/qrcodetracker/\""
+//def SERVICE_URL_PRERELEASE = "\"http://192.168.0.6:8080/qrcodetracker/\""
+def SERVICE_URL_PRERELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""
 def RESOURCE_URL_PRERELEASE = "\"http://dev.cloudcns.com/lottery-resource/upload\""
-def SERVICE_URL_RELEASE = "\"http://192.168.0.6:8080/qrcodetracker/\""
+//def SERVICE_URL_RELEASE = "\"http://192.168.0.6:8080/qrcodetracker/\""
+def SERVICE_URL_RELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""
 def RESOURCE_URL_RELEASE = "\"http://dev.cloudcns.com/lottery-resource/upload\""
 def APP_NAME = "二维码追溯"
 def APP_ID = "101100"

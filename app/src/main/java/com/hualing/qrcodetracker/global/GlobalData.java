@@ -35,6 +35,12 @@ public class GlobalData {
     // 用户Id
     public static String userId;
 
+    //昵称
+    public static String userName ;
+
+    //真实姓名
+    public static String realName ;
+
     //当前功能业务线
     public static int currentFunctionType = FunctionType.NON_SELECTED ;
 
@@ -238,6 +244,12 @@ public class GlobalData {
         public static final String INIT = "000";
         /* 用户登录 */
         public static final String LOGIN = "login";
+
+        /*获取需要录入的数据*/
+        public static final String GET_INPUTED_DATA = "getInputedData";
+
+        /*提交需要录入的数据*/
+        public static final String COMMIT_INPUTED_DATA = "commitInputedData";
 
         /* 来料入库/余料退库 */
         public static final String MATERAIL_IN = "100";

@@ -40,6 +40,8 @@
         </activity>
         <activity android:name=".activities.InfoShowActivity">
         </activity>
+        <activity android:name=".activities.DataInputActivity" android:windowSoftInputMode="stateHidden|adjustPan">
+        </activity>
     </application>
 
 </manifest>

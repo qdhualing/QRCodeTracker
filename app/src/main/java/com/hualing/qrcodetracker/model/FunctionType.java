@@ -20,10 +20,19 @@ public class FunctionType {
     //原料出库业务线
     public static final int MATERIAL_OUT = 31;
 
+    //半成品入库业务线
+    public static final int HALF_PRODUCT_IN = 32;
+
     //产品入库业务线
-    public static final int PRODUCT_IN = 32;
+    public static final int PRODUCT_IN = 33;
 
     //产品出库业务线
-    public static final int PRODUCT_OUT = 33;
+    public static final int PRODUCT_OUT = 34;
+
+    //投料业务线
+    public static final int MATERIAL_THROW = 35;
+
+    //退库业务线
+    public static final int MATERIAL_RETURN = 36;
 
 }
