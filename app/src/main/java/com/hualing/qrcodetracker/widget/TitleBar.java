@@ -201,6 +201,17 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
     }
 
     /**
+     * 设置左按钮不可见
+     *
+     * @param flag
+     */
+    public void setLeftButtonEnable(boolean flag) {
+        if (flag)
+            mTouchLayout.setVisibility(VISIBLE);
+        else
+            mTouchLayout.setVisibility(GONE);
+    }
+    /**
      * 设置右按钮不可见
      *
      * @param flag

@@ -28,6 +28,7 @@ public class SharedPreferenceUtil {
         editor.commit();
     }
 
+
     /**
      * 获取用户类型
      */
@@ -116,5 +117,20 @@ public class SharedPreferenceUtil {
         return preferences.getBoolean("ifHasUnreadMsg",false);
     }
 
-
+    /**
+     *  保存物料入库单号
+     */
+    public static void setWlRKDNumber(String number) {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("WlRKDNumber", number);
+        editor.commit();
+    }
+    /**
+     *  获取物料入库单号
+     */
+    public static String getWlRKDNumber() {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        return preferences.getString("WlRKDNumber",null);
+    }
 }

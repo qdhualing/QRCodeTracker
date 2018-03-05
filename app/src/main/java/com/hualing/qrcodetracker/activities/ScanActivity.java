@@ -12,6 +12,7 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
 import com.hualing.qrcodetracker.R;
+import com.hualing.qrcodetracker.activities.data_input.MaterialInDataInputActivity;
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.model.FunctionType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
@@ -189,25 +190,25 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
         Intent intent = null;
         switch (GlobalData.currentFunctionType){
             case FunctionType.MATERIAL_IN:
-                intent = new Intent(this, DataInputActivity.class);
+                intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
             case FunctionType.MATERIAL_OUT:
-                intent = new Intent(this, DataInputActivity.class);
+                intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
             case FunctionType.HALF_PRODUCT_IN:
-                intent = new Intent(this, DataInputActivity.class);
+                intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
             case FunctionType.PRODUCT_IN:
-                intent = new Intent(this, DataInputActivity.class);
+                intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
             case FunctionType.PRODUCT_OUT:
-                intent = new Intent(this, DataInputActivity.class);
+                intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
             case FunctionType.MATERIAL_THROW:
-                intent = new Intent(this, DataInputActivity.class);
+                intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
             case FunctionType.MATERIAL_RETURN:
-                intent = new Intent(this, DataInputActivity.class);
+                intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
         }
         intent.putExtra("qrCodeId",result);

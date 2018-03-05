@@ -19,14 +19,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.EmployeeMainActivity">
+        <activity android:name=".activities.EmployeeMainActivity" android:launchMode="singleTask">
         </activity>
         <activity android:name=".activities.LaunchActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".activities.UserTypePickActivity">
         </activity>
@@ -36,11 +32,24 @@
             android:name=".activities.EmployeeLoginActivity"
             android:label="@string/title_activity_employee_login">
         </activity>
-        <activity android:name=".activities.ScanActivity">
+        <activity android:name=".activities.ScanActivity" android:launchMode="singleTask">
         </activity>
         <activity android:name=".activities.InfoShowActivity">
         </activity>
-        <activity android:name=".activities.DataInputActivity" android:windowSoftInputMode="stateHidden|adjustPan">
+        <activity
+            android:name=".activities.data_input.MaterialInDataInputActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.data_input.MaterialOutDataInputActivity">
+        </activity>
+        <activity android:name=".activities.MaterialInMainActivity">
+        </activity>
+        <activity android:name=".activities.receipts.WLInRKDInputActivity">
         </activity>
     </application>
 

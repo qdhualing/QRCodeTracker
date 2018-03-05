@@ -1,34 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:background="@android:color/white"
-              android:orientation="vertical"
-              android:paddingBottom="15dp"
-              android:paddingLeft="25dp"
-              android:paddingRight="25dp"
-              android:paddingTop="15dp">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/clickArea"
+<android.support.v7.widget.CardView
+    android:id="@+id/clickArea"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@drawable/selector_function_item_back"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true"
+    >
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/functionItemHeight"
-        app:cardElevation="5dp"
-        app:contentPadding="10dp"
-        app:cardUseCompatPadding="true"
-        app:cardBackgroundColor="@color/item_back"
-        app:cardCornerRadius="10dp">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="38dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/unUseTip"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/shape_un_use_tip_back"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/unUseTip"/>
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/singleLogoSize"
+            android:layout_height="@dimen/singleLogoSize"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/selector_function_item_logo"/>
 
         <TextView
             android:id="@+id/functionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="6dp"
             android:gravity="center"
-            android:textColor="@android:color/black"
+            android:textColor="@drawable/selector_function_item_text"
             android:textSize="17sp"/>
 
-    </android.support.v7.widget.CardView>
 
-</LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

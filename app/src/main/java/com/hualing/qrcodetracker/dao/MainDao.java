@@ -2,15 +2,20 @@ package com.hualing.qrcodetracker.dao;
 
 import com.hualing.qrcodetracker.aframework.yoni.ActionRequest;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
+import com.hualing.qrcodetracker.bean.CreateRKDParam;
 import com.hualing.qrcodetracker.bean.DataInputParams;
 import com.hualing.qrcodetracker.bean.DataResult;
 import com.hualing.qrcodetracker.bean.GetNeedInputedDataParams;
 import com.hualing.qrcodetracker.bean.LoginParams;
 import com.hualing.qrcodetracker.bean.LoginResult;
+import com.hualing.qrcodetracker.bean.MainParams;
+import com.hualing.qrcodetracker.bean.MainResult;
 import com.hualing.qrcodetracker.bean.MaterialInParams;
 import com.hualing.qrcodetracker.bean.MaterialOutParams;
 import com.hualing.qrcodetracker.bean.ProductInParams;
 import com.hualing.qrcodetracker.bean.ProductOutParams;
+import com.hualing.qrcodetracker.bean.RKDResult;
+import com.hualing.qrcodetracker.bean.WLINParam;
 import com.hualing.qrcodetracker.global.GlobalData;
 
 /**
@@ -45,7 +50,12 @@ public interface MainDao {
     @ActionRequest(func = GlobalData.Service.PRODUCT_OUT)
     ActionResult<ActionResult> productOut(ProductOutParams params);
 
+    @ActionRequest(func = GlobalData.Service.GET_MAIN_DATA)
+    ActionResult<MainResult> getMainData(MainParams params);
 
+    @ActionRequest(func = GlobalData.Service.COMMIT_MATERIALIN_INPUTED_DATA)
+    ActionResult<ActionResult> commitMaterialInInputedData(WLINParam params);
 
-
+    @ActionRequest(func = GlobalData.Service.CREATE_RKD)
+    ActionResult<RKDResult> createWL_RKD(CreateRKDParam params);
 }

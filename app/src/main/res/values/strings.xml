@@ -25,11 +25,46 @@
         <item>半成品入库</item>
         <item>成品入库</item>
         <item>成品出库</item>
-        <item>投 料</item>
+        <item>投料</item>
         <item>物料退库</item>
     </array>
 
+    <array name="materialInData">
+        <item>产品名称</item>
+        <item>类别</item>
+        <item>单位</item>
+        <item>数量</item>
+        <item>原料批次</item>
+        <item>规格</item>
+        <item>产地</item>
+        <item>重量</item>
+        <item>备注</item>
+        <!--<item>检验状态</item>-->
+    </array>
+    <array name="materialOutData">
+        <item>产品编码</item>
+        <item>原料批次</item>
+        <item>出库时间</item>
+        <item>出库管理人</item>
+        <item>重量</item>
+    </array>
+    <array name="halfProductInData">
+        <item>产品编码</item>
+        <item>原料批次</item>
+        <item>生产批次</item>
+        <item>重量</item>
+        <item>检验状态</item>
+    </array>
+    <array name="productInData">
+        <item>产品编码</item>
+        <item>原料批次</item>
+        <item>生产批次</item>
+        <item>重量</item>
+        <item>检验状态</item>
+    </array>
+
     <string name="qrCodeTip">请将扫描框对准二维码</string>
+    <string name="unUseTip">权限受限</string>
 
 
 </resources>

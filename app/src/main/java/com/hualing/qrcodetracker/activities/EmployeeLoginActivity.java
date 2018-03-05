@@ -52,18 +52,19 @@ public class EmployeeLoginActivity extends BaseActivity {
 
     @Override
     protected void initLogic() {
+        mTitle.setLeftButtonEnable(false);
         mTitle.setRightButtonEnable(false);
-        mTitle.setEvents(new TitleBar.AddClickEvents() {
-            @Override
-            public void clickLeftButton() {
-                AllActivitiesHolder.removeAct(EmployeeLoginActivity.this);
-            }
-
-            @Override
-            public void clickRightButton() {
-
-            }
-        });
+//        mTitle.setEvents(new TitleBar.AddClickEvents() {
+//            @Override
+//            public void clickLeftButton() {
+//                AllActivitiesHolder.removeAct(EmployeeLoginActivity.this);
+//            }
+//
+//            @Override
+//            public void clickRightButton() {
+//
+//            }
+//        });
     }
 
     @Override

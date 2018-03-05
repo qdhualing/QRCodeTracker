@@ -16,6 +16,7 @@
         android:paddingTop="50dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/portrait"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_centerInParent="true"
@@ -70,7 +71,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="未知"
+            android:text="null"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="所属部门:"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:id="@+id/department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="null"
             android:textColor="@android:color/darker_gray"
             android:textSize="17sp"/>
 

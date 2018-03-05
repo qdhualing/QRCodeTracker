@@ -251,6 +251,10 @@ public class GlobalData {
         /*提交需要录入的数据*/
         public static final String COMMIT_INPUTED_DATA = "commitInputedData";
 
+        /*获取主页数据（主要是可用功能权限）*/
+        public static final String GET_MAIN_DATA = "getMainData";
+
+
         /* 来料入库/余料退库 */
         public static final String MATERAIL_IN = "100";
         /* 原料出库/车间领料 */
@@ -260,5 +264,7 @@ public class GlobalData {
         /* 成品出库/产品入库 */
         public static final String PRODUCT_OUT = "103";
 
+        public static final String COMMIT_MATERIALIN_INPUTED_DATA = "createWLIn_M";
+        public static final String CREATE_RKD = "createWL_RKD";
     }
 }
