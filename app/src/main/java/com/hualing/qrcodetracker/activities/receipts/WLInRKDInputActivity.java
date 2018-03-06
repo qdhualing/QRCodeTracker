@@ -18,8 +18,8 @@ import com.hualing.qrcodetracker.activities.EmployeeMainActivity;
 import com.hualing.qrcodetracker.activities.ScanActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
-import com.hualing.qrcodetracker.bean.CreateRKDParam;
-import com.hualing.qrcodetracker.bean.RKDResult;
+import com.hualing.qrcodetracker.bean.CreateWLRKDParam;
+import com.hualing.qrcodetracker.bean.WLRKDResult;
 import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.TheApplication;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
@@ -57,7 +57,7 @@ public class WLInRKDInputActivity extends BaseActivity {
     EditText mFhrValue;
     private MainDao mainDao;
 
-    private CreateRKDParam params;
+    private CreateWLRKDParam params;
 
 
     @Override
@@ -82,7 +82,7 @@ public class WLInRKDInputActivity extends BaseActivity {
             }
         });
 
-        params = new CreateRKDParam();
+        params = new CreateWLRKDParam();
     }
 
     @Override
@@ -165,17 +165,17 @@ public class WLInRKDInputActivity extends BaseActivity {
         final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
         progressDialog.show();
 
-        Observable.create(new ObservableOnSubscribe<ActionResult<RKDResult>>() {
+        Observable.create(new ObservableOnSubscribe<ActionResult<WLRKDResult>>() {
             @Override
-            public void subscribe(ObservableEmitter<ActionResult<RKDResult>> e) throws Exception {
-                ActionResult<RKDResult> nr = mainDao.createWL_RKD(params);
+            public void subscribe(ObservableEmitter<ActionResult<WLRKDResult>> e) throws Exception {
+                ActionResult<WLRKDResult> nr = mainDao.createWL_RKD(params);
                 e.onNext(nr);
             }
         }).subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
-                .subscribe(new Consumer<ActionResult<RKDResult>>() {
+                .subscribe(new Consumer<ActionResult<WLRKDResult>>() {
                     @Override
-                    public void accept(ActionResult<RKDResult> result) throws Exception {
+                    public void accept(ActionResult<WLRKDResult> result) throws Exception {
                         progressDialog.dismiss();
                         //                        if (result.getCode() == 2) {//入库单已存在
                         //                            //保存物料入库单号
@@ -206,7 +206,7 @@ public class WLInRKDInputActivity extends BaseActivity {
                             Toast.makeText(TheApplication.getContext(), "入库单创建成功~", Toast.LENGTH_SHORT).show();
                             //保存物料入库单号
 //                            SharedPreferenceUtil.setWlRKDNumber(mInDhValue.getText().toString());
-                            RKDResult rkdResult = result.getResult();
+                            WLRKDResult rkdResult = result.getResult();
                             SharedPreferenceUtil.setWlRKDNumber(String.valueOf(rkdResult.getIndh()));
                             IntentUtil.openActivity(WLInRKDInputActivity.this, ScanActivity.class);
                             return;

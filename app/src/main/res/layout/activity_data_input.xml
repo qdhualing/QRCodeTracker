@@ -46,13 +46,37 @@
                     android:text="物料编码："
                     />
 
-                <EditText
-                    android:id="@+id/wlbmValue"
+                <LinearLayout
+                    android:id="@+id/selectWLBM"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/wlbmValue"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/divide_dark_gray_color"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        android:text="请选择物料种类"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/next"
+                        android:layout_marginRight="15dp"/>
+
+                </LinearLayout>
+
+                <!--<EditText-->
+                    <!--android:id="@+id/wlbmValue"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@android:color/transparent"-->
+                    <!--android:textColor="@android:color/black"-->
+                    <!--android:textSize="16sp"/>-->
 
             </LinearLayout>
 

@@ -11,7 +11,10 @@
 //import android.view.LayoutInflater;
 //import android.view.View;
 //import android.view.ViewGroup;
+//import android.widget.BaseAdapter;
 //import android.widget.EditText;
+//import android.widget.ListView;
+//import android.widget.PopupWindow;
 //import android.widget.TextView;
 //import android.widget.Toast;
 //
@@ -20,7 +23,9 @@
 //import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 //import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 //import com.hualing.qrcodetracker.bean.DataBean;
-//import com.hualing.qrcodetracker.bean.DataInputParams;
+//import com.hualing.qrcodetracker.bean.Sort2Result;
+//import com.hualing.qrcodetracker.bean.WLINParam;
+//import com.hualing.qrcodetracker.bean.WLOutParam;
 //import com.hualing.qrcodetracker.dao.MainDao;
 //import com.hualing.qrcodetracker.global.TheApplication;
 //import com.hualing.qrcodetracker.util.AllActivitiesHolder;
@@ -46,21 +51,25 @@
 //    @BindView(R.id.dataList)
 //    RecyclerView mRecyclerView;
 //
-//    private MyRecyclerAdapter mAdapter;
-//
-//    //传过来的总的数据集合
-//    //    private List<DataBean> mRealData;
-//    //需要录入的数据集合
-//    private List<DataBean> mDataL;
 //    private MainDao mainDao;
 //
 //    //二维码解析出的Id
 //    private String mQrcodeId;
+//    private WLOutParam params;
+//
+//    private ListView popupView;
+//    private BaseAdapter mPopAdapter;
+//    private PopupWindow popupWindow;
+//    private List<Sort2Result> mSortData;
+//    private int mSelectedSortId;
+//
 //
 //    @Override
 //    protected void initLogic() {
 //
 //        mainDao = YoniClient.getInstance().create(MainDao.class);
+//
+//        params = new WLOutParam();
 //
 //        if (getIntent() != null) {
 //            mQrcodeId = getIntent().getStringExtra("qrCodeId");
@@ -204,8 +213,6 @@
 //        final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
 //        progressDialog.show();
 //
-//        final DataInputParams params = new DataInputParams();
-//        params.setNeedToInputDataList(mDataL);
 //
 //        Observable.create(new ObservableOnSubscribe<ActionResult<ActionResult>>() {
 //            @Override

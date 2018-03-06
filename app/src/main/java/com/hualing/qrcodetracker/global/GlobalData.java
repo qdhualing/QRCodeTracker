@@ -266,5 +266,6 @@ public class GlobalData {
 
         public static final String COMMIT_MATERIALIN_INPUTED_DATA = "createWLIn_M";
         public static final String CREATE_RKD = "createWL_RKD";
+        public static final String CREATE_CKD = "createWL_CKD";
     }
 }

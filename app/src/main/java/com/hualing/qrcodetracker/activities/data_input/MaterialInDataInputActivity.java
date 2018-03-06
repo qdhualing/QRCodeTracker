@@ -2,12 +2,15 @@ package com.hualing.qrcodetracker.activities.data_input;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -19,6 +22,7 @@ import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
 import com.hualing.qrcodetracker.activities.EmployeeMainActivity;
 import com.hualing.qrcodetracker.activities.ScanActivity;
+import com.hualing.qrcodetracker.activities.SelectWLSortActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.Sort2Result;
@@ -46,10 +50,14 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MaterialInDataInputActivity extends BaseActivity {
 
+    private static final int GET_WLSORT_CODE = 30;
+
     @BindView(R.id.title)
     TitleBar mTitle;
     @BindView(R.id.wlbmValue)
-    EditText mWlbmValue;
+    TextView mWlbmValue;
+//    @BindView(R.id.wlbmValue)
+//    EditText mWlbmValue;
     @BindView(R.id.nameValue)
     EditText mNameValue;
     @BindView(R.id.cdValue)
@@ -90,6 +98,7 @@ public class MaterialInDataInputActivity extends BaseActivity {
     private PopupWindow popupWindow;
     private List<Sort2Result> mSortData;
     private int mSelectedSortId;
+    private String mSelectedWLBM ;
 
     @Override
     protected void initLogic() {
@@ -115,8 +124,17 @@ public class MaterialInDataInputActivity extends BaseActivity {
 
         mSortData = new ArrayList<>();
         popupWindow = new PopupWindow(MaterialInDataInputActivity.this);
+        popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(this,R.drawable.popupwindow_back_shape));
         popupView = (ListView) LayoutInflater.from(this).inflate(R.layout.popup_layout, null);
-        popupView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        popupView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Sort2Result sort2Result = mSortData.get(position);
+                mLbValue.setText(sort2Result.getSortName());
+                mSelectedSortId = sort2Result.getId();
+                popupWindow.dismiss();
+            }
+        });
         mPopAdapter = new BaseAdapter() {
             @Override
             public int getCount() {
@@ -136,20 +154,11 @@ public class MaterialInDataInputActivity extends BaseActivity {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 if (convertView == null) {
-                    convertView = View.inflate(MaterialInDataInputActivity.this, R.layout.popup_single_layout, null);
-                    convertView.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT, ListView.LayoutParams.WRAP_CONTENT));
+                    convertView = LayoutInflater.from(MaterialInDataInputActivity.this).inflate(R.layout.popup_single_layout,parent,false);
                 }
                 TextView tV = (TextView) convertView;
                 final Sort2Result sort2Result = mSortData.get(position);
                 tV.setText(sort2Result.getSortName());
-                convertView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mLbValue.setText(sort2Result.getSortName());
-                        mSelectedSortId = sort2Result.getId();
-                        popupWindow.dismiss();
-                    }
-                });
                 return convertView;
             }
 
@@ -241,14 +250,35 @@ public class MaterialInDataInputActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.commitBtn)
-    public void onViewClicked() {
+    @OnClick({R.id.selectWLBM,R.id.commitBtn})
+    public void onViewClicked(View view) {
 
-        //数据录入是否完整
-        if (checkIfInfoPerfect()) {
-            commitDataToWeb();
+        switch (view.getId()){
+            case R.id.selectWLBM:
+                IntentUtil.openActivityForResult(this, SelectWLSortActivity.class,GET_WLSORT_CODE,null);
+                break;
+            case R.id.commitBtn:
+                //数据录入是否完整
+                if (checkIfInfoPerfect()) {
+                    commitDataToWeb();
+                }
+                break;
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode==RESULT_OK) {
+            if (requestCode == GET_WLSORT_CODE) {
+                String ss = data.getStringExtra("sortName");
+                mWlbmValue.setText(ss);
+                mSelectedWLBM = data.getStringExtra("sortCode");
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private boolean checkIfInfoPerfect() {
@@ -262,7 +292,7 @@ public class MaterialInDataInputActivity extends BaseActivity {
         String slValue = mSlValue.getText().toString();
         String zhlValue = mZhlValue.getText().toString();
         String beizhuValue = mRemarkValue.getText().toString();
-        if (TextUtils.isEmpty(wlbmValue)
+        if ("请选择物料种类".equals(wlbmValue)
                 || TextUtils.isEmpty(nameValue)
                 || TextUtils.isEmpty(cdValue)
                 || "请选择类别".equals(lbValue)
@@ -277,7 +307,7 @@ public class MaterialInDataInputActivity extends BaseActivity {
             return false;
         }
 
-        params.setwLCode(wlbmValue);
+        params.setwLCode(mSelectedWLBM);
         params.setProductName(nameValue);
         params.setcHD(cdValue);
         params.setLb(mSelectedSortId);

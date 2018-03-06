@@ -133,4 +133,20 @@ public class SharedPreferenceUtil {
         SharedPreferences preferences = TheApplication.getSharedPreferences() ;
         return preferences.getString("WlRKDNumber",null);
     }
+    /**
+     *  保存物料出库单号
+     */
+    public static void setWlCKDNumber(String number) {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("WlCKDNumber", number);
+        editor.commit();
+    }
+    /**
+     *  获取物料出库单号
+     */
+    public static String getWlCKDNumber() {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        return preferences.getString("WlCKDNumber",null);
+    }
 }

@@ -9,7 +9,7 @@ package com.hualing.qrcodetracker.bean;
  * @updateDes
  */
 
-public class CreateRKDParam {
+public class CreateWLRKDParam {
 
     private String FhDw;
     private String ShRq;

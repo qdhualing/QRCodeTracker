@@ -1,6 +1,6 @@
 package com.hualing.qrcodetracker.bean;
 
-public class RKDResult {
+public class WLRKDResult {
 	private long inDh;
 
 	public long getIndh() {
