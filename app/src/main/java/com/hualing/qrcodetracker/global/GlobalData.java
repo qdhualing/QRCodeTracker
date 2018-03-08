@@ -267,5 +267,10 @@ public class GlobalData {
         public static final String COMMIT_MATERIALIN_INPUTED_DATA = "createWLIn_M";
         public static final String CREATE_RKD = "createWL_RKD";
         public static final String CREATE_CKD = "createWL_CKD";
+        public static final String GET_PDT_SORT = "getPdtSort";
+        public static final String GET_HL_SORT = "getHlSort";
+        public static final String GET_WL_OUT_SHOW_DATA = "getWlOutShowData";
+        public static final String WL_OUT = "wlOut";
+        public static final String GET_DEPARTMENT_DATA = "getDepartmentData";
     }
 }

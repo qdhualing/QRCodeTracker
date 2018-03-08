@@ -13,6 +13,7 @@ import android.util.Log;
 
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.data_input.MaterialInDataInputActivity;
+import com.hualing.qrcodetracker.activities.data_input.MaterialOutDataInputActivity;
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.model.FunctionType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
@@ -193,7 +194,7 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
                 intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
             case FunctionType.MATERIAL_OUT:
-                intent = new Intent(this, MaterialInDataInputActivity.class);
+                intent = new Intent(this, MaterialOutDataInputActivity.class);
                 break;
             case FunctionType.HALF_PRODUCT_IN:
                 intent = new Intent(this, MaterialInDataInputActivity.class);

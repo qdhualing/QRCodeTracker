@@ -16,7 +16,7 @@
         app:leftButton_size="20dp"
         app:left_img="@drawable/last"
         app:rightButton_size="20dp"
-        app:text_content="入库单生成"
+        app:text_content="出库单生成"
         app:title_textColor="@color/titleBar_textColor"
         app:title_textSize="@dimen/titleBar_textSize">
     </com.hualing.qrcodetracker.widget.TitleBar>
@@ -145,36 +145,6 @@
         android:layout_height="1dp"
         android:background="@color/divide_gray_color"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:maxWidth="150dp"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="领料人："
-            />
-
-        <EditText
-            android:id="@+id/LlrValue"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/divide_gray_color"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

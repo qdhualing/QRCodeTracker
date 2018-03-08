@@ -7,13 +7,13 @@ package com.hualing.qrcodetracker.bean;
  */
 public class WLCKDResult {
 
-   private String outDh;
+    private String outdh;
 
-    public String getOutDh() {
-        return outDh;
+    public String getOutdh() {
+        return outdh;
     }
 
-    public void setOutDh(String outDh) {
-        this.outDh = outDh;
+    public void setOutdh(String outdh) {
+        this.outdh = outdh;
     }
 }

@@ -1,15 +1,13 @@
 package com.hualing.qrcodetracker.bean;
 
 public class WLRKDResult {
-	private long inDh;
+	private String inDh;
 
-	public long getIndh() {
+	public String getInDh() {
 		return inDh;
 	}
 
-	public void setIndh(long inDh) {
+	public void setInDh(String inDh) {
 		this.inDh = inDh;
 	}
-	
-
 }

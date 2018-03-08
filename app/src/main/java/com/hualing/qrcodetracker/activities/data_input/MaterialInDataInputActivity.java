@@ -25,7 +25,8 @@ import com.hualing.qrcodetracker.activities.ScanActivity;
 import com.hualing.qrcodetracker.activities.SelectWLSortActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
-import com.hualing.qrcodetracker.bean.Sort2Result;
+import com.hualing.qrcodetracker.bean.PdtSortBean;
+import com.hualing.qrcodetracker.bean.PdtSortResult;
 import com.hualing.qrcodetracker.bean.WLINParam;
 import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.GlobalData;
@@ -96,12 +97,14 @@ public class MaterialInDataInputActivity extends BaseActivity {
     private ListView popupView;
     private BaseAdapter mPopAdapter;
     private PopupWindow popupWindow;
-    private List<Sort2Result> mSortData;
+    private List<PdtSortBean> mSortData;
     private int mSelectedSortId;
     private String mSelectedWLBM ;
 
     @Override
     protected void initLogic() {
+
+        mainDao = YoniClient.getInstance().create(MainDao.class);
 
         if (getIntent() != null) {
             mQrcodeId = getIntent().getStringExtra("qrCodeId");
@@ -129,9 +132,9 @@ public class MaterialInDataInputActivity extends BaseActivity {
         popupView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Sort2Result sort2Result = mSortData.get(position);
+                PdtSortBean sort2Result = mSortData.get(position);
                 mLbValue.setText(sort2Result.getSortName());
-                mSelectedSortId = sort2Result.getId();
+                mSelectedSortId = sort2Result.getiD();
                 popupWindow.dismiss();
             }
         });
@@ -157,7 +160,7 @@ public class MaterialInDataInputActivity extends BaseActivity {
                     convertView = LayoutInflater.from(MaterialInDataInputActivity.this).inflate(R.layout.popup_single_layout,parent,false);
                 }
                 TextView tV = (TextView) convertView;
-                final Sort2Result sort2Result = mSortData.get(position);
+                final PdtSortBean sort2Result = mSortData.get(position);
                 tV.setText(sort2Result.getSortName());
                 return convertView;
             }
@@ -218,19 +221,34 @@ public class MaterialInDataInputActivity extends BaseActivity {
     @Override
     protected void getDataFormWeb() {
 
-        Sort2Result sort2Result = new Sort2Result();
-        sort2Result.setSortName("biubiubiu");
-        sort2Result.setId(123);
-        Sort2Result sort2Result2 = new Sort2Result();
-        sort2Result2.setSortName("额外服务二个");
-        sort2Result2.setId(456);
-        Sort2Result sort2Result3 = new Sort2Result();
-        sort2Result3.setSortName("阿娥完全");
-        sort2Result3.setId(666);
-        mSortData.add(sort2Result);
-        mSortData.add(sort2Result2);
-        mSortData.add(sort2Result3);
-        mPopAdapter.notifyDataSetChanged();
+        final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
+        progressDialog.show();
+
+
+        Observable.create(new ObservableOnSubscribe<ActionResult<PdtSortResult>>() {
+            @Override
+            public void subscribe(ObservableEmitter<ActionResult<PdtSortResult>> e) throws Exception {
+                ActionResult<PdtSortResult> nr = mainDao.getPdtSort();
+                e.onNext(nr);
+            }
+        }).subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Consumer<ActionResult<PdtSortResult>>() {
+                    @Override
+                    public void accept(ActionResult<PdtSortResult> result) throws Exception {
+                        progressDialog.dismiss();
+                        if (result.getCode() != 0) {
+                            Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            PdtSortResult data = result.getResult();
+                            List<PdtSortBean> sortBeans = data.getSortBeans();
+                            mSortData.clear();
+                            mSortData.addAll(sortBeans);
+                            mPopAdapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+
     }
 
     @Override
@@ -327,8 +345,6 @@ public class MaterialInDataInputActivity extends BaseActivity {
     }
 
     private void commitDataToWeb() {
-
-        mainDao = YoniClient.getInstance().create(MainDao.class);
 
         final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
         progressDialog.show();

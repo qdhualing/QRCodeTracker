@@ -15,6 +15,7 @@ import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.CreateWLCKDParam;
 import com.hualing.qrcodetracker.bean.WLCKDResult;
 import com.hualing.qrcodetracker.dao.MainDao;
+import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.global.TheApplication;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.IntentUtil;
@@ -41,8 +42,6 @@ public class WLCKDInputActivity extends BaseActivity {
     EditText mFlrValue;
     @BindView(R.id.FlfzrValue)
     EditText mFlfzrValue;
-    @BindView(R.id.LlrValue)
-    EditText mLlrValue;
     @BindView(R.id.LlfzrValue)
     EditText mLlfzrValue;
     @BindView(R.id.remarkValue)
@@ -142,11 +141,12 @@ public class WLCKDInputActivity extends BaseActivity {
                         //                        } else
                         if (result.getCode() == 0) {
                             Toast.makeText(TheApplication.getContext(), "出库单创建成功~", Toast.LENGTH_SHORT).show();
-                            //保存物料入库单号
+                            //保存物料出库单号
                             //                            SharedPreferenceUtil.setWlRKDNumber(mInDhValue.getText().toString());
                             WLCKDResult ckdResult = result.getResult();
-                            SharedPreferenceUtil.setWlCKDNumber(String.valueOf(ckdResult.getOutDh()));
+                            SharedPreferenceUtil.setWlCKDNumber(String.valueOf(ckdResult.getOutdh()));
                             IntentUtil.openActivity(WLCKDInputActivity.this, ScanActivity.class);
+                            AllActivitiesHolder.removeAct(WLCKDInputActivity.this);
                             return;
                         } else {
                             Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
@@ -159,13 +159,11 @@ public class WLCKDInputActivity extends BaseActivity {
         String lldwValue = mLldwValue.getText().toString();
         String flrValue = mFlrValue.getText().toString();
         String flfzrValue = mFlfzrValue.getText().toString();
-        String llrValue = mLlrValue.getText().toString();
         String llfzrValue = mLlfzrValue.getText().toString();
         String remarkValue = mRemarkValue.getText().toString();
         if (TextUtils.isEmpty(lldwValue)
                 || TextUtils.isEmpty(flrValue)
                 || TextUtils.isEmpty(flfzrValue)
-                || TextUtils.isEmpty(llrValue)
                 || TextUtils.isEmpty(llfzrValue)
                 || TextUtils.isEmpty(remarkValue)
                 ) {
@@ -174,7 +172,7 @@ public class WLCKDInputActivity extends BaseActivity {
         params.setLhDw(lldwValue);
         params.setFhR(flrValue);
         params.setFhFzr(flfzrValue);
-        params.setLhR(llrValue);
+        params.setLhR(GlobalData.realName);
         params.setLhFzr(llfzrValue);
         params.setRemark(remarkValue);
         return true;

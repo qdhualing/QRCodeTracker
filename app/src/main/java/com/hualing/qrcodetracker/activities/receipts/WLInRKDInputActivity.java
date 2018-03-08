@@ -207,8 +207,9 @@ public class WLInRKDInputActivity extends BaseActivity {
                             //保存物料入库单号
 //                            SharedPreferenceUtil.setWlRKDNumber(mInDhValue.getText().toString());
                             WLRKDResult rkdResult = result.getResult();
-                            SharedPreferenceUtil.setWlRKDNumber(String.valueOf(rkdResult.getIndh()));
+                            SharedPreferenceUtil.setWlRKDNumber(String.valueOf(rkdResult.getInDh()));
                             IntentUtil.openActivity(WLInRKDInputActivity.this, ScanActivity.class);
+                            AllActivitiesHolder.removeAct(WLInRKDInputActivity.this);
                             return;
                         } else {
                             Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();

@@ -330,6 +330,9 @@ public class EmployeeMainActivity extends BaseActivity {
             case FunctionType.MATERIAL_IN:
                 IntentUtil.openActivity(EmployeeMainActivity.this, MaterialInMainActivity.class);
                 break;
+            case FunctionType.MATERIAL_OUT:
+                IntentUtil.openActivity(EmployeeMainActivity.this, MaterialOutMainActivity.class);
+                break;
         }
 
     }

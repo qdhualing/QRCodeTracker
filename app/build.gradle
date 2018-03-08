@@ -1,16 +1,20 @@
 apply plugin: 'com.android.application'
 
-def SERVICE_URL_DEBUG = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
+//def SERVICE_URL_DEBUG = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
 //def SERVICE_URL_DEBUG = "\"http://192.168.0.7:8080/QrcodeTrackerWeb/\""  //田电脑ip
-//def SERVICE_URL_DEBUG = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
+def SERVICE_URL_DEBUG = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
 def RESOURCE_URL_DEBUG = "\"http://192.168.0.6:8080/qrcodetracker/upload\""
-def SERVICE_URL_PRERELEASE = "\"http://192.168.0.13:8080/qrcodetracker/\""
-//def SERVICE_URL_PRERELEASE = "\"http://192.168.0.7:8080/QrcodeTrackerWeb/\""
-//def SERVICE_URL_PRERELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""
+
+
+//def SERVICE_URL_PRERELEASE = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
+//def SERVICE_URL_PRERELEASE = "\"http://192.168.0.7:8080/QrcodeTrackerWeb/\""  //田电脑ip
+def SERVICE_URL_PRERELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
 def RESOURCE_URL_PRERELEASE = "\"http://dev.cloudcns.com/lottery-resource/upload\""
-def SERVICE_URL_RELEASE = "\"http://192.168.0.13:8080/qrcodetracker/\""
-//def SERVICE_URL_RELEASE = "\"http://192.168.0.7:8080/QrcodeTrackerWeb/\""
-//def SERVICE_URL_RELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""
+
+
+//def SERVICE_URL_RELEASE = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
+//def SERVICE_URL_RELEASE = "\"http://192.168.0.7:8080/QrcodeTrackerWeb/\""  //田电脑ip
+def SERVICE_URL_RELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
 def RESOURCE_URL_RELEASE = "\"http://dev.cloudcns.com/lottery-resource/upload\""
 def APP_NAME = "二维码追溯"
 def APP_ID = "101100"
@@ -23,11 +27,24 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.hualing.qrcodetracker"
-        minSdkVersion 19
+        minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "7ad8a616c3bab203cd84720f", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
     }
 
 //    signingConfigs {
@@ -119,4 +136,9 @@ dependencies {
     compile 'cn.bingoogolapple:bga-qrcodecore:1.1.9@aar'
     compile 'cn.bingoogolapple:bga-zxing:1.1.9@aar'
     implementation 'com.android.support:cardview-v7:26.0.0-beta1'
+
+
+    compile 'cn.jiguang.sdk:jpush:3.1.1'  // 此处以JPush 3.1.1 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.9'  // 此处以JCore 1.1.9 版本为例。
+
 }

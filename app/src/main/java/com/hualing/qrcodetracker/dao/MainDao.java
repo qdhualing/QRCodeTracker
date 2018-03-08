@@ -7,16 +7,22 @@ import com.hualing.qrcodetracker.bean.CreateWLRKDParam;
 import com.hualing.qrcodetracker.bean.DataInputParams;
 import com.hualing.qrcodetracker.bean.DataResult;
 import com.hualing.qrcodetracker.bean.GetNeedInputedDataParams;
+import com.hualing.qrcodetracker.bean.HlSortResult;
 import com.hualing.qrcodetracker.bean.LoginParams;
 import com.hualing.qrcodetracker.bean.LoginResult;
 import com.hualing.qrcodetracker.bean.MainParams;
 import com.hualing.qrcodetracker.bean.MainResult;
 import com.hualing.qrcodetracker.bean.MaterialInParams;
 import com.hualing.qrcodetracker.bean.MaterialOutParams;
+import com.hualing.qrcodetracker.bean.PdtSortResult;
 import com.hualing.qrcodetracker.bean.ProductInParams;
 import com.hualing.qrcodetracker.bean.ProductOutParams;
+import com.hualing.qrcodetracker.bean.UserGroupResult;
 import com.hualing.qrcodetracker.bean.WLCKDResult;
 import com.hualing.qrcodetracker.bean.WLINParam;
+import com.hualing.qrcodetracker.bean.WLOutGetShowDataParam;
+import com.hualing.qrcodetracker.bean.WLOutParam;
+import com.hualing.qrcodetracker.bean.WLOutShowDataResult;
 import com.hualing.qrcodetracker.bean.WLRKDResult;
 import com.hualing.qrcodetracker.global.GlobalData;
 
@@ -63,4 +69,19 @@ public interface MainDao {
 
     @ActionRequest(func = GlobalData.Service.CREATE_CKD)
     ActionResult<WLCKDResult> createWL_CKD(CreateWLCKDParam params);
+
+    @ActionRequest(func = GlobalData.Service.GET_PDT_SORT)
+    ActionResult<PdtSortResult> getPdtSort();
+
+    @ActionRequest(func = GlobalData.Service.GET_HL_SORT)
+    ActionResult<HlSortResult> getHlSort();
+
+    @ActionRequest(func = GlobalData.Service.GET_WL_OUT_SHOW_DATA)
+    ActionResult<WLOutShowDataResult> getWlOutShowData(WLOutGetShowDataParam getParam);
+
+    @ActionRequest(func = GlobalData.Service.WL_OUT)
+    ActionResult<ActionResult> wlOut(WLOutParam params);
+
+    @ActionRequest(func = GlobalData.Service.GET_DEPARTMENT_DATA)
+    ActionResult<UserGroupResult> getDepartmentData();
 }

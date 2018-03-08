@@ -19,6 +19,8 @@ import com.hualing.qrcodetracker.R;
 
 import java.io.File;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * @author 马鹏昊
  * @date {2016-10-28}
@@ -71,6 +73,9 @@ public class TheApplication extends Application {
             appRootDirectory.delete();
         }
         appRootDirectory.mkdirs();
+
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
 
     }
 
