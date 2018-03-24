@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import com.hualing.qrcodetracker.BuildConfig;
 import com.hualing.qrcodetracker.aframework.yoni.AuthorizationInterceptor;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
+import com.hualing.qrcodetracker.model.CPType;
 import com.hualing.qrcodetracker.model.FunctionType;
 
 import java.net.Inet4Address;
@@ -43,6 +44,9 @@ public class GlobalData {
 
     //当前功能业务线
     public static int currentFunctionType = FunctionType.NON_SELECTED ;
+
+    //当前功能业务线
+    public static int currentCPInType = CPType.NON_SELECTED ;
 
     // 业务服务器地址
 //    public static String mainServiceUrl;
@@ -265,12 +269,36 @@ public class GlobalData {
         public static final String PRODUCT_OUT = "103";
 
         public static final String COMMIT_MATERIALIN_INPUTED_DATA = "createWLIn_M";
-        public static final String CREATE_RKD = "createWL_RKD";
-        public static final String CREATE_CKD = "createWL_CKD";
+        public static final String CREATE_WL_RKD = "createWL_RKD";
+        public static final String CREATE_WL_CKD = "createWL_CKD";
         public static final String GET_PDT_SORT = "getPdtSort";
         public static final String GET_HL_SORT = "getHlSort";
         public static final String GET_WL_OUT_SHOW_DATA = "getWlOutShowData";
         public static final String WL_OUT = "wlOut";
         public static final String GET_DEPARTMENT_DATA = "getDepartmentData";
+        public static final String CREATE_WL_TKD = "createWL_TKD";
+        public static final String GET_WL_TK_SHOW_DATA = "getWlTKShowData";
+        public static final String WL_TK = "wlTk";
+        public static final String GET_WL_THROW_SHOW_DATA = "getWlTLShowData";
+        public static final String WL_THROW = "wlThrow";
+        public static final String GET_GX = "getGX";
+        public static final String GET_CJ = "getCJ";
+        public static final String CREATE_BCP_RKD = "createBcpRkd";
+        public static final String BCP_IN = "bcpIn";
+        public static final String GET_TLYL = "getTLYL";  //获取两个投料表里的数据
+        public static final String GET_BCP_THROW_SHOW_DATA = "getBcpTLShowData";
+        public static final String BCP_THROW = "bcpThrow";
+        public static final String CREATE_BCP_TKD = "createBCP_TKD";
+        public static final String GET_BCP_TK_SHOW_DATA = "getBcpTkShowData";
+        public static final String BCP_TK = "bcpTK";
+        public static final String CREATE_BCP_CKD = "createBCP_CKD";
+        public static final String GET_LEI_BIE = "getLeiBie";
+        public static final String BIG_CP_IN = "bigCpIn";
+        public static final String SMALL_CP_IN = "smallCpIn";
+        public static final String GET_BIG_CP_DATA = "getBigCpData";
+        public static final String BIG_CP_OUT = "bigCpOut";
+        public static final String GET_BIG_CP_OUT_DATA = "getBigCpOutData";
+        public static final String GET_SMALL_CP_OUT_DATA = "getSmallCpOutData";
+        public static final String SMALL_CP_OUT = "smallCpOut";
     }
 }

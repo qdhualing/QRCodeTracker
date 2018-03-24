@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MatchMatch"
-    tools:context="com.hualing.qrcodetracker.activities.ScanActivity">
+    tools:context="com.hualing.qrcodetracker.activities.main.ScanActivity">
 
     <cn.bingoogolapple.qrcode.zxing.ZXingView
         android:id="@+id/zxingview"

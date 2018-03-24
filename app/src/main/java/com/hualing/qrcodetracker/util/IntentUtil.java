@@ -27,7 +27,8 @@ public class IntentUtil {
         if (bundle==null) {
             context.startActivityForResult(intent,requestCode);
         }else{
-            context.startActivityForResult(intent,requestCode,bundle);
+            intent.putExtras(bundle);
+            context.startActivityForResult(intent,requestCode);
         }
         context.overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }

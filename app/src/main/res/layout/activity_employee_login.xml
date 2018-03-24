@@ -5,7 +5,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:gravity="center_horizontal"
               android:orientation="vertical"
-              tools:context="com.hualing.qrcodetracker.activities.EmployeeLoginActivity">
+              tools:context="com.hualing.qrcodetracker.activities.main.EmployeeLoginActivity">
 
     <com.hualing.qrcodetracker.widget.TitleBar
         android:id="@+id/title"

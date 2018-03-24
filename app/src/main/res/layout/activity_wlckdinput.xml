@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hualing.qrcodetracker.activities.MaterialInMainActivity">
+    tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInMainActivity">
 
     <com.hualing.qrcodetracker.widget.TitleBar
         android:id="@+id/title"
@@ -31,20 +31,37 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:maxWidth="150dp"
             android:padding="20dp"
             android:textColor="@color/divide_dark_gray_color"
             android:textSize="14sp"
             android:text="领料单位："
             />
 
-        <EditText
-            android:id="@+id/LldwValue"
+        <LinearLayout
+            android:id="@+id/selectLLBM"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/LldwValue"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:textColor="@color/divide_dark_gray_color"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:text="请选择部门"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/next"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -93,7 +110,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:maxWidth="150dp"
             android:padding="20dp"
             android:textColor="@color/divide_dark_gray_color"
             android:textSize="14sp"
@@ -123,7 +139,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:maxWidth="150dp"
             android:padding="20dp"
             android:textColor="@color/divide_dark_gray_color"
             android:textSize="14sp"
@@ -154,7 +169,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:maxWidth="150dp"
             android:padding="20dp"
             android:textColor="@color/divide_dark_gray_color"
             android:textSize="14sp"
@@ -184,7 +198,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:maxWidth="150dp"
             android:padding="20dp"
             android:textColor="@color/divide_dark_gray_color"
             android:textSize="14sp"

@@ -48,45 +48,141 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.EmployeeMainActivity"
+            android:name=".activities.main.EmployeeMainActivity"
             android:launchMode="singleTask">
         </activity>
-        <activity android:name=".activities.LaunchActivity">
+        <activity android:name=".activities.main.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.UserTypePickActivity">
+        <activity android:name=".activities.abandon.UserTypePickActivity">
         </activity>
-        <activity android:name=".activities.GuestMainActivity">
+        <activity android:name=".activities.abandon.GuestMainActivity">
         </activity>
         <activity
-            android:name=".activities.EmployeeLoginActivity"
+            android:name=".activities.main.EmployeeLoginActivity"
             android:label="@string/title_activity_employee_login">
         </activity>
         <activity
-            android:name=".activities.ScanActivity"
+            android:name=".activities.main.ScanActivity"
             android:launchMode="singleTask">
         </activity>
-        <activity android:name=".activities.InfoShowActivity">
+        <activity android:name=".activities.abandon.InfoShowActivity">
         </activity>
-        <activity android:name=".activities.data_input.MaterialInDataInputActivity">
+        <activity
+            android:name=".activities.operation_wl.wl_in.MaterialInDataInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.data_input.MaterialOutDataInputActivity">
+        <activity
+            android:name=".activities.operation_wl.wl_out.MaterialOutDataInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.MaterialInMainActivity">
+        <activity android:name=".activities.operation_wl.wl_in.MaterialInMainActivity">
         </activity>
-        <activity android:name=".activities.MaterialOutMainActivity">
+        <activity android:name=".activities.operation_wl.wl_out.MaterialOutMainActivity">
         </activity>
-        <activity android:name=".activities.receipts.WLInRKDInputActivity">
+        <activity
+            android:name=".activities.operation_wl.wl_in.WLInRKDInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.receipts.WLCKDInputActivity">
+        <activity
+            android:name=".activities.operation_wl.wl_out.WLCKDInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.SelectWLSortActivity">
+        <activity
+            android:name=".activities.operation_wl.wl_in.SelectHlSortActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.SelectDepartmentActivity">
+        <activity
+            android:name=".activities.main.SelectDepartmentActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity android:name=".activities.operation_wl.wl_return.MaterialReturnMainActivity">
+        </activity>
+        <activity
+            android:name=".activities.operation_wl.wl_return.WLTKDInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_wl.wl_return.MaterialTKDataInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_wl.wl_tl.MaterialThrowActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_common.SelectGXActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_common.SelectCJActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity android:name=".activities.operation_bcp.bcp_in.BcpInMainActivity">
+        </activity>
+        <activity
+            android:name=".activities.operation_bcp.bcp_in.BCPInRKDInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_bcp.bcp_in.BCPInDataInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_common.SelectSXYLActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_bcp.bcp_tl.BcpThrowActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity android:name=".activities.operation_bcp.bcp_return.BcpReturnMainActivity">
+        </activity>
+        <activity
+            android:name=".activities.operation_bcp.bcp_return.BcpTKDataInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_bcp.bcp_return.BcpTKDInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_cp.cp_in.BigCPInDataInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity android:name=".activities.operation_cp.cp_in.CPInMainActivity">
+        </activity>
+        <activity
+            android:name=".activities.operation_cp.cp_in.CPRKDInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity android:name=".activities.operation_cp.cp_out.CPOutMainActivity">
+        </activity>
+        <activity
+            android:name=".activities.operation_cp.cp_out.BigCPOutDataInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activities.operation_cp.cp_out.CPCKDInputActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity android:name=".activities.operation_track.DataTrackMainActivity">
+        </activity>
+        <activity android:name=".activities.operation_cp.cp_in.CPInProductStylePickActivity">
+        </activity>
+        <activity android:name=".activities.operation_cp.cp_out.CPOutProductStylePickActivity">
+        </activity>
+        <activity android:name=".activities.operation_cp.cp_in.SmallCPInDataInputActivity">
+        </activity>
+        <activity android:name=".activities.operation_cp.cp_out.SmallCPOutDataInputActivity">
+        </activity>
+        <activity android:name=".activities.operation_common.SelectLBActivity">
+        </activity>
+        <activity android:name=".activities.operation_common.SelectBigCpActivity">
         </activity>
     </application>
 

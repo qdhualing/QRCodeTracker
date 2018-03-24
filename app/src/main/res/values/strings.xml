@@ -22,11 +22,14 @@
     <array name="functionItems">
         <item>物料入库</item>
         <item>物料出库</item>
+        <item>物料投料</item>
+        <item>物料退库</item>
         <item>半成品入库</item>
+        <item>半成品投料</item>
+        <item>半成品退库</item>
         <item>成品入库</item>
         <item>成品出库</item>
-        <item>投料</item>
-        <item>物料退库</item>
+        <item>追溯</item>
     </array>
 
     <array name="materialInData">

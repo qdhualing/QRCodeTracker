@@ -149,4 +149,72 @@ public class SharedPreferenceUtil {
         SharedPreferences preferences = TheApplication.getSharedPreferences() ;
         return preferences.getString("WlCKDNumber",null);
     }
+
+    /**
+     * 保存物料退库单号
+     * @param wlTKDNumber
+     */
+    public static void setWlTKDNumber(String wlTKDNumber) {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("WlTKDNumber", wlTKDNumber);
+        editor.commit();
+    }
+    /**
+     *  获取物料退库单号
+     */
+    public static String getWlTKDNumber() {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        return preferences.getString("WlTKDNumber",null);
+    }
+    /**
+     * 保存半成品入库单号
+     * @param s
+     */
+    public static void setBCPRKDNumber(String s) {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("BCPRKDNumber", s);
+        editor.commit();
+    }
+    /**
+     *  获取半成品入库单号
+     */
+    public static String getBCPRKDNumber() {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        return preferences.getString("BCPRKDNumber",null);
+    }
+    /**
+     * 保存半成品退库单号
+     * @param s
+     */
+    public static void setBCPTKDNumber(String s) {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("BCPTKDNumber", s);
+        editor.commit();
+    }
+    /**
+     *  获取半成品退库单号
+     */
+    public static String getBCPTKDNumber() {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        return preferences.getString("BCPTKDNumber",null);
+    }
+    /**
+     *  获取半成品/成品出库单号
+     */
+    public static void setBCPCKDNumber(String s) {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("BCPCKDNumber", s);
+        editor.commit();
+    }
+    /**
+     *  获取半成品/成品出库单号
+     */
+    public static String getBCPCKDNumber() {
+        SharedPreferences preferences = TheApplication.getSharedPreferences() ;
+        return preferences.getString("BCPCKDNumber",null);
+    }
 }
