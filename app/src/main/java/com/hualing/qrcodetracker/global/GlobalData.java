@@ -300,5 +300,7 @@ public class GlobalData {
         public static final String GET_BIG_CP_OUT_DATA = "getBigCpOutData";
         public static final String GET_SMALL_CP_OUT_DATA = "getSmallCpOutData";
         public static final String SMALL_CP_OUT = "smallCpOut";
+        public static final String WL_TRACK = "wlTrack";
+        public static final String BCP_TRACK = "bcpTrack";
     }
 }

@@ -20,7 +20,10 @@ import com.hualing.qrcodetracker.activities.operation_cp.cp_in.BigCPInDataInputA
 import com.hualing.qrcodetracker.activities.operation_cp.cp_in.SmallCPInDataInputActivity;
 import com.hualing.qrcodetracker.activities.operation_cp.cp_out.BigCPOutDataInputActivity;
 import com.hualing.qrcodetracker.activities.operation_cp.cp_out.SmallCPOutDataInputActivity;
-import com.hualing.qrcodetracker.activities.operation_track.DataTrackMainActivity;
+import com.hualing.qrcodetracker.activities.operation_track.BcpDataTrackActivity;
+import com.hualing.qrcodetracker.activities.operation_track.BigCpDataTrackActivity;
+import com.hualing.qrcodetracker.activities.operation_track.SmallCpDataTrackActivity;
+import com.hualing.qrcodetracker.activities.operation_track.WlDataTrackActivity;
 import com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInDataInputActivity;
 import com.hualing.qrcodetracker.activities.operation_wl.wl_out.MaterialOutDataInputActivity;
 import com.hualing.qrcodetracker.activities.operation_wl.wl_return.MaterialTKDataInputActivity;
@@ -28,6 +31,7 @@ import com.hualing.qrcodetracker.activities.operation_wl.wl_tl.MaterialThrowActi
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.model.CPType;
 import com.hualing.qrcodetracker.model.FunctionType;
+import com.hualing.qrcodetracker.model.TrackType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.widget.TitleBar;
 
@@ -245,7 +249,25 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
                 break;
             case FunctionType.DATA_TRACK:
                 //二维码信息包含着扫描的属于物料、半成品、小包装还是大包装
-                intent = new Intent(this, DataTrackMainActivity.class);
+//                String sort = result.substring(START_INDEX,END_INDEX);
+
+                //测试
+                String sort = "2";
+                switch (sort){
+                    case TrackType.WL:
+                        intent = new Intent(this, WlDataTrackActivity.class);
+                        break;
+                    case TrackType.BCP:
+                        intent = new Intent(this, BcpDataTrackActivity.class);
+                        break;
+                    case TrackType.SMALL_CP:
+                        intent = new Intent(this, SmallCpDataTrackActivity.class);
+                        break;
+                    case TrackType.BIG_CP:
+                        intent = new Intent(this, BigCpDataTrackActivity.class);
+                        break;
+                }
+
                 break;
 
 

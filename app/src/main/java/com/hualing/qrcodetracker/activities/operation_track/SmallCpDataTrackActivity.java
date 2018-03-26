@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
 
-public class DataTrackMainActivity extends BaseActivity {
+public class SmallCpDataTrackActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,6 @@ public class DataTrackMainActivity extends BaseActivity {
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.activity_data_track_main;
+        return R.layout.activity_small_cp_data_track;
     }
 }

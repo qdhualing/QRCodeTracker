@@ -170,7 +170,7 @@
             android:name=".activities.operation_cp.cp_out.CPCKDInputActivity"
             android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.operation_track.DataTrackMainActivity">
+        <activity android:name=".activities.operation_track.BcpDataTrackActivity">
         </activity>
         <activity android:name=".activities.operation_cp.cp_in.CPInProductStylePickActivity">
         </activity>
@@ -183,6 +183,12 @@
         <activity android:name=".activities.operation_common.SelectLBActivity">
         </activity>
         <activity android:name=".activities.operation_common.SelectBigCpActivity">
+        </activity>
+        <activity android:name=".activities.operation_track.SmallCpDataTrackActivity">
+        </activity>
+        <activity android:name=".activities.operation_track.WlDataTrackActivity">
+        </activity>
+        <activity android:name=".activities.operation_track.BigCpDataTrackActivity">
         </activity>
     </application>
 

@@ -105,6 +105,38 @@
                     android:padding="20dp"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="14sp"
+                    android:text="产地："
+                    />
+
+                <TextView
+                    android:id="@+id/cdValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="14sp"
                     android:text="类别："
                     />
 
@@ -136,7 +168,7 @@
                     android:padding="20dp"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="14sp"
-                    android:text="半成品编码："
+                    android:text="物料编码："
                     />
 
                 <TextView
@@ -198,11 +230,11 @@
                     android:padding="20dp"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="14sp"
-                    android:text="生产批次："
+                    android:text="批次总量："
                     />
 
                 <TextView
-                    android:id="@+id/scpcValue"
+                    android:id="@+id/pczlValue"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
@@ -229,11 +261,11 @@
                     android:padding="20dp"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="14sp"
-                    android:text="生产时间："
+                    android:text="来料时间："
                     />
 
                 <TextView
-                    android:id="@+id/scTimeValue"
+                    android:id="@+id/llTimeValue"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
@@ -276,68 +308,6 @@
                     />
 
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divide_gray_color"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
-                    android:text="车间："
-                    />
-
-                <TextView
-                    android:id="@+id/cjValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    />
-
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divide_gray_color"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
-                    android:text="工序："
-                    />
-
-                <TextView
-                    android:id="@+id/gxValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    />
-
-            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -361,69 +331,6 @@
 
                 <TextView
                     android:id="@+id/czyValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    />
-
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divide_gray_color"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
-                    android:text="质检员："
-                    />
-
-                <TextView
-                    android:id="@+id/zjyValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divide_gray_color"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
-                    android:text="检验状态："
-                    />
-
-                <TextView
-                    android:id="@+id/jyztValue"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
@@ -497,52 +404,6 @@
                     />
 
             </LinearLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/black"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:textSize="15sp"
-                android:textColor="@android:color/black"
-                android:text="组成成分如下:"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/divide_gray_color"/>
-
-            <com.hualing.qrcodetracker.widget.MyListView
-                android:id="@+id/componentList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:dividerHeight="1dp"
-                android:divider="@color/divide_gray_color"
-                >
-            </com.hualing.qrcodetracker.widget.MyListView>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/divide_gray_color"/>
-
-            <TextView
-                android:id="@+id/nonTip"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
-                android:text="无组成成分"
-                android:textColor="@color/divide_gray_color"
-                />
 
         </LinearLayout>
 
