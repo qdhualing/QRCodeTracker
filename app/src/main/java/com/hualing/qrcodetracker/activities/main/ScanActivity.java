@@ -42,6 +42,9 @@ import butterknife.BindView;
 import cn.bingoogolapple.qrcode.core.QRCodeView;
 import cn.bingoogolapple.qrcode.zxing.ZXingView;
 
+import static com.hualing.qrcodetracker.model.TrackType.END_INDEX;
+import static com.hualing.qrcodetracker.model.TrackType.START_INDEX;
+
 public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
 
     @BindView(R.id.title)
@@ -249,10 +252,11 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
                 break;
             case FunctionType.DATA_TRACK:
                 //二维码信息包含着扫描的属于物料、半成品、小包装还是大包装
-//                String sort = result.substring(START_INDEX,END_INDEX);
+                String sort = result.substring(START_INDEX,END_INDEX);
 
                 //测试
-                String sort = "2";
+//                String sort = "4";
+
                 switch (sort){
                     case TrackType.WL:
                         intent = new Intent(this, WlDataTrackActivity.class);

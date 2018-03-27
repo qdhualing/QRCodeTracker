@@ -17,6 +17,7 @@ import com.hualing.qrcodetracker.bean.BigCpOutGetDataParam;
 import com.hualing.qrcodetracker.bean.BigCpOutGetDataResult;
 import com.hualing.qrcodetracker.bean.BigCpOutParam;
 import com.hualing.qrcodetracker.bean.BigCpResult;
+import com.hualing.qrcodetracker.bean.BigCpTrackResult;
 import com.hualing.qrcodetracker.bean.CJResult;
 import com.hualing.qrcodetracker.bean.BigCPINParam;
 import com.hualing.qrcodetracker.bean.CreateBCPCKDParam;
@@ -46,6 +47,7 @@ import com.hualing.qrcodetracker.bean.SmallCPINParam;
 import com.hualing.qrcodetracker.bean.SmallCpOutGetDataParam;
 import com.hualing.qrcodetracker.bean.SmallCpOutGetDataResult;
 import com.hualing.qrcodetracker.bean.SmallCpOutParam;
+import com.hualing.qrcodetracker.bean.SmallCpTrackResult;
 import com.hualing.qrcodetracker.bean.UserGroupResult;
 import com.hualing.qrcodetracker.bean.WLCKDResult;
 import com.hualing.qrcodetracker.bean.WLINParam;
@@ -200,4 +202,10 @@ public interface MainDao {
 
     @ActionRequest(func = GlobalData.Service.BCP_TRACK)
     ActionResult<BcpTrackResult> getBcpTrackShowData(WlTrackParam param);
+
+    @ActionRequest(func = GlobalData.Service.SMALL_CP_TRACK)
+    ActionResult<SmallCpTrackResult> getSmallCpTrackShowData(WlTrackParam param);
+
+    @ActionRequest(func = GlobalData.Service.BIG_CP_TRACK)
+    ActionResult<BigCpTrackResult> getBigCpTrackShowData(WlTrackParam param);
 }
