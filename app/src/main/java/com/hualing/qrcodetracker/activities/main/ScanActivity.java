@@ -90,7 +90,7 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
         startScan();
     }
 
-    private void startScan(){
+    private void startScan() {
         mZxingview.startCamera();
         //        mQRCodeView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
 
@@ -203,12 +203,12 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
     @Override
     public void onScanQRCodeSuccess(String result) {
         Log.i("Scan", "result:" + result);
-//        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+        //        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
         vibrate();
-//        mZxingview.startSpot();
+        //        mZxingview.startSpot();
         //获取到二维码id
         Intent intent = null;
-        switch (GlobalData.currentFunctionType){
+        switch (GlobalData.currentFunctionType) {
             case FunctionType.MATERIAL_IN:
                 intent = new Intent(this, MaterialInDataInputActivity.class);
                 break;
@@ -231,7 +231,7 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
                 intent = new Intent(this, BcpTKDataInputActivity.class);
                 break;
             case FunctionType.PRODUCT_IN:
-                switch (GlobalData.currentCPInType){
+                switch (GlobalData.currentCPInType) {
                     case CPType.BIG_CP_IN:
                         intent = new Intent(this, BigCPInDataInputActivity.class);
                         break;
@@ -241,7 +241,7 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
                 }
                 break;
             case FunctionType.PRODUCT_OUT:
-                switch (GlobalData.currentCPInType){
+                switch (GlobalData.currentCPInType) {
                     case CPType.BIG_CP_OUT:
                         intent = new Intent(this, BigCPOutDataInputActivity.class);
                         break;
@@ -252,12 +252,12 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
                 break;
             case FunctionType.DATA_TRACK:
                 //二维码信息包含着扫描的属于物料、半成品、小包装还是大包装
-                String sort = result.substring(START_INDEX,END_INDEX);
+                String sort = result.substring(START_INDEX, END_INDEX);
 
                 //测试
-//                String sort = "4";
+                //                String sort = "4";
 
-                switch (sort){
+                switch (sort) {
                     case TrackType.WL:
                         intent = new Intent(this, WlDataTrackActivity.class);
                         break;
@@ -273,10 +273,13 @@ public class ScanActivity extends BaseActivity implements QRCodeView.Delegate {
                 }
 
                 break;
+            case FunctionType.QUALITY_CHECKING:
+                intent = new Intent(this, QualityCheckActivity.class);
+                break;
 
 
         }
-        intent.putExtra("qrCodeId",result);
+        intent.putExtra("qrCodeId", result);
         startActivity(intent);
         AllActivitiesHolder.removeAct(this);
 

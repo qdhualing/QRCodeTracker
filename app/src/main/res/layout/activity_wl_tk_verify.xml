@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/layout_back"
+    tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInMainActivity">
+
+    <com.hualing.qrcodetracker.widget.TitleBar
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBar_Height"
+        app:background_color="@color/colorPrimary"
+        app:leftButton_size="20dp"
+        app:left_img="@drawable/last"
+        app:rightButton_size="20dp"
+        app:text_content="物料退库审核"
+        app:title_textColor="@color/titleBar_textColor"
+        app:title_textSize="@dimen/titleBar_textSize">
+    </com.hualing.qrcodetracker.widget.TitleBar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/layout_back"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
+                        android:text="退库单号："
+                        />
+
+                    <TextView
+                        android:id="@+id/backdhValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/divide_dark_gray_color"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerHeight"
+                    android:background="@color/divide_gray_color"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
+                        android:text="退货单位："
+                        />
+
+                    <TextView
+                        android:id="@+id/thdwValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/divide_dark_gray_color"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerHeight"
+                    android:background="@color/divide_gray_color"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
+                        android:text="退货日期："
+                        />
+
+                    <TextView
+                        android:id="@+id/thrqValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:maxLength="19"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/divide_dark_gray_color"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerHeight"
+                    android:background="@color/divide_gray_color"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
+                        android:text="收货负责人："
+                        />
+
+                    <TextView
+                        android:id="@+id/shfzrValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/divide_dark_gray_color"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerHeight"
+                    android:background="@color/divide_gray_color"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
+                        android:text="退货人："
+                        />
+
+                    <TextView
+                        android:id="@+id/thRValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/divide_dark_gray_color"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerHeight"
+                    android:background="@color/divide_gray_color"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
+                        android:text="退货负责人："
+                        />
+
+                    <TextView
+                        android:id="@+id/thfzrValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/divide_dark_gray_color"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerHeight"
+                    android:background="@color/divide_gray_color"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
+                        android:text="备注："
+                        />
+
+                    <TextView
+                        android:id="@+id/remarkValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/divide_dark_gray_color"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerHeight"
+                    android:background="@color/divide_gray_color"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/divide_gray_color"
+                android:text="所关联记录如下："
+                android:background="@android:color/white"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <com.hualing.qrcodetracker.widget.MyListView
+                android:id="@+id/childDataList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false"
+                android:divider="#CFCFCF"
+                android:dividerHeight="15dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/white"></com.hualing.qrcodetracker.widget.MyListView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

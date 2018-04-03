@@ -77,8 +77,8 @@ public class BCPInDataInputActivity extends BaseActivity {
     TextView mGxValue;
     @BindView(R.id.sxylValue)
     TextView mSxylValue;
-    @BindView(R.id.zjyValue)
-    EditText mZjyValue;
+//    @BindView(R.id.zjyValue)
+//    EditText mZjyValue;
     @BindView(R.id.scTimeValue)
     TextView mScTimeValue;
     @BindView(R.id.ksTimeValue)
@@ -87,10 +87,10 @@ public class BCPInDataInputActivity extends BaseActivity {
     TextView mWcTimeValue;
     @BindView(R.id.dwValue)
     EditText mDwValue;
-    @BindView(R.id.jyztValue)
-    EditText mJyztValue;
-    @BindView(R.id.jybzValue)
-    EditText mJybzValue;
+//    @BindView(R.id.jyztValue)
+//    EditText mJyztValue;
+//    @BindView(R.id.jybzValue)
+//    EditText mJybzValue;
 
     private MainDao mainDao;
 
@@ -201,7 +201,7 @@ public class BCPInDataInputActivity extends BaseActivity {
         String shlValue = mShlValue.getText().toString();
         String dwzlValue = mDwzlValue.getText().toString();
         String dwValue = mDwValue.getText().toString();
-        String zjyValue = mZjyValue.getText().toString();
+//        String zjyValue = mZjyValue.getText().toString();
 
         String cjName = mCjValue.getText().toString();
         String gxName = mGxValue.getText().toString();
@@ -209,8 +209,8 @@ public class BCPInDataInputActivity extends BaseActivity {
         String scTimeValue = mScTimeValue.getText().toString();
         String ksTimeValue = mKsTimeValue.getText().toString();
         String wcTimeValue = mWcTimeValue.getText().toString();
-        String jyztValue = mJyztValue.getText().toString();
-        String jybzValue = mJybzValue.getText().toString();
+//        String jyztValue = mJyztValue.getText().toString();
+//        String jybzValue = mJybzValue.getText().toString();
         if ("请选择半成品编码".equals(bcpCodeValue)
                 || TextUtils.isEmpty(nameValue)
                 || "请选择类别".equals(lbValue)
@@ -220,8 +220,8 @@ public class BCPInDataInputActivity extends BaseActivity {
                 || TextUtils.isEmpty(shlValue)
                 || TextUtils.isEmpty(dwzlValue)
                 || TextUtils.isEmpty(dwValue)
-                || TextUtils.isEmpty(zjyValue)
-                || TextUtils.isEmpty(jyztValue)
+//                || TextUtils.isEmpty(zjyValue)
+//                || TextUtils.isEmpty(jyztValue)
                 || "请选择车间".equals(cjName)
                 || "请选择工序".equals(gxName)
                 || "请选择所需原料".equals(sxylValue)
@@ -242,14 +242,14 @@ public class BCPInDataInputActivity extends BaseActivity {
         params.setShl(Float.parseFloat(shlValue));
         params.setDwzl(Float.parseFloat(dwzlValue));
         params.setDw(dwValue);
-        params.setZjy(zjyValue);
+//        params.setZjy(zjyValue);
         params.setCheJian(cjName);
         params.setGx(gxName);
         params.setScTime(scTimeValue);
         params.setKsTime(ksTimeValue);
         params.setWcTime(wcTimeValue);
-        params.setJyzt(jyztValue);
-        params.setJybz(jybzValue);
+//        params.setJyzt(jyztValue);
+//        params.setJybz(jybzValue);
 
         params.setCzy(GlobalData.realName);
         params.setQrCodeId(mQrcodeId);

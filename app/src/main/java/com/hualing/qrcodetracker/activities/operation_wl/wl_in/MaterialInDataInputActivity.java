@@ -18,10 +18,12 @@ import com.hualing.qrcodetracker.activities.main.ScanActivity;
 import com.hualing.qrcodetracker.activities.operation_common.SelectLBActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
+import com.hualing.qrcodetracker.bean.NotificationParam;
 import com.hualing.qrcodetracker.bean.WLINParam;
 import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.global.TheApplication;
+import com.hualing.qrcodetracker.model.NotificationType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.IntentUtil;
 import com.hualing.qrcodetracker.util.SharedPreferenceUtil;
@@ -255,8 +257,8 @@ public class MaterialInDataInputActivity extends BaseActivity {
                                     .setNegativeButton("已录入完毕", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            IntentUtil.openActivity(MaterialInDataInputActivity.this, EmployeeMainActivity.class);
-                                            AllActivitiesHolder.removeAct(MaterialInDataInputActivity.this);
+                                            //调接口发推送审核
+                                            sendNotification();
                                         }
                                     })
                                     .show();
@@ -266,53 +268,42 @@ public class MaterialInDataInputActivity extends BaseActivity {
 
     }
 
+    private void sendNotification() {
 
-    //    private class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
-    //
-    //        @Override
-    //        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    //            View view = LayoutInflater.from(MaterialInDataInputActivity.this).inflate(R.layout.item_data_input, parent, false);
-    //            return new MyViewHolder(view);
-    //        }
-    //
-    //        @Override
-    //        public void onBindViewHolder(MyViewHolder holder, int position) {
-    //            final DataBean bean = mDataL.get(position);
-    //
-    //            String name = bean.getName();
-    //            holder.name.setText(name + ":");
-    //            holder.value.addTextChangedListener(new TextWatcher() {
-    //                @Override
-    //                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-    //                }
-    //
-    //                @Override
-    //                public void onTextChanged(CharSequence s, int start, int before, int count) {
-    //                    bean.setValue(s.toString());
-    //                }
-    //
-    //                @Override
-    //                public void afterTextChanged(Editable s) {
-    //                }
-    //            });
-    //        }
-    //
-    //        @Override
-    //        public int getItemCount() {
-    //            return mDataL.size();
-    //        }
-    //
-    //        public class MyViewHolder extends RecyclerView.ViewHolder {
-    //            TextView name;
-    //            EditText value;
-    //
-    //            public MyViewHolder(View itemView) {
-    //                super(itemView);
-    //                name = itemView.findViewById(R.id.name);
-    //                value = itemView.findViewById(R.id.value);
-    //            }
-    //        }
-    //
-    //    }
+        final NotificationParam notificationParam = new NotificationParam();
+        //根据单号去查找审核人
+        String dh = SharedPreferenceUtil.getWlRKDNumber();
+        notificationParam.setDh(dh);
+        notificationParam.setStyle(NotificationType.WL_RKD);
+
+
+        final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
+        progressDialog.show();
+
+
+        Observable.create(new ObservableOnSubscribe<ActionResult<ActionResult>>() {
+            @Override
+            public void subscribe(ObservableEmitter<ActionResult<ActionResult>> e) throws Exception {
+                ActionResult<ActionResult> nr = mainDao.sendNotification(notificationParam);
+                e.onNext(nr);
+            }
+        }).subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Consumer<ActionResult<ActionResult>>() {
+                    @Override
+                    public void accept(ActionResult<ActionResult> result) throws Exception {
+                        progressDialog.dismiss();
+                        if (result.getCode() != 0) {
+                            Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(TheApplication.getContext(), "已通知仓库管理员审核", Toast.LENGTH_SHORT).show();
+                            IntentUtil.openActivity(MaterialInDataInputActivity.this, EmployeeMainActivity.class);
+                            AllActivitiesHolder.removeAct(MaterialInDataInputActivity.this);
+                        }
+                    }
+                });
+
+    }
+
 
 }

@@ -30,6 +30,7 @@
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:padding="3dp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="8dp"
             android:src="@drawable/search"/>
@@ -47,7 +48,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dividerHeight"
         android:background="@color/divide_gray_color"/>
 
     <android.support.v7.widget.RecyclerView

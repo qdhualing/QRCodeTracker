@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/layout_back"
     tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInDataInputActivity">
 
     <com.hualing.qrcodetracker.widget.TitleBar
@@ -23,11 +24,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/white"
             android:orientation="vertical">
 
             <LinearLayout
@@ -40,8 +43,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="名称："
                     />
 
@@ -59,7 +62,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -72,8 +75,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="类别："
                     />
 
@@ -91,7 +94,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -104,8 +107,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="原料批次："
                     />
 
@@ -123,7 +126,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,8 +138,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="生产批次："
                     />
 
@@ -154,7 +157,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
 
@@ -168,8 +171,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="规格："
                     />
 
@@ -188,7 +191,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -201,8 +204,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="生产时间："
                     />
 
@@ -220,7 +223,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -233,8 +236,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="剩余数量："
                     />
                 <TextView
@@ -251,7 +254,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -263,8 +266,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="数量单位："
                     />
                 <TextView
@@ -281,7 +284,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -289,13 +292,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
+                black<TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="单位重量："
                     />
 
@@ -313,7 +316,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -326,8 +329,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="投料数量："
                     />
 
@@ -345,7 +348,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -358,8 +361,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="车间："
                     />
 
@@ -391,7 +394,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -404,8 +407,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="工序："
                     />
 
@@ -437,7 +440,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -450,8 +453,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     android:text="备注："
                     />
 
@@ -468,7 +471,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
 
@@ -480,6 +483,7 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 app:cardBackgroundColor="@color/item_back"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"

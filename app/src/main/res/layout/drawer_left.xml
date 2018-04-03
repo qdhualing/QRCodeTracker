@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:fresco="http://schemas.android.com/apk/res-auto"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:id="@+id/menu"
               android:clickable="true"
               android:layout_width="320dp"
@@ -12,6 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/shape_drawleft_top_back"
         android:paddingBottom="50dp"
         android:paddingTop="50dp">
 
@@ -33,82 +35,104 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:layout_height="match_parent"
+        android:background="@color/drawLeftBottomBack"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="昵称:"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"/>
+            android:padding="15dp">
 
-        <TextView
-            android:id="@+id/nickName"
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昵称:"
+                android:textColor="@color/drawerleft_text"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/nickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="游客"
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="游客"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="17sp"/>
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="真实姓名:"
+                android:textColor="@color/drawerleft_text"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/realName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="所属部门:"
+                android:textColor="@color/drawerleft_text"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/exitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#CD3700"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="退出登录"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"/>
+
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="真实姓名:"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"/>
-
-        <TextView
-            android:id="@+id/realName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="null"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="17sp"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="所属部门:"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"/>
-
-        <TextView
-            android:id="@+id/department"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="null"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="17sp"/>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/exitBtn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="#404040"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"
-        android:text="退出"/>
-
 
 </LinearLayout>

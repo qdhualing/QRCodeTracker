@@ -41,8 +41,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="半成品编码："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <LinearLayout
@@ -73,7 +73,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -87,8 +87,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="名称："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <EditText
@@ -103,7 +103,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -117,8 +117,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="类别："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <LinearLayout
@@ -149,7 +149,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -163,8 +163,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="原料批次："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <EditText
@@ -179,7 +179,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -193,8 +193,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="生产批次："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <EditText
@@ -209,7 +209,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -223,8 +223,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="规格："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <EditText
@@ -239,7 +239,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -253,8 +253,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="数量："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <EditText
@@ -270,7 +270,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -284,8 +284,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="单位重量："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <EditText
@@ -301,7 +301,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -314,8 +314,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="重量单位："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <EditText
@@ -330,7 +330,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -344,8 +344,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="车间："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <LinearLayout
@@ -376,7 +376,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
 
@@ -391,8 +391,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="工序："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <LinearLayout
@@ -423,7 +423,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -437,8 +437,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="所需原料："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <LinearLayout
@@ -467,68 +467,68 @@
 
             </LinearLayout>
 
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/dividerHeight"-->
+                <!--android:background="@color/divide_gray_color"/>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="20dp"-->
+                    <!--android:text="质检员："-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="@dimen/propertyNameText"-->
+                    <!--/>-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/zjyValue"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@android:color/transparent"-->
+                    <!--android:textColor="@android:color/black"-->
+                    <!--android:textSize="16sp"/>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/dividerHeight"-->
+                <!--android:background="@color/divide_gray_color"/>-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:padding="20dp"-->
+                    <!--android:text="检验状态："-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="@dimen/propertyNameText"-->
+                    <!--/>-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/jyztValue"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@android:color/transparent"-->
+                    <!--android:textColor="@android:color/black"-->
+                    <!--android:textSize="16sp"/>-->
+
+            <!--</LinearLayout>
+
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divide_gray_color"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="20dp"
-                    android:text="质检员："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
-                    />
-
-                <EditText
-                    android:id="@+id/zjyValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divide_gray_color"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="20dp"
-                    android:text="检验状态："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
-                    />
-
-                <EditText
-                    android:id="@+id/jyztValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -541,8 +541,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="检验备注："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <EditText
@@ -553,11 +553,11 @@
                     android:textColor="@android:color/black"
                     android:textSize="16sp"/>
 
-            </LinearLayout>
+            </LinearLayout>-->
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -571,8 +571,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="生产时间："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
 
@@ -592,7 +592,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -606,8 +606,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="开始时间："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <TextView
@@ -625,7 +625,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <LinearLayout
@@ -639,8 +639,8 @@
                     android:gravity="center_vertical"
                     android:padding="20dp"
                     android:text="完成时间："
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <TextView
@@ -658,7 +658,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
             <android.support.v7.widget.CardView

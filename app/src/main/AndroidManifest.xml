@@ -51,7 +51,9 @@
             android:name=".activities.main.EmployeeMainActivity"
             android:launchMode="singleTask">
         </activity>
-        <activity android:name=".activities.main.LaunchActivity">
+        <activity
+            android:name=".activities.main.LaunchActivity"
+            android:theme="@style/theme_fullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -189,6 +191,38 @@
         <activity android:name=".activities.operation_track.WlDataTrackActivity">
         </activity>
         <activity android:name=".activities.operation_track.BigCpDataTrackActivity">
+        </activity>
+        <activity android:name=".activities.main.NonHandleMsgActivity">
+        </activity>
+
+        <receiver
+            android:name=".receiver.MyReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+
+                <category android:name="com.hualing.qrcodetracker"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activities.main.QualityCheckActivity">
+        </activity>
+        <activity android:name=".activities.operation_wl.wl_in.WlInVerifyActivity">
+        </activity>
+        <activity android:name=".activities.operation_wl.wl_out.WlOutVerifyActivity">
+        </activity>
+        <activity android:name=".activities.operation_wl.wl_return.WlTkVerifyActivity">
+        </activity>
+        <activity android:name=".activities.operation_bcp.bcp_in.BcpInVerifyActivity">
+        </activity>
+        <activity android:name=".activities.operation_bcp.bcp_return.BcpOutVerifyActivity">
+        </activity>
+        <activity android:name=".activities.operation_bcp.bcp_tl.BcpTkVerifyActivity">
         </activity>
     </application>
 

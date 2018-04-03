@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/layout_back"
     tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInMainActivity">
 
     <com.hualing.qrcodetracker.widget.TitleBar
@@ -24,17 +25,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="交货部门："
-            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/department"/>
+
         <LinearLayout
             android:id="@+id/selectBM"
             android:layout_width="match_parent"
@@ -63,7 +68,7 @@
 
     <!--<View-->
     <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="1dp"-->
+    <!--android:layout_height="@dimen/dividerHeight"-->
     <!--android:background="@color/divide_gray_color"/>-->
 
     <!--<LinearLayout-->
@@ -94,28 +99,26 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dividerHeight"
         android:background="@color/divide_gray_color"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="收货人："
-            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/person"/>
 
         <EditText
             android:id="@+id/ShrValue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:hint="收货人"
             android:background="@android:color/transparent"
             android:textColor="@android:color/black"
             android:textSize="16sp"/>
@@ -124,28 +127,26 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dividerHeight"
         android:background="@color/divide_gray_color"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="收货负责人："
-            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/person"/>
 
         <EditText
             android:id="@+id/ShFzrValue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:hint="收货负责人"
             android:background="@android:color/transparent"
             android:textColor="@android:color/black"
             android:textSize="16sp"/>
@@ -154,28 +155,26 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dividerHeight"
         android:background="@color/divide_gray_color"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="交货负责人："
-            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/person"/>
 
         <EditText
             android:id="@+id/JhFhrValue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:hint="交货负责人"
             android:background="@android:color/transparent"
             android:textColor="@android:color/black"
             android:textSize="16sp"/>
@@ -184,27 +183,25 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dividerHeight"
         android:background="@color/divide_gray_color"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="备注："
-            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/remark"/>
 
         <EditText
             android:id="@+id/remarkValue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:hint="备注"
             android:background="@android:color/transparent"
             android:textColor="@android:color/black"
             android:textSize="16sp"/>
@@ -213,7 +210,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dividerHeight"
         android:background="@color/divide_gray_color"/>
 
     <android.support.v7.widget.CardView
@@ -223,6 +220,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_height="70dp"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         app:cardElevation="5dp"
         app:contentPadding="10dp"
@@ -240,5 +238,7 @@
             android:textSize="15sp"/>
 
     </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 
 </LinearLayout>

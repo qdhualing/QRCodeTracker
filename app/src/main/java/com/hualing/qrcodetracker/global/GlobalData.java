@@ -304,5 +304,13 @@ public class GlobalData {
         public static final String BCP_TRACK = "bcpTrack";
         public static final String SMALL_CP_TRACK = "smallCpTrack";
         public static final String BIG_CP_TRACK = "bigCpTrack";
+        public static final String SEND_NOTIFICATION = "sendNotification";
+        public static final String GET_NON_CHECK_DATA = "getNonCheckData";
+        public static final String GET_WLIN_VERIFY_DATA = "getWlInVerifyData";
+        public static final String GET_WLOUT_VERIFY_DATA = "getWlOutVerifyData";
+        public static final String GET_WLTK_VERIFY_DATA = "getWlTkVerifyData";
+        public static final String GET_BCPIN_VERIFY_DATA = "getBcpInVerifyData";
+        public static final String GET_CPOUT_VERIFY_DATA = "getCpOutVerifyData";
+        public static final String GET_BCPTK_VERIFY_DATA = "getBcpTkVerifyData";
     }
 }

@@ -161,7 +161,7 @@ public class WLTKDInputActivity extends BaseActivity {
                 || TextUtils.isEmpty(shrValue)
                 || TextUtils.isEmpty(shfzrValue)
                 || TextUtils.isEmpty(thfzrValue)
-                || TextUtils.isEmpty(remarkValue)
+//                || TextUtils.isEmpty(remarkValue)
                 ) {
             return false;
         }

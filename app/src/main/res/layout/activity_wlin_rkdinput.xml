@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/layout_back"
     android:orientation="vertical"
     tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInMainActivity">
 
@@ -21,187 +22,178 @@
         app:title_textSize="@dimen/titleBar_textSize">
     </com.hualing.qrcodetracker.widget.TitleBar>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@android:color/white"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="发货单位："
-            />
-
-        <EditText
-            android:id="@+id/FhDwValue"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/divide_gray_color"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="收货日期："
-            />
-
-        <!--<EditText-->
-            <!--android:id="@+id/ShRqValue"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="@android:color/transparent"-->
-            <!--android:textColor="@android:color/black"-->
-            <!--android:textSize="16sp"/>-->
-        <TextView
-            android:id="@+id/ShRqValue"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="请选择收获日期"
-            android:gravity="center_vertical"/>
-
-    </LinearLayout>
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="@color/divide_gray_color"/>-->
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:maxWidth="110dp"-->
-            <!--android:padding="20dp"-->
-            <!--android:textColor="@color/divide_dark_gray_color"-->
-            <!--android:textSize="14sp"-->
-            <!--android:text="入库单号："-->
-            <!--/>-->
-
-        <!--<EditText-->
-            <!--android:id="@+id/InDhValue"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="@android:color/transparent"-->
-            <!--android:textColor="@android:color/black"-->
-            <!--android:textSize="16sp"/>-->
-
-    <!--</LinearLayout>-->
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/divide_gray_color"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="收货人："
-            />
-
-        <EditText
-            android:id="@+id/ShrValue"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/divide_gray_color"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:textColor="@color/divide_dark_gray_color"
-            android:textSize="14sp"
-            android:text="发货人："
-            />
-
-        <EditText
-            android:id="@+id/FhrValue"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/divide_gray_color"/>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/commitBtn"
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        app:cardElevation="5dp"
-        app:contentPadding="10dp"
-        app:cardUseCompatPadding="true"
-        app:cardBackgroundColor="@color/item_back"
-        app:cardCornerRadius="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="确认生成"
-            android:textColor="@android:color/white"
-            android:textSize="15sp"/>
+            android:orientation="horizontal"
+            android:padding="20dp">
 
-    </android.support.v7.widget.CardView>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/company"/>
+
+            <EditText
+                android:id="@+id/FhDwValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="发货单位"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/divide_gray_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/date"/>
+
+            <TextView
+                android:id="@+id/ShRqValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="请选择收获日期"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/divide_gray_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/person"/>
+
+            <EditText
+                android:id="@+id/ShrValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="仓库收货人"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/divide_gray_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/person"/>
+
+            <EditText
+                android:id="@+id/ShFzrValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="仓库负责人"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/divide_gray_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/person"/>
+
+            <EditText
+                android:id="@+id/JhFzrValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="入库方负责人"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/divide_gray_color"/>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/commitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/item_back"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="确认生成"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"/>
+
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 
 </LinearLayout>

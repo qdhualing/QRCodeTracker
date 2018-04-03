@@ -17,9 +17,11 @@ import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.BigCpOutGetDataParam;
 import com.hualing.qrcodetracker.bean.BigCpOutGetDataResult;
 import com.hualing.qrcodetracker.bean.BigCpOutParam;
+import com.hualing.qrcodetracker.bean.NotificationParam;
 import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.global.TheApplication;
+import com.hualing.qrcodetracker.model.NotificationType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.IntentUtil;
 import com.hualing.qrcodetracker.util.SharedPreferenceUtil;
@@ -174,9 +176,8 @@ public class BigCPOutDataInputActivity extends BaseActivity {
                                     .setNegativeButton("不了", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            AllActivitiesHolder.removeAct(BigCPOutDataInputActivity.this);
-
-                                            //这里调接口发推送
+                                            //调接口发推送审核
+                                            sendNotification();
 
                                         }
                                     })
@@ -185,4 +186,43 @@ public class BigCPOutDataInputActivity extends BaseActivity {
                     }
                 });
     }
+
+
+    private void sendNotification() {
+
+        final NotificationParam notificationParam = new NotificationParam();
+        //根据单号去查找审核人
+        String dh = SharedPreferenceUtil.getBCPCKDNumber();
+        notificationParam.setDh(dh);
+        notificationParam.setStyle(NotificationType.CP_CKD);
+
+
+        final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
+        progressDialog.show();
+
+
+        Observable.create(new ObservableOnSubscribe<ActionResult<ActionResult>>() {
+            @Override
+            public void subscribe(ObservableEmitter<ActionResult<ActionResult>> e) throws Exception {
+                ActionResult<ActionResult> nr = mainDao.sendNotification(notificationParam);
+                e.onNext(nr);
+            }
+        }).subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Consumer<ActionResult<ActionResult>>() {
+                    @Override
+                    public void accept(ActionResult<ActionResult> result) throws Exception {
+                        progressDialog.dismiss();
+                        if (result.getCode() != 0) {
+                            Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(TheApplication.getContext(), "已通知仓库管理员审核", Toast.LENGTH_SHORT).show();
+                            AllActivitiesHolder.removeAct(BigCPOutDataInputActivity.this);
+
+                        }
+                    }
+                });
+
+    }
+
 }

@@ -35,7 +35,7 @@ public class Logger {
 		Log.i(tag, text);
 	}
 
-	public static void w(String tag, String text) {
+	public static void w(String tag, String text, Exception e) {
 		Log.w(tag, text);
 	}
 }

@@ -19,9 +19,11 @@ import com.hualing.qrcodetracker.activities.operation_wl.wl_in.SelectHlSortActiv
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.BigCPINParam;
+import com.hualing.qrcodetracker.bean.NotificationParam;
 import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.global.TheApplication;
+import com.hualing.qrcodetracker.model.NotificationType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.IntentUtil;
 import com.hualing.qrcodetracker.util.SharedPreferenceUtil;
@@ -61,12 +63,12 @@ public class BigCPInDataInputActivity extends BaseActivity {
     EditText mDwzlValue;
     @BindView(R.id.dwValue)
     EditText mDwValue;
-    @BindView(R.id.zjyValue)
-    EditText mZjyValue;
-    @BindView(R.id.jyztValue)
-    EditText mJyztValue;
-    @BindView(R.id.jybzValue)
-    EditText mJybzValue;
+//    @BindView(R.id.zjyValue)
+//    EditText mZjyValue;
+//    @BindView(R.id.jyztValue)
+//    EditText mJyztValue;
+//    @BindView(R.id.jybzValue)
+//    EditText mJybzValue;
     @BindView(R.id.scTimeValue)
     TextView mScTimeValue;
 
@@ -225,10 +227,48 @@ public class BigCPInDataInputActivity extends BaseActivity {
                                     .setNegativeButton("已录入完毕", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            AllActivitiesHolder.removeAct(BigCPInDataInputActivity.this);
+                                            //调接口发推送审核
+                                            sendNotification();
                                         }
                                     })
                                     .show();
+                        }
+                    }
+                });
+
+    }
+
+    private void sendNotification() {
+
+        final NotificationParam notificationParam = new NotificationParam();
+        //根据单号去查找审核人
+        String dh = SharedPreferenceUtil.getBCPRKDNumber();
+        notificationParam.setDh(dh);
+        notificationParam.setStyle(NotificationType.CP_RKD);
+
+
+        final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
+        progressDialog.show();
+
+
+        Observable.create(new ObservableOnSubscribe<ActionResult<ActionResult>>() {
+            @Override
+            public void subscribe(ObservableEmitter<ActionResult<ActionResult>> e) throws Exception {
+                ActionResult<ActionResult> nr = mainDao.sendNotification(notificationParam);
+                e.onNext(nr);
+            }
+        }).subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Consumer<ActionResult<ActionResult>>() {
+                    @Override
+                    public void accept(ActionResult<ActionResult> result) throws Exception {
+                        progressDialog.dismiss();
+                        if (result.getCode() != 0) {
+                            Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(TheApplication.getContext(), "已通知仓库管理员审核", Toast.LENGTH_SHORT).show();
+                            AllActivitiesHolder.removeAct(BigCPInDataInputActivity.this);
+
                         }
                     }
                 });
@@ -244,9 +284,9 @@ public class BigCPInDataInputActivity extends BaseActivity {
         String ggValue = mGgValue.getText().toString();
         String dwzlValue = mDwzlValue.getText().toString();
         String dwValue = mDwValue.getText().toString();
-        String zjyValue = mZjyValue.getText().toString();
-        String jyztValue = mJyztValue.getText().toString();
-        String jybzValue = mJybzValue.getText().toString();
+//        String zjyValue = mZjyValue.getText().toString();
+//        String jyztValue = mJyztValue.getText().toString();
+//        String jybzValue = mJybzValue.getText().toString();
         String scTimeValue = mScTimeValue.getText().toString();
         if ("请选择成品编码".equals(cpCodeValue)
                 || TextUtils.isEmpty(nameValue)
@@ -256,8 +296,8 @@ public class BigCPInDataInputActivity extends BaseActivity {
                 || TextUtils.isEmpty(ggValue)
                 || TextUtils.isEmpty(dwzlValue)
                 || TextUtils.isEmpty(dwValue)
-                || TextUtils.isEmpty(zjyValue)
-                || TextUtils.isEmpty(jyztValue)
+//                || TextUtils.isEmpty(zjyValue)
+//                || TextUtils.isEmpty(jyztValue)
                 || "请选择生产时间".equals(scTimeValue)
                 ) {
             Toast.makeText(this, "录入信息不完整", Toast.LENGTH_SHORT).show();
@@ -272,10 +312,10 @@ public class BigCPInDataInputActivity extends BaseActivity {
         params.setGg(ggValue);
         params.setDwzl(Float.parseFloat(dwzlValue));
         params.setDw(dwValue);
-        params.setZjy(zjyValue);
+//        params.setZjy(zjyValue);
         params.setScTime(scTimeValue);
-        params.setJyzt(jyztValue);
-        params.setJybz(jybzValue);
+//        params.setJyzt(jyztValue);
+//        params.setJybz(jybzValue);
         params.setCzy(GlobalData.realName);
         params.setQrCodeId(mQrcodeId);
         params.setBz(1);

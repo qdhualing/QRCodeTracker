@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/layout_back"
     tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInMainActivity">
 
     <com.hualing.qrcodetracker.widget.TitleBar
@@ -27,16 +28,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:background="@android:color/darker_gray"
+        android:background="@android:color/white"
         android:padding="15dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/big"
+            android:layout_marginRight="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="大包装入库"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"/>
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
 
     </LinearLayout>
     <LinearLayout
@@ -44,16 +52,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:background="@android:color/darker_gray"
+        android:background="@android:color/white"
         android:padding="15dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/small"
+            android:layout_marginRight="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="小包装入库"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"/>
+            android:layout_gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 

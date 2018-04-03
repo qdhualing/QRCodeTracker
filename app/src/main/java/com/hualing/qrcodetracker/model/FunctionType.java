@@ -44,4 +44,10 @@ public class FunctionType {
     //追溯业务线
     public static final int DATA_TRACK = 39;
 
+    //审核业务线
+    public static final int VERIFY = 40;
+
+    //质检业务线
+    public static final int QUALITY_CHECKING = 41;
+
 }

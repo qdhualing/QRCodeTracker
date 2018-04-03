@@ -19,6 +19,7 @@ import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.global.TheApplication;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.IntentUtil;
+import com.hualing.qrcodetracker.util.JPushUtil;
 import com.hualing.qrcodetracker.util.SharedPreferenceUtil;
 import com.hualing.qrcodetracker.widget.TitleBar;
 
@@ -148,6 +149,10 @@ public class EmployeeLoginActivity extends BaseActivity {
                             GlobalData.userId = String.valueOf(loginResult.getUserId());
                             GlobalData.userName = loginResult.getUserName();
                             GlobalData.realName = loginResult.getTrueName();
+
+                            //设置JPush别名
+                            JPushUtil.setAlias(EmployeeLoginActivity.this,GlobalData.realName);
+
                             //之后获取和用户相关的服务就不需要额外传userId了
                             YoniClient.getInstance().setUser(GlobalData.userId);
                             AllActivitiesHolder.removeAct(EmployeeLoginActivity.this);
@@ -172,5 +177,6 @@ public class EmployeeLoginActivity extends BaseActivity {
     public void onViewClicked() {
         toLogin();
     }
+
 }
 

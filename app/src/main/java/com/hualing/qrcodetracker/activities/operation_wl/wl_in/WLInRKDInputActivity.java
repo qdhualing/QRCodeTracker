@@ -21,6 +21,7 @@ import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.CreateWLRKDParam;
 import com.hualing.qrcodetracker.bean.WLRKDResult;
 import com.hualing.qrcodetracker.dao.MainDao;
+import com.hualing.qrcodetracker.global.GlobalData;
 import com.hualing.qrcodetracker.global.TheApplication;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
 import com.hualing.qrcodetracker.util.IntentUtil;
@@ -49,12 +50,14 @@ public class WLInRKDInputActivity extends BaseActivity {
     //    EditText mShRqValue;
     @BindView(R.id.ShRqValue)
     TextView mShRqValue;
-//    @BindView(R.id.InDhValue)
-//    EditText mInDhValue;
+    //    @BindView(R.id.InDhValue)
+    //    EditText mInDhValue;
     @BindView(R.id.ShrValue)
     EditText mShrValue;
-    @BindView(R.id.FhrValue)
-    EditText mFhrValue;
+    @BindView(R.id.ShFzrValue)
+    EditText mShFzrValue;
+    @BindView(R.id.JhFzrValue)
+    EditText mJhFzrValue;
     private MainDao mainDao;
 
     private CreateWLRKDParam params;
@@ -103,21 +106,25 @@ public class WLInRKDInputActivity extends BaseActivity {
     private boolean checkDataIfCompleted() {
         String fhdwValue = mFhDwValue.getText().toString();
         String shrqValue = mShRqValue.getText().toString();
-//        String indhValue = mInDhValue.getText().toString();
+        //        String indhValue = mInDhValue.getText().toString();
         String shrValue = mShrValue.getText().toString();
-        String fhrValue = mFhrValue.getText().toString();
+        String shfzrValue = mShFzrValue.getText().toString();
+        String jhfzrValue = mJhFzrValue.getText().toString();
         if (TextUtils.isEmpty(fhdwValue)
                 || "请选择收获日期".equals(shrqValue)
-//                || TextUtils.isEmpty(indhValue)
+                //                || TextUtils.isEmpty(indhValue)
                 || TextUtils.isEmpty(shrValue)
-                || TextUtils.isEmpty(fhrValue)) {
+                || TextUtils.isEmpty(jhfzrValue)
+                || TextUtils.isEmpty(shfzrValue)) {
             return false;
         }
         params.setFhDw(fhdwValue);
         params.setShRq(shrqValue);
         //        params.setInDh(indhValue);
         params.setShr(shrValue);
-        params.setFhr(fhrValue);
+        params.setShFzr(shfzrValue);
+        params.setFhr(GlobalData.realName);
+        params.setJhFzr(jhfzrValue);
         return true;
     }
 
@@ -177,35 +184,10 @@ public class WLInRKDInputActivity extends BaseActivity {
                     @Override
                     public void accept(ActionResult<WLRKDResult> result) throws Exception {
                         progressDialog.dismiss();
-                        //                        if (result.getCode() == 2) {//入库单已存在
-                        //                            //保存物料入库单号
-                        //                            SharedPreferenceUtil.setWlRKDNumber(mInDhValue.getText().toString());
-                        //
-                        //                            IntentUtil.openActivity(WLInRKDInputActivity.this, ScanActivity.class);
-                        //                            AllActivitiesHolder.removeAct(WLInRKDInputActivity.this);
-                        ////                            new AlertDialog.Builder(WLInRKDInputActivity.this)
-                        ////                                    .setCancelable(false)
-                        ////                                    .setTitle("提示")
-                        ////                                    .setMessage("此入库单已存在，是否继续向其扫码录入数据？")
-                        ////                                    .setPositiveButton("继续扫码录入", new DialogInterface.OnClickListener() {
-                        ////                                        @Override
-                        ////                                        public void onClick(DialogInterface dialog, int which) {
-                        ////                                            IntentUtil.openActivity(WLInRKDInputActivity.this, ScanActivity.class);
-                        ////                                            AllActivitiesHolder.removeAct(WLInRKDInputActivity.this);
-                        ////                                        }
-                        ////                                    })
-                        ////                                    .setNegativeButton("作废此入库单", new DialogInterface.OnClickListener() {
-                        ////                                        @Override
-                        ////                                        public void onClick(DialogInterface dialog, int which) {
-                        ////                                            deleteRKD();
-                        ////                                        }
-                        ////                                    })
-                        ////                                    .show();
-                        //                        } else
                         if (result.getCode() == 0) {
                             Toast.makeText(TheApplication.getContext(), "入库单创建成功~", Toast.LENGTH_SHORT).show();
                             //保存物料入库单号
-//                            SharedPreferenceUtil.setWlRKDNumber(mInDhValue.getText().toString());
+                            //                            SharedPreferenceUtil.setWlRKDNumber(mInDhValue.getText().toString());
                             WLRKDResult rkdResult = result.getResult();
                             SharedPreferenceUtil.setWlRKDNumber(String.valueOf(rkdResult.getInDh()));
                             IntentUtil.openActivity(WLInRKDInputActivity.this, ScanActivity.class);

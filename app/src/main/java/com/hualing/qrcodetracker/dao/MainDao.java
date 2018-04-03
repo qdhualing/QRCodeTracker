@@ -9,9 +9,11 @@ import com.hualing.qrcodetracker.bean.BCPTKDResult;
 import com.hualing.qrcodetracker.bean.BCPTKGetShowDataParam;
 import com.hualing.qrcodetracker.bean.BCPTKParam;
 import com.hualing.qrcodetracker.bean.BCPTKShowDataResult;
+import com.hualing.qrcodetracker.bean.BcpInVerifyResult;
 import com.hualing.qrcodetracker.bean.BcpThrowGetShowDataParam;
 import com.hualing.qrcodetracker.bean.BcpThrowParam;
 import com.hualing.qrcodetracker.bean.BcpThrowShowDataResult;
+import com.hualing.qrcodetracker.bean.BcpTkVerifyResult;
 import com.hualing.qrcodetracker.bean.BcpTrackResult;
 import com.hualing.qrcodetracker.bean.BigCpOutGetDataParam;
 import com.hualing.qrcodetracker.bean.BigCpOutGetDataResult;
@@ -20,6 +22,7 @@ import com.hualing.qrcodetracker.bean.BigCpResult;
 import com.hualing.qrcodetracker.bean.BigCpTrackResult;
 import com.hualing.qrcodetracker.bean.CJResult;
 import com.hualing.qrcodetracker.bean.BigCPINParam;
+import com.hualing.qrcodetracker.bean.CpOutVerifyResult;
 import com.hualing.qrcodetracker.bean.CreateBCPCKDParam;
 import com.hualing.qrcodetracker.bean.CreateBCPRKDParam;
 import com.hualing.qrcodetracker.bean.CreateBCPTKDParam;
@@ -39,6 +42,8 @@ import com.hualing.qrcodetracker.bean.MainParams;
 import com.hualing.qrcodetracker.bean.MainResult;
 import com.hualing.qrcodetracker.bean.MaterialInParams;
 import com.hualing.qrcodetracker.bean.MaterialOutParams;
+import com.hualing.qrcodetracker.bean.NonCheckResult;
+import com.hualing.qrcodetracker.bean.NotificationParam;
 import com.hualing.qrcodetracker.bean.PdtSortResult;
 import com.hualing.qrcodetracker.bean.ProductInParams;
 import com.hualing.qrcodetracker.bean.ProductOutParams;
@@ -49,6 +54,7 @@ import com.hualing.qrcodetracker.bean.SmallCpOutGetDataResult;
 import com.hualing.qrcodetracker.bean.SmallCpOutParam;
 import com.hualing.qrcodetracker.bean.SmallCpTrackResult;
 import com.hualing.qrcodetracker.bean.UserGroupResult;
+import com.hualing.qrcodetracker.bean.VerifyParam;
 import com.hualing.qrcodetracker.bean.WLCKDResult;
 import com.hualing.qrcodetracker.bean.WLINParam;
 import com.hualing.qrcodetracker.bean.WLOutGetShowDataParam;
@@ -62,6 +68,9 @@ import com.hualing.qrcodetracker.bean.WLTKShowDataResult;
 import com.hualing.qrcodetracker.bean.WLThrowGetShowDataParam;
 import com.hualing.qrcodetracker.bean.WLThrowParam;
 import com.hualing.qrcodetracker.bean.WLThrowShowDataResult;
+import com.hualing.qrcodetracker.bean.WlInVerifyResult;
+import com.hualing.qrcodetracker.bean.WlOutVerifyResult;
+import com.hualing.qrcodetracker.bean.WlTkVerifyResult;
 import com.hualing.qrcodetracker.bean.WlTrackParam;
 import com.hualing.qrcodetracker.bean.WlTrackResult;
 import com.hualing.qrcodetracker.global.GlobalData;
@@ -208,4 +217,28 @@ public interface MainDao {
 
     @ActionRequest(func = GlobalData.Service.BIG_CP_TRACK)
     ActionResult<BigCpTrackResult> getBigCpTrackShowData(WlTrackParam param);
+
+    @ActionRequest(func = GlobalData.Service.SEND_NOTIFICATION)
+    ActionResult<ActionResult> sendNotification(NotificationParam notificationParam);
+
+    @ActionRequest(func = GlobalData.Service.GET_NON_CHECK_DATA)
+    ActionResult<NonCheckResult> getNonCheckData(MainParams params);
+
+    @ActionRequest(func = GlobalData.Service.GET_WLIN_VERIFY_DATA)
+    ActionResult<WlInVerifyResult> getWlInVerifyData(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.GET_WLOUT_VERIFY_DATA)
+    ActionResult<WlOutVerifyResult> getWlOutVerifyData(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.GET_WLTK_VERIFY_DATA)
+    ActionResult<WlTkVerifyResult> getWlTkVerifyData(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.GET_BCPIN_VERIFY_DATA)
+    ActionResult<BcpInVerifyResult> getBcpInVerifyData(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.GET_CPOUT_VERIFY_DATA)
+    ActionResult<CpOutVerifyResult> getCpOutVerifyData(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.GET_BCPTK_VERIFY_DATA)
+    ActionResult<BcpTkVerifyResult> getBcpTkVerifyData(VerifyParam param);
 }

@@ -11,6 +11,9 @@
     <dimen name="functionItemHeight">80dp</dimen>
 
     <dimen name="infoShowTextSize">17sp</dimen>
-    <dimen name="singleLogoSize">40dp</dimen>
+    <dimen name="singleLogoSize">50dp</dimen>
 
+    <dimen name="dividerHeight">0.5dp</dimen>
+    <dimen name="propertyNameText">16sp</dimen>
+    <dimen name="mainItemSize">130dp</dimen>
 </resources>

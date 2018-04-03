@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#303030</color>
-    <color name="colorPrimaryDark">#303030</color>
+    <color name="colorPrimary">#43CD80</color>
+    <color name="colorPrimaryDark">#43CD80</color>
     <color name="colorAccent">#20B2AA</color>
 
     <color name="titleBar_textColor">@android:color/white</color>
@@ -10,6 +10,11 @@
 
     <color name="divide_dark_gray_color">#878787</color>
 
-    <color name="item_back">#20B2AA</color>
+    <color name="item_back">#43CD80</color>
+    <color name="layout_back">#EDEDED</color>
+    <color name="black">#000000</color>
+    <color name="drawLeftBack">#CAE1FF</color>
+    <color name="drawLeftBottomBack">#BCD2EE</color>
+    <color name="drawerleft_text">#5B5B5B</color>
 
 </resources>

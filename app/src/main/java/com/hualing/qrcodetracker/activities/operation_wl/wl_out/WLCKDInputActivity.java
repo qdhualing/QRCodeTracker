@@ -111,31 +111,6 @@ public class WLCKDInputActivity extends BaseActivity {
                     @Override
                     public void accept(ActionResult<WLCKDResult> result) throws Exception {
                         progressDialog.dismiss();
-                        //                        if (result.getCode() == 2) {//入库单已存在
-                        //                            //保存物料入库单号
-                        //                            SharedPreferenceUtil.setWlRKDNumber(mInDhValue.getText().toString());
-                        //
-                        //                            IntentUtil.openActivity(WLInRKDInputActivity.this, ScanActivity.class);
-                        //                            AllActivitiesHolder.removeAct(WLInRKDInputActivity.this);
-                        ////                            new AlertDialog.Builder(WLInRKDInputActivity.this)
-                        ////                                    .setCancelable(false)
-                        ////                                    .setTitle("提示")
-                        ////                                    .setMessage("此入库单已存在，是否继续向其扫码录入数据？")
-                        ////                                    .setPositiveButton("继续扫码录入", new DialogInterface.OnClickListener() {
-                        ////                                        @Override
-                        ////                                        public void onClick(DialogInterface dialog, int which) {
-                        ////                                            IntentUtil.openActivity(WLInRKDInputActivity.this, ScanActivity.class);
-                        ////                                            AllActivitiesHolder.removeAct(WLInRKDInputActivity.this);
-                        ////                                        }
-                        ////                                    })
-                        ////                                    .setNegativeButton("作废此入库单", new DialogInterface.OnClickListener() {
-                        ////                                        @Override
-                        ////                                        public void onClick(DialogInterface dialog, int which) {
-                        ////                                            deleteRKD();
-                        ////                                        }
-                        ////                                    })
-                        ////                                    .show();
-                        //                        } else
                         if (result.getCode() == 0) {
                             Toast.makeText(TheApplication.getContext(), "出库单创建成功~", Toast.LENGTH_SHORT).show();
                             //保存物料出库单号
@@ -162,7 +137,7 @@ public class WLCKDInputActivity extends BaseActivity {
                 || TextUtils.isEmpty(flrValue)
                 || TextUtils.isEmpty(flfzrValue)
                 || TextUtils.isEmpty(llfzrValue)
-                || TextUtils.isEmpty(remarkValue)
+//                || TextUtils.isEmpty(remarkValue)
                 ) {
             return false;
         }

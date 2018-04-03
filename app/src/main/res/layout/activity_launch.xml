@@ -7,12 +7,31 @@
     android:layout_height="match_parent"
     >
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="启动页"
-        android:textSize="20sp"
+        android:src="@drawable/launch"
+        />
+
+    <TextView
+        android:id="@+id/a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:text="©copyright by 青岛华凌科技有限公司"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        />
+
+    <TextView
+        android:layout_above="@id/a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="二维码追溯系统"
+        android:layout_centerHorizontal="true"
         />
 
 </RelativeLayout>
