@@ -1,35 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/layout_back"
-    tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInDataInputActivity">
-
-    <com.hualing.qrcodetracker.widget.TitleBar
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/titleBar_Height"
-        app:background_color="@color/colorPrimary"
-        app:leftButton_size="20dp"
-        app:left_img="@drawable/last"
-        app:rightButton_size="20dp"
-        app:text_content="小包装出库"
-        app:title_textColor="@color/titleBar_textColor"
-        app:title_textSize="@dimen/titleBar_textSize">
-    </com.hualing.qrcodetracker.widget.TitleBar>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#EED8AE"
+              android:orientation="vertical"
+              android:padding="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
             android:orientation="vertical">
 
             <LinearLayout
@@ -42,9 +22,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
+                    android:text="名称："
                     android:textColor="@color/black"
                     android:textSize="@dimen/propertyNameText"
-                    android:text="名称："
                     />
 
                 <TextView
@@ -52,9 +32,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="16sp"
-                    android:gravity="center_vertical"
                     />
 
             </LinearLayout>
@@ -74,9 +54,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
+                    android:text="类别："
                     android:textColor="@color/black"
                     android:textSize="@dimen/propertyNameText"
-                    android:text="类别："
                     />
 
                 <TextView
@@ -84,9 +64,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="16sp"
-                    android:gravity="center_vertical"
                     />
 
             </LinearLayout>
@@ -106,9 +86,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
+                    android:text="原料批次："
                     android:textColor="@color/black"
                     android:textSize="@dimen/propertyNameText"
-                    android:text="原料批次："
                     />
 
                 <TextView
@@ -116,9 +96,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="16sp"
-                    android:gravity="center_vertical"
                     />
 
             </LinearLayout>
@@ -127,6 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -137,9 +118,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
+                    android:text="生产批次："
                     android:textColor="@color/black"
                     android:textSize="@dimen/propertyNameText"
-                    android:text="生产批次："
                     />
 
                 <TextView
@@ -147,46 +128,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="16sp"
-                    android:gravity="center_vertical"
                     />
 
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dividerHeight"
-                android:background="@color/divide_gray_color"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="20dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/propertyNameText"
-                    android:text="规格："
-                    />
-
-                <TextView
-                    android:id="@+id/ggValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/divide_dark_gray_color"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    />
-
-            </LinearLayout>
-
 
             <View
                 android:layout_width="match_parent"
@@ -203,9 +150,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/propertyNameText"
                     android:text="生产时间："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
                     />
 
                 <TextView
@@ -213,10 +160,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
                     android:textColor="@color/divide_dark_gray_color"
                     android:textSize="16sp"
-                    android:maxLength="19"
-                    android:gravity="center_vertical"
                     />
 
             </LinearLayout>
@@ -237,19 +183,20 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:padding="20dp"
+                    android:text="单位重量："
                     android:textColor="@color/black"
                     android:textSize="@dimen/propertyNameText"
-                    android:text="备注："
                     />
 
-                <EditText
-                    android:id="@+id/remarkValue"
+                <TextView
+                    android:id="@+id/dwZhlValue"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
                     android:textSize="16sp"
-                    android:maxLength="75"/>
+                    />
 
             </LinearLayout>
 
@@ -258,36 +205,69 @@
                 android:layout_height="@dimen/dividerHeight"
                 android:background="@color/divide_gray_color"/>
 
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/commitBtn"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                app:cardBackgroundColor="@color/item_back"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp"
-                app:cardUseCompatPadding="true"
-                app:contentPadding="10dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="确认出库"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"/>
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="退库数量："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
 
-            </android.support.v7.widget.CardView>
+                <EditText
+                    android:id="@+id/tkShlValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:inputType="numberDecimal"
+                    android:maxLength="75"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="备注："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <EditText
+                    android:id="@+id/remarkValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:maxLength="75"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
 
         </LinearLayout>
-
-    </ScrollView>
-
 
 </LinearLayout>

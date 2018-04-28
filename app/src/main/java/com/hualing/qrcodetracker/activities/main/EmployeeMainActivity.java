@@ -59,7 +59,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class EmployeeMainActivity extends BaseActivity {
 
-    private static final int PAGE_NUM = 2;
     @BindView(R.id.toolBar)
     Toolbar mToolBar;
     @BindView(R.id.drawerLayout)
@@ -83,6 +82,8 @@ public class EmployeeMainActivity extends BaseActivity {
     ImageView mDot1;
     @BindView(R.id.dot2)
     ImageView mDot2;
+    @BindView(R.id.dot3)
+    ImageView mDot3;
     private ActionBarDrawerToggle mDrawerToggle;
 
     //    private List<Map> mFunctionsData;
@@ -195,6 +196,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 //首先全部置为未选中
                 mDot1.setSelected(false);
                 mDot2.setSelected(false);
+                mDot3.setSelected(false);
                 //其次单独设置选中的
                 switch (position) {
                     case 0:
@@ -202,6 +204,9 @@ public class EmployeeMainActivity extends BaseActivity {
                         break;
                     case 1:
                         mDot2.setSelected(true);
+                        break;
+                    case 2:
+                        mDot3.setSelected(true);
                         break;
                 }
             }
@@ -295,6 +300,17 @@ public class EmployeeMainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        boolean ifGo = false ;
+        for (Module2 module2 : mCanUseList) {
+            if ("审核".equals(module2.getMname())) {
+                ifGo = true ;
+            }
+        }
+        if (!ifGo) {
+            return;
+        }
+
         mainDao = YoniClient.getInstance().create(MainDao.class);
 
         final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
@@ -407,7 +423,14 @@ public class EmployeeMainActivity extends BaseActivity {
                 //点击未读消息按钮
                 //                SharedPreferenceUtil.saveIfHasUnreadMsg(false);
                 //                mUnreadState.setUnreadState(SharedPreferenceUtil.checkIfHasUnreadMsg());
-                IntentUtil.openActivity(EmployeeMainActivity.this, NonHandleMsgActivity.class);
+                for (Module2 module2 : mCanUseList) {
+                    if ("审核".equals(module2.getMname())) {
+                        GlobalData.currentFunctionType = FunctionType.VERIFY;
+                        toWhere(GlobalData.currentFunctionType);
+                        return;
+                    }
+                }
+                Toast.makeText(EmployeeMainActivity.this, "当前用户无此权限", Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -532,6 +555,9 @@ public class EmployeeMainActivity extends BaseActivity {
             case FunctionType.QUALITY_CHECKING:
                 IntentUtil.openActivity(EmployeeMainActivity.this, ScanActivity.class);
                 break;
+            case FunctionType.MODIFY_DATA:
+                IntentUtil.openActivity(EmployeeMainActivity.this, ModifyDataActivity.class);
+                break;
         }
 
     }
@@ -541,6 +567,7 @@ public class EmployeeMainActivity extends BaseActivity {
         //要切换的View
         private View view1;
         private View view2;
+        private View view3;
         //view集合
         private List<View> views;
 
@@ -721,11 +748,22 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             views.add(view2);
+
+            view3 = View.inflate(EmployeeMainActivity.this, R.layout.banner_layout_three_pager, null);
+            CardView modifyBtn = view3.findViewById(R.id.modifyData);
+            modifyBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    GlobalData.currentFunctionType = FunctionType.MODIFY_DATA;
+                    toWhere(GlobalData.currentFunctionType);
+                }
+            });
+            views.add(view3);
         }
 
         @Override
         public int getCount() {
-            return PAGE_NUM;
+            return views.size();
         }
 
         @Override

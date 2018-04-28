@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/layout_back"
+    tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInMainActivity">
+
+    <com.hualing.qrcodetracker.widget.TitleBar
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBar_Height"
+        app:background_color="@color/colorPrimary"
+        app:leftButton_size="20dp"
+        app:left_img="@drawable/last"
+        app:rightButton_size="20dp"
+        app:text_content="数据修改"
+        app:title_textColor="@color/titleBar_textColor"
+        app:title_textSize="@dimen/titleBar_textSize">
+    </com.hualing.qrcodetracker.widget.TitleBar>
+
+    <com.hualing.qrcodetracker.widget.pull2refresh.PullToRefreshLayout
+        android:id="@+id/refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <include layout="@layout/refresh_head"/>
+
+        <com.hualing.qrcodetracker.widget.pull2refresh.pullableview.PullableListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/divide_gray_color"
+            android:dividerHeight="0.5dp"
+            android:scrollbarThumbVertical="@android:color/transparent"/>
+
+        <include layout="@layout/load_more"/>
+
+    </com.hualing.qrcodetracker.widget.pull2refresh.PullToRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/noDataTip"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/nodatatip"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="尚无可修改数据"
+                android:textColor="#8A96A3"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

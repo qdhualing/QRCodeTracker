@@ -1,10 +1,1467 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hualing.qrcodetracker.activities.main.QualityCheckActivity">
+    android:background="@color/layout_back"
+    android:orientation="vertical"
+    tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInDataInputActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <com.hualing.qrcodetracker.widget.TitleBar
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBar_Height"
+        app:background_color="@color/colorPrimary"
+        app:leftButton_size="20dp"
+        app:left_img="@drawable/last"
+        app:rightButton_size="20dp"
+        app:text_content="质检"
+        app:title_textColor="@color/titleBar_textColor"
+        app:title_textSize="@dimen/titleBar_textSize">
+    </com.hualing.qrcodetracker.widget.TitleBar>
+
+    <ScrollView
+        android:id="@+id/wlLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="名称："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/nameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="产地："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/cdValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="类别："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/lbValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="物料编码："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/wlbmValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="原料批次："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/ylpcValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="批次总量："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/pczlValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="来料时间："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/llTimeValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:maxLength="19"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="规格："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/ggValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="操作员："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/czyValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="数量单位："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/sldwValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="单位重量："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/zhlValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/bcpLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="名称："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpNameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="类别："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpLbValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="半成品编码："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpBmValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="原料批次："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpYlpcValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="生产批次："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpScpcValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="生产时间："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpScTimeValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:maxLength="19"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="规格："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpGgValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="车间："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpCjValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="工序："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpGxValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="操作员："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpCzyValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="数量单位："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpSldwValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="单位重量："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bcpZhlValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/smallCpLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="名称："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpNameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="类别："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpLbValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="成品编码："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpBmValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="原料批次："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpYlpcValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="生产批次："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpScpcValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="生产时间："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpScTimeValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:maxLength="19"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="规格："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpGgValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="操作员："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpCzyValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="数量单位："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpSldwValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="单位重量："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/smallCpZhlValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/bigCpLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="名称："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpNameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="类别："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpLbValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="成品编码："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpBmValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="原料批次："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpYlpcValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="生产批次："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpScpcValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="生产时间："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpScTimeValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:maxLength="19"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="规格："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpGgValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="操作员："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpCzyValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="数量单位："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpSldwValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dividerHeight"
+                android:background="@color/divide_gray_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:text="单位重量："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/propertyNameText"
+                    />
+
+                <TextView
+                    android:id="@+id/bigCpZhlValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividerHeight"
+        android:background="@color/divide_gray_color"/>
+
+    <Button
+        android:id="@+id/passBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:text="检验合格"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>
+

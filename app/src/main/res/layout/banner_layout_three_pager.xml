@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/modifyData"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/mainItemSize"
+            android:layout_height="@dimen/mainItemSize"
+            app:cardBackgroundColor="#CDBE70"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="@dimen/singleLogoSize"
+                    android:layout_height="@dimen/singleLogoSize"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/modify_data"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="修改数据"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/cpIn"
+            android:visibility="invisible"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/mainItemSize"
+            android:layout_height="@dimen/mainItemSize"
+            app:cardBackgroundColor="#A0522D"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="@dimen/singleLogoSize"
+                    android:layout_height="@dimen/singleLogoSize"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cpin"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="成品入库"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/cpOut"
+            android:visibility="invisible"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/mainItemSize"
+            android:layout_height="@dimen/mainItemSize"
+            app:cardBackgroundColor="#8B8970"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="@dimen/singleLogoSize"
+                    android:layout_height="@dimen/singleLogoSize"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cpout"/>
+
+                <TextView
+                    android:id="@+id/functionName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="成品出库"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/track"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/mainItemSize"
+            android:layout_height="@dimen/mainItemSize"
+            app:cardBackgroundColor="#EE6A50"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="@dimen/singleLogoSize"
+                    android:layout_height="@dimen/singleLogoSize"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/track"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="追溯"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/verify"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/mainItemSize"
+            android:layout_height="@dimen/mainItemSize"
+            app:cardBackgroundColor="#EE9A00"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="@dimen/singleLogoSize"
+                    android:layout_height="@dimen/singleLogoSize"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/verify"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="审核"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/check"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/mainItemSize"
+            android:layout_height="@dimen/mainItemSize"
+            app:cardBackgroundColor="#00BFFF"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="@dimen/singleLogoSize"
+                    android:layout_height="@dimen/singleLogoSize"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/check"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="质检"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</LinearLayout>

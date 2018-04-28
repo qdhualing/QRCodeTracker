@@ -27,6 +27,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -144,6 +145,72 @@ public class WlInVerifyActivity extends BaseActivity {
         return R.layout.activity_wlin_verify;
     }
 
+    @OnClick({R.id.agreeBtn, R.id.refuseBtn})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.agreeBtn:
+                toAgree();
+                break;
+            case R.id.refuseBtn:
+                toRefuse();
+                break;
+        }
+    }
+
+    private void toRefuse() {
+        final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
+        progressDialog.show();
+
+        Observable.create(new ObservableOnSubscribe<ActionResult<ActionResult>>() {
+            @Override
+            public void subscribe(ObservableEmitter<ActionResult<ActionResult>> e) throws Exception {
+                ActionResult<ActionResult> nr = mainDao.toRefuseWlIn(param);
+                e.onNext(nr);
+            }
+        }).subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Consumer<ActionResult<ActionResult>>() {
+                    @Override
+                    public void accept(ActionResult<ActionResult> result) throws Exception {
+                        progressDialog.dismiss();
+                        if (result.getCode() != 0) {
+                            Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
+                            return;
+                        } else {
+                            Toast.makeText(TheApplication.getContext(), "核退成功", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                });
+    }
+
+    private void toAgree() {
+        final Dialog progressDialog = TheApplication.createLoadingDialog(this, "");
+        progressDialog.show();
+
+        Observable.create(new ObservableOnSubscribe<ActionResult<ActionResult>>() {
+            @Override
+            public void subscribe(ObservableEmitter<ActionResult<ActionResult>> e) throws Exception {
+                ActionResult<ActionResult> nr = mainDao.toAgreeWlIn(param);
+                e.onNext(nr);
+            }
+        }).subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Consumer<ActionResult<ActionResult>>() {
+                    @Override
+                    public void accept(ActionResult<ActionResult> result) throws Exception {
+                        progressDialog.dismiss();
+                        if (result.getCode() != 0) {
+                            Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
+                            return;
+                        } else {
+                            Toast.makeText(TheApplication.getContext(), "审核已通过", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                });
+    }
+
     class MyAdapter extends BaseAdapter {
 
         @Override
@@ -175,7 +242,7 @@ public class WlInVerifyActivity extends BaseActivity {
             viewHolder.mWlbmValue.setText(bean.getwLCode());
             viewHolder.mNameValue.setText(bean.getProductName());
             viewHolder.mCdValue.setText(bean.getcHD());
-            viewHolder.mLbValue.setText(bean.getSortID()+"");
+            viewHolder.mLbValue.setText(bean.getSortID() + "");
             viewHolder.mGgValue.setText(bean.getgG());
             viewHolder.mYlpcValue.setText(bean.getyLPC());
             viewHolder.mSldwValue.setText(bean.getdW());

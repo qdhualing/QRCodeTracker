@@ -15,13 +15,13 @@ import com.hualing.qrcodetracker.bean.BcpThrowParam;
 import com.hualing.qrcodetracker.bean.BcpThrowShowDataResult;
 import com.hualing.qrcodetracker.bean.BcpTkVerifyResult;
 import com.hualing.qrcodetracker.bean.BcpTrackResult;
+import com.hualing.qrcodetracker.bean.BigCPINParam;
 import com.hualing.qrcodetracker.bean.BigCpOutGetDataParam;
 import com.hualing.qrcodetracker.bean.BigCpOutGetDataResult;
 import com.hualing.qrcodetracker.bean.BigCpOutParam;
 import com.hualing.qrcodetracker.bean.BigCpResult;
 import com.hualing.qrcodetracker.bean.BigCpTrackResult;
 import com.hualing.qrcodetracker.bean.CJResult;
-import com.hualing.qrcodetracker.bean.BigCPINParam;
 import com.hualing.qrcodetracker.bean.CpOutVerifyResult;
 import com.hualing.qrcodetracker.bean.CreateBCPCKDParam;
 import com.hualing.qrcodetracker.bean.CreateBCPRKDParam;
@@ -47,6 +47,8 @@ import com.hualing.qrcodetracker.bean.NotificationParam;
 import com.hualing.qrcodetracker.bean.PdtSortResult;
 import com.hualing.qrcodetracker.bean.ProductInParams;
 import com.hualing.qrcodetracker.bean.ProductOutParams;
+import com.hualing.qrcodetracker.bean.QualityDataParam;
+import com.hualing.qrcodetracker.bean.QualityDataResult;
 import com.hualing.qrcodetracker.bean.SXYLResult;
 import com.hualing.qrcodetracker.bean.SmallCPINParam;
 import com.hualing.qrcodetracker.bean.SmallCpOutGetDataParam;
@@ -241,4 +243,64 @@ public interface MainDao {
 
     @ActionRequest(func = GlobalData.Service.GET_BCPTK_VERIFY_DATA)
     ActionResult<BcpTkVerifyResult> getBcpTkVerifyData(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.AGREE_WLIN)
+    ActionResult<ActionResult> toAgreeWlIn(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.REFUSE_WLIN)
+    ActionResult<ActionResult> toRefuseWlIn(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.REFUSE_WLOUT)
+    ActionResult<ActionResult> toRefuseWlOut(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.AGREE_WLOUT)
+    ActionResult<ActionResult> toAgreeWlOut(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.AGREE_WLTK)
+    ActionResult<ActionResult> toRefuseWlTk(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.REFUSE_WLTK)
+    ActionResult<ActionResult> toAgreeWlTk(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.AGREE_BCP_IN)
+    ActionResult<ActionResult> toAgreeBcpIn(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.REFUSE_BCP_IN)
+    ActionResult<ActionResult> toRefuseBcpIn(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.REFUSE_BCP_OUT)
+    ActionResult<ActionResult> toRefuseBcpOut(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.AGREE_BCP_OUT)
+    ActionResult<ActionResult> toAgreeBcpOut(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.AGREE_BCP_TK)
+    ActionResult<ActionResult> toAgreeBcpTk(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.REFUSE_BCP_TK)
+    ActionResult<ActionResult> toRefuseBcpTk(VerifyParam param);
+
+    @ActionRequest(func = GlobalData.Service.GET_QUALITY_DATA)
+    ActionResult<QualityDataResult> getQualityData(QualityDataParam param);
+
+    @ActionRequest(func = GlobalData.Service.PASS_CHECK)
+    ActionResult<ActionResult> passCheck(QualityDataParam param);
+
+    @ActionRequest(func = GlobalData.Service.UPDATA_WLIN_DATA)
+    ActionResult<ActionResult> toUpdateWLInData(WlInVerifyResult param);
+
+    @ActionRequest(func = GlobalData.Service.UPDATA_WLOUT_DATA)
+    ActionResult<ActionResult> toUpdateWLOutData(WlOutVerifyResult updatedParam);
+
+    @ActionRequest(func = GlobalData.Service.UPDATA_WLTK_DATA)
+    ActionResult<ActionResult> toUpdateWLTkData(WlTkVerifyResult updatedParam);
+
+    @ActionRequest(func = GlobalData.Service.UPDATA_BCPIN_DATA)
+    ActionResult<ActionResult> toUpdateBcpInData(BcpInVerifyResult updatedParam);
+
+    @ActionRequest(func = GlobalData.Service.UPDATA_CPOUT_DATA)
+    ActionResult<ActionResult> toUpdateCpOutData(CpOutVerifyResult updatedParam);
+
+    @ActionRequest(func = GlobalData.Service.UPDATA_BCPTK_DATA)
+    ActionResult<ActionResult> toUpdateBcpTkData(BcpTkVerifyResult updatedParam);
 }

@@ -50,4 +50,7 @@ public class FunctionType {
     //质检业务线
     public static final int QUALITY_CHECKING = 41;
 
+    //审核不过关修改录入的数据业务线
+    public static final int MODIFY_DATA = 42;
+
 }

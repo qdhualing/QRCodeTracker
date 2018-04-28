@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/layout_back"
+    android:orientation="vertical"
     tools:context="com.hualing.qrcodetracker.activities.operation_wl.wl_in.MaterialInMainActivity">
 
     <com.hualing.qrcodetracker.widget.TitleBar
@@ -17,7 +17,7 @@
         app:leftButton_size="20dp"
         app:left_img="@drawable/last"
         app:rightButton_size="20dp"
-        app:text_content="物料出库审核"
+        app:text_content="成品出库数据修改"
         app:title_textColor="@color/titleBar_textColor"
         app:title_textSize="@dimen/titleBar_textSize">
     </com.hualing.qrcodetracker.widget.TitleBar>
@@ -36,8 +36,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
                 android:layout_marginBottom="15dp"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -50,19 +50,18 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:padding="20dp"
+                        android:text="出库单号："
                         android:textColor="@color/black"
                         android:textSize="@dimen/propertyNameText"
-                        android:text="出库单号："
                         />
+
 
                     <TextView
                         android:id="@+id/outdhValue"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@color/divide_dark_gray_color"
-                        android:textSize="16sp"
                         android:gravity="center_vertical"
+                        android:textSize="16sp"
                         />
 
                 </LinearLayout>
@@ -71,6 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dividerHeight"
                     android:background="@color/divide_gray_color"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -81,20 +81,36 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:padding="20dp"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/propertyNameText"
                         android:text="领货单位："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
                         />
 
-                    <TextView
-                        android:id="@+id/lhdwValue"
+                    <LinearLayout
+                        android:id="@+id/selectLLBM"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@color/divide_dark_gray_color"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/LldwValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择部门"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"
+                            />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -102,6 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dividerHeight"
                     android:background="@color/divide_gray_color"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,21 +129,18 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:padding="20dp"
+                        android:text="发货负责人："
                         android:textColor="@color/black"
                         android:textSize="@dimen/propertyNameText"
-                        android:text="领货日期："
                         />
 
-                    <TextView
-                        android:id="@+id/lhrqValue"
+                    <EditText
+                        android:id="@+id/fhfzrValue"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:maxLength="19"
                         android:background="@android:color/transparent"
-                        android:textColor="@color/divide_dark_gray_color"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -134,6 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dividerHeight"
                     android:background="@color/divide_gray_color"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -144,20 +159,18 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:padding="20dp"
+                        android:text="发货人："
                         android:textColor="@color/black"
                         android:textSize="@dimen/propertyNameText"
-                        android:text="交货负责人："
                         />
 
-                    <TextView
-                        android:id="@+id/jhfzrValue"
+                    <EditText
+                        android:id="@+id/fhRValue"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:textColor="@color/divide_dark_gray_color"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -165,6 +178,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dividerHeight"
                     android:background="@color/divide_gray_color"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -175,20 +189,18 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:padding="20dp"
+                        android:text="收货负责人："
                         android:textColor="@color/black"
                         android:textSize="@dimen/propertyNameText"
-                        android:text="领货人："
                         />
 
-                    <TextView
-                        android:id="@+id/lhRValue"
+                    <EditText
+                        android:id="@+id/shfzrValue"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:textColor="@color/divide_dark_gray_color"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -196,6 +208,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dividerHeight"
                     android:background="@color/divide_gray_color"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -206,51 +219,18 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:padding="20dp"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/propertyNameText"
-                        android:text="领货负责人："
-                        />
-
-                    <TextView
-                        android:id="@+id/lhfzrValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@color/divide_dark_gray_color"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dividerHeight"
-                    android:background="@color/divide_gray_color"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:padding="20dp"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/propertyNameText"
                         android:text="备注："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/propertyNameText"
                         />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/remarkValue"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:textColor="@color/divide_dark_gray_color"
-                        android:textSize="16sp"
-                        android:gravity="center_vertical"
-                        />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -264,11 +244,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textSize="16sp"
-                android:textColor="@color/divide_gray_color"
-                android:text="所关联记录如下："
                 android:background="@android:color/white"
+                android:padding="10dp"
+                android:text="所关联记录如下："
+                android:textColor="@color/divide_gray_color"
+                android:textSize="16sp"
                 />
 
             <View
@@ -280,11 +260,11 @@
                 android:id="@+id/childDataList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:focusable="false"
+                android:layout_margin="10dp"
+                android:background="@android:color/white"
                 android:divider="#CFCFCF"
                 android:dividerHeight="15dp"
-                android:layout_margin="10dp"
-                android:background="@android:color/white"></com.hualing.qrcodetracker.widget.MyListView>
+                android:focusable="false"></com.hualing.qrcodetracker.widget.MyListView>
 
         </LinearLayout>
 
@@ -298,28 +278,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
         android:background="@android:color/white"
-        >
+        android:padding="15dp">
 
         <Button
-            android:id="@+id/agreeBtn"
-            android:layout_width="wrap_content"
+            android:id="@+id/confirmBtn"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="通过"
+            android:layout_centerInParent="true"
             android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"/>
-
-        <Button
-            android:id="@+id/refuseBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="核退"
-            android:background="@color/divide_gray_color"
+            android:text="确认修改"
             android:textColor="@android:color/white"/>
 
     </RelativeLayout>

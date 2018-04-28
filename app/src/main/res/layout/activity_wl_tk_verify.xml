@@ -24,7 +24,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -288,5 +289,39 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividerHeight"
+        android:background="@color/divide_gray_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:background="@android:color/white"
+        >
+
+        <Button
+            android:id="@+id/agreeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="通过"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/refuseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="核退"
+            android:background="@color/divide_gray_color"
+            android:textColor="@android:color/white"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

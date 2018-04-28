@@ -32,6 +32,7 @@
         <item>追溯</item>
         <item>审核</item>
         <item>质检</item>
+        <item>核退修改</item>
     </array>
 
     <array name="materialInData">

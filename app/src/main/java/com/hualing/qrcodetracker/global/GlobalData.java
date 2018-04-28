@@ -312,5 +312,25 @@ public class GlobalData {
         public static final String GET_BCPIN_VERIFY_DATA = "getBcpInVerifyData";
         public static final String GET_CPOUT_VERIFY_DATA = "getCpOutVerifyData";
         public static final String GET_BCPTK_VERIFY_DATA = "getBcpTkVerifyData";
+        public static final String AGREE_WLIN = "agreeWlIn";
+        public static final String REFUSE_WLIN = "refuseWlIn";
+        public static final String REFUSE_WLOUT = "refuseWlOut";
+        public static final String AGREE_WLOUT = "agreeWlOut";
+        public static final String AGREE_WLTK = "agreeWlTk";
+        public static final String REFUSE_WLTK = "refuseWlTk";
+        public static final String AGREE_BCP_IN = "agreeBcpIn";
+        public static final String REFUSE_BCP_IN = "refuseBcpIn";
+        public static final String REFUSE_BCP_OUT = "refuseBcpOut";
+        public static final String AGREE_BCP_OUT = "agreeBcpOut";
+        public static final String AGREE_BCP_TK = "agreeBcpTk";
+        public static final String REFUSE_BCP_TK = "refuseBcpTk";
+        public static final String GET_QUALITY_DATA = "getQualityData";
+        public static final String PASS_CHECK = "passCheck";
+        public static final String UPDATA_WLIN_DATA = "updateWlInData";
+        public static final String UPDATA_WLOUT_DATA = "updateWlOutData";
+        public static final String UPDATA_WLTK_DATA = "updateWlTkData";
+        public static final String UPDATA_BCPIN_DATA = "updateBcpInData";
+        public static final String UPDATA_CPOUT_DATA = "updateCpOutData";
+        public static final String UPDATA_BCPTK_DATA = "updateBcpTkData";
     }
 }

@@ -15,11 +15,11 @@
         android:layout_height="7dp"
         android:layout_margin="3dp"
         android:src="@drawable/pager_switcher"/>
-    <!--<ImageView-->
-        <!--android:id="@+id/dot3"-->
-        <!--android:layout_width="10dp"-->
-        <!--android:layout_height="10dp"-->
-        <!--android:layout_margin="3dp"-->
-        <!--android:src="@drawable/pager_switcher"/>-->
+    <ImageView
+        android:id="@+id/dot3"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:layout_margin="3dp"
+        android:src="@drawable/pager_switcher"/>
 
 </LinearLayout>
