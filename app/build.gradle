@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
-def SERVICE_URL_DEBUG = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
-def SERVICE_URL_PRERELEASE = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
-def SERVICE_URL_RELEASE = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
+//def SERVICE_URL_DEBUG = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
+//def SERVICE_URL_PRERELEASE = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
+//def SERVICE_URL_RELEASE = "\"http://192.168.0.13:8080/qrcodetracker/\""  //马鹏昊电脑ip
 
-//def SERVICE_URL_DEBUG = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
-//def SERVICE_URL_PRERELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
-//def SERVICE_URL_RELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
+def SERVICE_URL_DEBUG = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
+def SERVICE_URL_PRERELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
+def SERVICE_URL_RELEASE = "\"http://120.27.5.36:8080/qrcodetracker/\""  //远程电脑ip
 
 
 def RESOURCE_URL_DEBUG = "\"http://192.168.0.6:8080/qrcodetracker/upload\""
