@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
 import com.hualing.qrcodetracker.activities.main.SelectDepartmentActivity;
+import com.hualing.qrcodetracker.activities.operation_common.SelectPersonActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.VerifyParam;
@@ -45,6 +46,9 @@ import io.reactivex.schedulers.Schedulers;
 public class WlTkModifyActivity extends BaseActivity {
 
     private static final int REQUEST_CODE_SELECT_DEPARTMENT = 12;
+    private static final int REQUEST_CODE_SELECT_TLFZR = 31;
+    private static final int REQUEST_CODE_SELECT_SLFZR = 32;
+    private static final int REQUEST_CODE_SELECT_SLR = 33;
 
     @BindView(R.id.title)
     TitleBar mTitle;
@@ -55,11 +59,11 @@ public class WlTkModifyActivity extends BaseActivity {
     @BindView(R.id.selectLLBM)
     LinearLayout mSelectLLBM;
     @BindView(R.id.slfzrValue)
-    EditText mSlfzrValue;
+    TextView mSlfzrValue;
     @BindView(R.id.slRValue)
-    EditText mSlRValue;
+    TextView mSlRValue;
     @BindView(R.id.tkfzrValue)
-    EditText mTkfzrValue;
+    TextView mTkfzrValue;
     @BindView(R.id.remarkValue)
     EditText mRemarkValue;
     @BindView(R.id.childDataList)
@@ -226,9 +230,22 @@ public class WlTkModifyActivity extends BaseActivity {
         return R.layout.activity_wl_tk_modify;
     }
 
-    @OnClick(R.id.confirmBtn)
-    public void onViewClicked() {
-        toCommit();
+    @OnClick({R.id.confirmBtn,R.id.selectSLFZR,R.id.selectSLR,R.id.selectTKFZR})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.selectSLR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_SLR, null);
+                break;
+            case R.id.selectSLFZR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_SLFZR, null);
+                break;
+            case R.id.selectTKFZR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_TLFZR, null);
+                break;
+            case R.id.confirmBtn:
+                toCommit();
+                break;
+        }
     }
 
     private void toCommit() {
@@ -237,9 +254,9 @@ public class WlTkModifyActivity extends BaseActivity {
 
             if (mData.get(i).getShl() == -1
                     || "请选择部门".equals(mLldwValue.getText().toString())
-                    || TextUtils.isEmpty(mTkfzrValue.getText().toString())
-                    || TextUtils.isEmpty(mSlfzrValue.getText().toString())
-                    || TextUtils.isEmpty(mSlRValue.getText().toString())
+                    || "请选择退库负责人".equals(mTkfzrValue.getText().toString())
+                    || "请选择收料负责人".equals(mSlfzrValue.getText().toString())
+                    || "请选择收料人".equals(mSlRValue.getText().toString())
                     ) {
                 Toast.makeText(this, "信息不完整", Toast.LENGTH_SHORT).show();
                 return;
@@ -371,6 +388,15 @@ public class WlTkModifyActivity extends BaseActivity {
                 case REQUEST_CODE_SELECT_DEPARTMENT:
                     mLldwValue.setText(data.getStringExtra("groupName"));
                     updatedParam.setThDw(data.getStringExtra("groupName"));
+                    break;
+                case REQUEST_CODE_SELECT_SLR:
+                    mSlRValue.setText(data.getStringExtra("personName"));
+                    break;
+                case REQUEST_CODE_SELECT_SLFZR:
+                    mSlfzrValue.setText(data.getStringExtra("personName"));
+                    break;
+                case REQUEST_CODE_SELECT_TLFZR:
+                    mTkfzrValue.setText(data.getStringExtra("personName"));
                     break;
             }
         }

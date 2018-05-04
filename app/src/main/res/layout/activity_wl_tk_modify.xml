@@ -131,14 +131,29 @@
                         android:textSize="@dimen/propertyNameText"
                         android:text="收料负责人："
                         />
-
-                    <EditText
-                        android:id="@+id/slfzrValue"
+                    <LinearLayout
+                        android:id="@+id/selectSLFZR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/slfzrValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择收料负责人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -161,13 +176,29 @@
                         android:text="收料人："
                         />
 
-                    <EditText
-                        android:id="@+id/slRValue"
+                    <LinearLayout
+                        android:id="@+id/selectSLR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/slRValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择收料人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -190,13 +221,29 @@
                         android:text="退库负责人："
                         />
 
-                    <EditText
-                        android:id="@+id/tkfzrValue"
+                    <LinearLayout
+                        android:id="@+id/selectTKFZR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tkfzrValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择退库负责人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

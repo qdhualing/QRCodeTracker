@@ -226,23 +226,31 @@
         </activity>
         <activity android:name=".activities.main.ModifyDataActivity">
         </activity>
-        <activity android:name=".activities.operation_modify.WlInModifyActivity"
-                  android:windowSoftInputMode="stateAlwaysHidden">
+        <activity
+            android:name=".activities.operation_modify.WlInModifyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.operation_modify.WlOutModifyActivity"
-                  android:windowSoftInputMode="stateAlwaysHidden">
+        <activity
+            android:name=".activities.operation_modify.WlOutModifyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.operation_modify.WlTkModifyActivity"
-                  android:windowSoftInputMode="stateAlwaysHidden">
+        <activity
+            android:name=".activities.operation_modify.WlTkModifyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.operation_modify.BcpInModifyActivity"
-                  android:windowSoftInputMode="stateAlwaysHidden">
+        <activity
+            android:name=".activities.operation_modify.BcpInModifyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.operation_modify.BcpOutModifyActivity"
-                  android:windowSoftInputMode="stateAlwaysHidden">
+        <activity
+            android:name=".activities.operation_modify.BcpOutModifyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity android:name=".activities.operation_modify.BcpTkModifyActivity"
-                  android:windowSoftInputMode="stateAlwaysHidden">
+        <activity
+            android:name=".activities.operation_modify.BcpTkModifyActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity android:name=".activities.operation_common.SelectPersonActivity">
         </activity>
     </application>
 

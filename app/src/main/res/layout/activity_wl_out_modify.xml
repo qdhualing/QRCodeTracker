@@ -132,13 +132,29 @@
                         android:text="发料负责人："
                         />
 
-                    <EditText
-                        android:id="@+id/flfzrValue"
+                    <LinearLayout
+                        android:id="@+id/selectFLFZR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/flfzrValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择发料负责人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -161,13 +177,29 @@
                         android:text="发料人："
                         />
 
-                    <EditText
-                        android:id="@+id/flRValue"
+                    <LinearLayout
+                        android:id="@+id/selectFLR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/flRValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择发料人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -190,13 +222,29 @@
                         android:text="领料负责人："
                         />
 
-                    <EditText
-                        android:id="@+id/llfzrValue"
+                    <LinearLayout
+                        android:id="@+id/selectLLFZR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/llfzrValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择领料负责人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

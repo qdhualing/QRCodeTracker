@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
 import com.hualing.qrcodetracker.activities.operation_common.SelectLBActivity;
+import com.hualing.qrcodetracker.activities.operation_common.SelectPersonActivity;
 import com.hualing.qrcodetracker.activities.operation_wl.wl_in.SelectHlSortActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
@@ -51,6 +52,7 @@ public class WlInModifyActivity extends BaseActivity {
 
     private static final int GET_WLSORT_CODE = 30;
     private static final int SELECT_LEI_BIE = 11;
+    private static final int SELECT_PERSON = 111;
 
     @BindView(R.id.title)
     TitleBar mTitle;
@@ -61,11 +63,11 @@ public class WlInModifyActivity extends BaseActivity {
     @BindView(R.id.shrqValue)
     TextView mShrqValue;
     @BindView(R.id.shfzrValue)
-    EditText mShfzrValue;
-    @BindView(R.id.jhRValue)
-    EditText mJhRValue;
-    @BindView(R.id.jhfzrValue)
-    EditText mJhfzrValue;
+    TextView mShfzrValue;
+//    @BindView(R.id.jhRValue)
+//    EditText mJhRValue;
+//    @BindView(R.id.jhfzrValue)
+//    EditText mJhfzrValue;
     @BindView(R.id.remarkValue)
     EditText mRemarkValue;
     @BindView(R.id.childDataList)
@@ -200,40 +202,40 @@ public class WlInModifyActivity extends BaseActivity {
 
                                 }
                             });
-                            mJhRValue.setText(dataResult.getFhR());
-                            mJhRValue.addTextChangedListener(new TextWatcher() {
-                                @Override
-                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                                }
-
-                                @Override
-                                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                                    updatedParam.setFhR(""+s);
-                                }
-
-                                @Override
-                                public void afterTextChanged(Editable s) {
-
-                                }
-                            });
-                            mJhfzrValue.setText(dataResult.getJhFzr());
-                            mJhfzrValue.addTextChangedListener(new TextWatcher() {
-                                @Override
-                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                                }
-
-                                @Override
-                                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                                    updatedParam.setJhFzr(""+s);
-                                }
-
-                                @Override
-                                public void afterTextChanged(Editable s) {
-
-                                }
-                            });
+//                            mJhRValue.setText(dataResult.getFhR());
+//                            mJhRValue.addTextChangedListener(new TextWatcher() {
+//                                @Override
+//                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//                                }
+//
+//                                @Override
+//                                public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                                    updatedParam.setFhR(""+s);
+//                                }
+//
+//                                @Override
+//                                public void afterTextChanged(Editable s) {
+//
+//                                }
+//                            });
+//                            mJhfzrValue.setText(dataResult.getJhFzr());
+//                            mJhfzrValue.addTextChangedListener(new TextWatcher() {
+//                                @Override
+//                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//                                }
+//
+//                                @Override
+//                                public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                                    updatedParam.setJhFzr(""+s);
+//                                }
+//
+//                                @Override
+//                                public void afterTextChanged(Editable s) {
+//
+//                                }
+//                            });
                             mRemarkValue.setText(dataResult.getRemark());
                             mRemarkValue.addTextChangedListener(new TextWatcher() {
                                 @Override
@@ -277,9 +279,9 @@ public class WlInModifyActivity extends BaseActivity {
                     ||mData.get(i).getShl()==-1
                     ||"请选择收获日期".equals(mShrqValue.getText().toString())
                     ||TextUtils.isEmpty(mJhdwValue.getText().toString())
-                    ||TextUtils.isEmpty(mShfzrValue.getText().toString())
-                    ||TextUtils.isEmpty(mJhRValue.getText().toString())
-                    ||TextUtils.isEmpty(mJhfzrValue.getText().toString())
+                    ||"请选择仓库负责人".equals(mShfzrValue.getText().toString())
+//                    ||TextUtils.isEmpty(mJhRValue.getText().toString())
+//                    ||TextUtils.isEmpty(mJhfzrValue.getText().toString())
                     ) {
                 Toast.makeText(this, "信息不完整", Toast.LENGTH_SHORT).show();
                 return;
@@ -324,9 +326,17 @@ public class WlInModifyActivity extends BaseActivity {
         return R.layout.activity_wl_in_modify;
     }
 
-    @OnClick(R.id.confirmBtn)
-    public void onViewClicked() {
-        toCommit();
+    @OnClick({R.id.confirmBtn,R.id.selectPerson})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.confirmBtn:
+                toCommit();
+                break;
+            case R.id.selectPerson:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, SELECT_PERSON, null);
+                break;
+        }
+
     }
 
     class MyAdapter extends BaseAdapter {
@@ -581,6 +591,10 @@ public class WlInModifyActivity extends BaseActivity {
                         mData.get(mCurrentPosition).setSortID(lbId);
                     }
                     mAdapter.notifyDataSetChanged();
+                    break;
+                case SELECT_PERSON:
+                    String personName = data.getStringExtra("personName");
+                    mShfzrValue.setText(personName);
                     break;
             }
         }

@@ -143,73 +143,89 @@
                         android:text="收货负责人："
                         />
 
-                    <EditText
-                        android:id="@+id/shfzrValue"
+                    <LinearLayout
+                        android:id="@+id/selectPerson"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/shfzrValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择仓库负责人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dividerHeight"
-                    android:background="@color/divide_gray_color"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/dividerHeight"-->
+                    <!--android:background="@color/divide_gray_color"/>-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:padding="20dp"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/propertyNameText"
-                        android:text="发货人："
-                        />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:padding="20dp"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--android:textSize="@dimen/propertyNameText"-->
+                        <!--android:text="发货人："-->
+                        <!--/>-->
 
-                    <EditText
-                        android:id="@+id/jhRValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                    <!--<EditText-->
+                        <!--android:id="@+id/jhRValue"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@android:color/transparent"-->
+                        <!--android:textColor="@android:color/black"-->
+                        <!--android:textSize="16sp"/>-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dividerHeight"
-                    android:background="@color/divide_gray_color"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/dividerHeight"-->
+                    <!--android:background="@color/divide_gray_color"/>-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:padding="20dp"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/propertyNameText"
-                        android:text="发货负责人："
-                        />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:padding="20dp"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--android:textSize="@dimen/propertyNameText"-->
+                        <!--android:text="发货负责人："-->
+                        <!--/>-->
 
-                    <EditText
-                        android:id="@+id/jhfzrValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                    <!--<EditText-->
+                        <!--android:id="@+id/jhfzrValue"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@android:color/transparent"-->
+                        <!--android:textColor="@android:color/black"-->
+                        <!--android:textSize="16sp"/>-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
                 <View
                     android:layout_width="match_parent"

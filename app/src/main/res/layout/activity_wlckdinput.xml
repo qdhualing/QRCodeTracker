@@ -116,14 +116,29 @@
                 android:layout_marginRight="20dp"
                 android:src="@drawable/person"/>
 
-            <EditText
-                android:id="@+id/FlrValue"
+            <LinearLayout
+                android:id="@+id/selectFLR"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:hint="发料人"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/FlrValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:text="请选择发料人"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/next"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -144,14 +159,29 @@
                 android:layout_marginRight="20dp"
                 android:src="@drawable/person"/>
 
-            <EditText
-                android:id="@+id/FlfzrValue"
+            <LinearLayout
+                android:id="@+id/selectFLFZR"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:hint="发料负责人"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/FlfzrValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:text="请选择发料负责人"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/next"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -171,15 +201,29 @@
                 android:layout_height="30dp"
                 android:layout_marginRight="20dp"
                 android:src="@drawable/person"/>
-
-            <EditText
-                android:id="@+id/LlfzrValue"
+            <LinearLayout
+                android:id="@+id/selectLLFZR"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:hint="领料负责人"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/LlfzrValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:text="请选择领料负责人"
+                    android:textColor="@color/divide_dark_gray_color"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/next"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import android.widget.Toast;
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
 import com.hualing.qrcodetracker.activities.main.SelectDepartmentActivity;
+import com.hualing.qrcodetracker.activities.operation_common.SelectPersonActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.CpOutShowBean;
@@ -45,6 +45,9 @@ import io.reactivex.schedulers.Schedulers;
 public class BcpOutModifyActivity extends BaseActivity {
 
     private static final int REQUEST_CODE_SELECT_DEPARTMENT = 12;
+    private static final int REQUEST_CODE_SELECT_FHFZR = 31;
+    private static final int REQUEST_CODE_SELECT_FHR = 32;
+    private static final int REQUEST_CODE_SELECT_SHFZR = 33;
 
     @BindView(R.id.title)
     TitleBar mTitle;
@@ -55,11 +58,11 @@ public class BcpOutModifyActivity extends BaseActivity {
     @BindView(R.id.selectLLBM)
     LinearLayout mSelectLLBM;
     @BindView(R.id.fhfzrValue)
-    EditText mFhfzrValue;
+    TextView mFhfzrValue;
     @BindView(R.id.fhRValue)
-    EditText mFhRValue;
+    TextView mFhRValue;
     @BindView(R.id.shfzrValue)
-    EditText mShfzrValue;
+    TextView mShfzrValue;
     @BindView(R.id.remarkValue)
     EditText mRemarkValue;
     @BindView(R.id.childDataList)
@@ -226,17 +229,34 @@ public class BcpOutModifyActivity extends BaseActivity {
         return R.layout.activity_bcp_out_modify;
     }
 
-    @OnClick(R.id.confirmBtn)
-    public void onViewClicked() {
-        toCommit();
+    @OnClick({R.id.confirmBtn,R.id.selectFHFZR,R.id.selectFHR,R.id.selectSHFZR})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.selectFHFZR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_FHFZR, null);
+
+                break;
+            case R.id.selectFHR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_FHR, null);
+
+                break;
+            case R.id.selectSHFZR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_SHFZR, null);
+
+                break;
+            case R.id.confirmBtn:
+                toCommit();
+                break;
+        }
+
     }
 
     private void toCommit() {
 
         if ("请选择部门".equals(mLldwValue.getText().toString())
-                || TextUtils.isEmpty(mFhfzrValue.getText().toString())
-                || TextUtils.isEmpty(mFhRValue.getText().toString())
-                || TextUtils.isEmpty(mShfzrValue.getText().toString())
+                || "请选择发货人".equals(mFhRValue.getText().toString())
+                || "请选择收货负责人".equals(mShfzrValue.getText().toString())
+                || "请选择发货负责人".equals(mFhfzrValue.getText().toString())
                 ) {
             Toast.makeText(this, "信息不完整", Toast.LENGTH_SHORT).show();
             return;
@@ -333,6 +353,15 @@ public class BcpOutModifyActivity extends BaseActivity {
                 case REQUEST_CODE_SELECT_DEPARTMENT:
                     mLldwValue.setText(data.getStringExtra("groupName"));
                     updatedParam.setLhDw(data.getStringExtra("groupName"));
+                    break;
+                case REQUEST_CODE_SELECT_FHFZR:
+                    mFhfzrValue.setText(data.getStringExtra("personName"));
+                    break;
+                case REQUEST_CODE_SELECT_FHR:
+                    mFhRValue.setText(data.getStringExtra("personName"));
+                    break;
+                case REQUEST_CODE_SELECT_SHFZR:
+                    mShfzrValue.setText(data.getStringExtra("personName"));
                     break;
             }
         }

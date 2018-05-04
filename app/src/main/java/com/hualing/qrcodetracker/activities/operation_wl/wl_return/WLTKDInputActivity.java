@@ -3,7 +3,6 @@ package com.hualing.qrcodetracker.activities.operation_wl.wl_return;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,6 +12,7 @@ import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
 import com.hualing.qrcodetracker.activities.main.ScanActivity;
 import com.hualing.qrcodetracker.activities.main.SelectDepartmentActivity;
+import com.hualing.qrcodetracker.activities.operation_common.SelectPersonActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.CreateWLTKDParam;
@@ -38,16 +38,20 @@ public class WLTKDInputActivity extends BaseActivity {
 
 
     private static final int REQUEST_CODE_SELECT_DEPARTMENT = 30;
+    private static final int REQUEST_CODE_SELECT_TLFZR = 31;
+    private static final int REQUEST_CODE_SELECT_SLFZR = 32;
+    private static final int REQUEST_CODE_SELECT_SLR = 33;
+
     @BindView(R.id.title)
     TitleBar mTitle;
     @BindView(R.id.thdwValue)
     TextView mThdwValue;
     @BindView(R.id.shrValue)
-    EditText mShrValue;
+    TextView mShrValue;
     @BindView(R.id.shfzrValue)
-    EditText mShfzrValue;
+    TextView mShfzrValue;
     @BindView(R.id.thfzrValue)
-    EditText mThfzrValue;
+    TextView mThfzrValue;
     @BindView(R.id.remarkValue)
     EditText mRemarkValue;
     private CreateWLTKDParam params;
@@ -158,10 +162,10 @@ public class WLTKDInputActivity extends BaseActivity {
         String thfzrValue = mThfzrValue.getText().toString();
         String remarkValue = mRemarkValue.getText().toString();
         if ("请选择部门".equals(thdwValue)
-                || TextUtils.isEmpty(shrValue)
-                || TextUtils.isEmpty(shfzrValue)
-                || TextUtils.isEmpty(thfzrValue)
-//                || TextUtils.isEmpty(remarkValue)
+                || "请选择收料人".equals(shrValue)
+                || "请选择收料负责人".equals(shfzrValue)
+                || "请选择退料负责人".equals(thfzrValue)
+            //                || TextUtils.isEmpty(remarkValue)
                 ) {
             return false;
         }
@@ -176,19 +180,39 @@ public class WLTKDInputActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK){
-            if (requestCode == REQUEST_CODE_SELECT_DEPARTMENT) {
-                mThdwValue.setText(data.getStringExtra("groupName"));
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_CODE_SELECT_DEPARTMENT:
+                    mThdwValue.setText(data.getStringExtra("groupName"));
+                    break;
+                case REQUEST_CODE_SELECT_SLR:
+                    mShrValue.setText(data.getStringExtra("personName"));
+                    break;
+                case REQUEST_CODE_SELECT_SLFZR:
+                    mShfzrValue.setText(data.getStringExtra("personName"));
+                    break;
+                case REQUEST_CODE_SELECT_TLFZR:
+                    mThfzrValue.setText(data.getStringExtra("personName"));
+                    break;
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @OnClick({R.id.selectLLBM, R.id.commitBtn})
+    @OnClick({R.id.selectLLBM, R.id.commitBtn, R.id.selectSLR, R.id.selectSLFZR, R.id.selectTLFZR})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.selectLLBM:
-                IntentUtil.openActivityForResult(this, SelectDepartmentActivity.class,REQUEST_CODE_SELECT_DEPARTMENT,null);
+                IntentUtil.openActivityForResult(this, SelectDepartmentActivity.class, REQUEST_CODE_SELECT_DEPARTMENT, null);
+                break;
+            case R.id.selectSLR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_SLR, null);
+                break;
+            case R.id.selectSLFZR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_SLFZR, null);
+                break;
+            case R.id.selectTLFZR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_TLFZR, null);
                 break;
             case R.id.commitBtn:
                 commitDataToWeb();

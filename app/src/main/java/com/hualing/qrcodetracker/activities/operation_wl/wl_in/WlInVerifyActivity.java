@@ -47,10 +47,10 @@ public class WlInVerifyActivity extends BaseActivity {
     TextView mShrqValue;
     @BindView(R.id.shfzrValue)
     TextView mShfzrValue;
-    @BindView(R.id.jhRValue)
-    TextView mJhRValue;
-    @BindView(R.id.jhfzrValue)
-    TextView mJhfzrValue;
+//    @BindView(R.id.jhRValue)
+//    TextView mJhRValue;
+//    @BindView(R.id.jhfzrValue)
+//    TextView mJhfzrValue;
     @BindView(R.id.remarkValue)
     TextView mRemarkValue;
     @BindView(R.id.childDataList)
@@ -121,8 +121,8 @@ public class WlInVerifyActivity extends BaseActivity {
                             mJhdwValue.setText(dataResult.getFhDw());
                             mShrqValue.setText(dataResult.getShRq());
                             mShfzrValue.setText(dataResult.getShFzr());
-                            mJhRValue.setText(dataResult.getFhR());
-                            mJhfzrValue.setText(dataResult.getJhFzr());
+//                            mJhRValue.setText(dataResult.getFhR());
+//                            mJhfzrValue.setText(dataResult.getJhFzr());
                             mRemarkValue.setText(TextUtils.isEmpty(dataResult.getRemark()) ? "无备注信息" : dataResult.getRemark());
 
                             if (dataResult.getBeans() != null && dataResult.getBeans().size() > 0) {

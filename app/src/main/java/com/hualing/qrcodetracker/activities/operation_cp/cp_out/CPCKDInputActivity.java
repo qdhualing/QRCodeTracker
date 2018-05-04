@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
 import com.hualing.qrcodetracker.activities.main.SelectDepartmentActivity;
+import com.hualing.qrcodetracker.activities.operation_common.SelectPersonActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.BCPCKDResult;
@@ -39,19 +40,22 @@ import io.reactivex.schedulers.Schedulers;
 public class CPCKDInputActivity extends BaseActivity {
 
     private static final int GET_DEPARTMENT = 10;
+    private static final int REQUEST_CODE_SELECT_JHFZR = 31;
+    private static final int REQUEST_CODE_SELECT_SHFZR = 32;
+    private static final int REQUEST_CODE_SELECT_SHR = 33;
 
     @BindView(R.id.title)
     TitleBar mTitle;
     @BindView(R.id.departmentValue)
     TextView mDepartmentValue;
     @BindView(R.id.ShrValue)
-    EditText mShrValue;
+    TextView mShrValue;
     @BindView(R.id.ShFzrValue)
-    EditText mShFzrValue;
+    TextView mShFzrValue;
+    @BindView(R.id.JhFhrValue)
+    TextView mJhFhrValue;
     @BindView(R.id.shdwValue)
     EditText mShdwValue;
-    @BindView(R.id.JhFhrValue)
-    EditText mJhFhrValue;
     @BindView(R.id.remarkValue)
     EditText mRemarkValue;
 
@@ -101,9 +105,20 @@ public class CPCKDInputActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK){
-            if (requestCode == GET_DEPARTMENT) {
-                mDepartmentValue.setText(data.getStringExtra("groupName"));
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case GET_DEPARTMENT:
+                    mDepartmentValue.setText(data.getStringExtra("groupName"));
+                    break;
+                case REQUEST_CODE_SELECT_JHFZR:
+                    mJhFhrValue.setText(data.getStringExtra("personName"));
+                    break;
+                case REQUEST_CODE_SELECT_SHFZR:
+                    mShFzrValue.setText(data.getStringExtra("personName"));
+                    break;
+                case REQUEST_CODE_SELECT_SHR:
+                    mShrValue.setText(data.getStringExtra("personName"));
+                    break;
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -119,9 +134,9 @@ public class CPCKDInputActivity extends BaseActivity {
         String jhfzrValue = mJhFhrValue.getText().toString();
         if (TextUtils.isEmpty(shdwValue)
                 || "请选择部门".equals(jhdwValue)
-                || TextUtils.isEmpty(shrValue)
-                || TextUtils.isEmpty(shfzrValue)
-                || TextUtils.isEmpty(jhfzrValue)) {
+                || "请选择收货人".equals(shrValue)
+                || "请选择收货负责人".equals(shfzrValue)
+                || "请选择交货负责人".equals(jhfzrValue)) {
             return false;
         }
         params.setJhDw(jhdwValue);
@@ -178,11 +193,22 @@ public class CPCKDInputActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.selectBM:
-                IntentUtil.openActivityForResult(this, SelectDepartmentActivity.class,GET_DEPARTMENT,null);
+                IntentUtil.openActivityForResult(this, SelectDepartmentActivity.class, GET_DEPARTMENT, null);
+                break;
+            case R.id.selectSHR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_SHR, null);
+                break;
+            case R.id.selectSHFZR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_SHFZR, null);
+                break;
+            case R.id.selectJHFZR:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, REQUEST_CODE_SELECT_JHFZR, null);
                 break;
             case R.id.commitBtn:
                 commitDataToWeb();
                 break;
         }
     }
+
+
 }

@@ -45,6 +45,7 @@ import com.hualing.qrcodetracker.bean.MaterialOutParams;
 import com.hualing.qrcodetracker.bean.NonCheckResult;
 import com.hualing.qrcodetracker.bean.NotificationParam;
 import com.hualing.qrcodetracker.bean.PdtSortResult;
+import com.hualing.qrcodetracker.bean.PersonResult;
 import com.hualing.qrcodetracker.bean.ProductInParams;
 import com.hualing.qrcodetracker.bean.ProductOutParams;
 import com.hualing.qrcodetracker.bean.QualityDataParam;
@@ -303,4 +304,7 @@ public interface MainDao {
 
     @ActionRequest(func = GlobalData.Service.UPDATA_BCPTK_DATA)
     ActionResult<ActionResult> toUpdateBcpTkData(BcpTkVerifyResult updatedParam);
+
+    @ActionRequest(func = GlobalData.Service.GET_PERSON_INFO)
+    ActionResult<PersonResult> getAllPerson();
 }

@@ -2,6 +2,7 @@ package com.hualing.qrcodetracker.activities.operation_wl.wl_in;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
 import com.hualing.qrcodetracker.activities.main.EmployeeMainActivity;
 import com.hualing.qrcodetracker.activities.main.ScanActivity;
+import com.hualing.qrcodetracker.activities.operation_common.SelectPersonActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.CreateWLRKDParam;
@@ -42,6 +44,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class WLInRKDInputActivity extends BaseActivity {
 
+    private static final int SELECT_PERSON = 111;
     @BindView(R.id.title)
     TitleBar mTitle;
     @BindView(R.id.FhDwValue)
@@ -52,12 +55,12 @@ public class WLInRKDInputActivity extends BaseActivity {
     TextView mShRqValue;
     //    @BindView(R.id.InDhValue)
     //    EditText mInDhValue;
-    @BindView(R.id.ShrValue)
-    EditText mShrValue;
+//    @BindView(R.id.ShrValue)
+//    EditText mShrValue;
     @BindView(R.id.ShFzrValue)
-    EditText mShFzrValue;
-    @BindView(R.id.JhFzrValue)
-    EditText mJhFzrValue;
+    TextView mShFzrValue;
+//    @BindView(R.id.JhFzrValue)
+//    EditText mJhFzrValue;
     private MainDao mainDao;
 
     private CreateWLRKDParam params;
@@ -107,28 +110,29 @@ public class WLInRKDInputActivity extends BaseActivity {
         String fhdwValue = mFhDwValue.getText().toString();
         String shrqValue = mShRqValue.getText().toString();
         //        String indhValue = mInDhValue.getText().toString();
-        String shrValue = mShrValue.getText().toString();
+//        String shrValue = mShrValue.getText().toString();
         String shfzrValue = mShFzrValue.getText().toString();
-        String jhfzrValue = mJhFzrValue.getText().toString();
+//        String jhfzrValue = mJhFzrValue.getText().toString();
         if (TextUtils.isEmpty(fhdwValue)
                 || "请选择收获日期".equals(shrqValue)
                 //                || TextUtils.isEmpty(indhValue)
-                || TextUtils.isEmpty(shrValue)
-                || TextUtils.isEmpty(jhfzrValue)
-                || TextUtils.isEmpty(shfzrValue)) {
+//                || TextUtils.isEmpty(shrValue)
+//                || TextUtils.isEmpty(jhfzrValue)
+                || "请选择仓库负责人".equals(shfzrValue)) {
             return false;
         }
         params.setFhDw(fhdwValue);
         params.setShRq(shrqValue);
         //        params.setInDh(indhValue);
-        params.setShr(shrValue);
+        //收货人改为当前用户（操作者是仓库管理员）
+        params.setShr(GlobalData.realName);
         params.setShFzr(shfzrValue);
-        params.setFhr(GlobalData.realName);
-        params.setJhFzr(jhfzrValue);
+//        params.setFhr(GlobalData.realName);
+//        params.setJhFzr(jhfzrValue);
         return true;
     }
 
-    @OnClick({R.id.ShRqValue, R.id.commitBtn})
+    @OnClick({R.id.ShRqValue, R.id.commitBtn,R.id.selectPerson})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ShRqValue:
@@ -155,12 +159,30 @@ public class WLInRKDInputActivity extends BaseActivity {
                         .show();
 
                 break;
+            case R.id.selectPerson:
+                IntentUtil.openActivityForResult(this, SelectPersonActivity.class, SELECT_PERSON, null);
+                break;
             case R.id.commitBtn:
 
                 commitDataToWeb();
 
                 break;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case SELECT_PERSON:
+                    String personName = data.getStringExtra("personName");
+                    mShFzrValue.setText(personName);
+                    break;
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void commitDataToWeb() {

@@ -133,14 +133,29 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/propertyNameText"
                         />
-
-                    <EditText
-                        android:id="@+id/fhfzrValue"
+                    <LinearLayout
+                        android:id="@+id/selectFHFZR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/fhfzrValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择发货负责人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -163,14 +178,29 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/propertyNameText"
                         />
-
-                    <EditText
-                        android:id="@+id/fhRValue"
+                    <LinearLayout
+                        android:id="@+id/selectFHR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/fhRValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择发货人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -193,14 +223,29 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/propertyNameText"
                         />
-
-                    <EditText
-                        android:id="@+id/shfzrValue"
+                    <LinearLayout
+                        android:id="@+id/selectSHFZR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"/>
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/shfzrValue"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
+                            android:text="请选择收货负责人"
+                            android:textColor="@color/divide_dark_gray_color"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/next"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

@@ -85,15 +85,29 @@
             android:layout_height="30dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/person"/>
-
-        <EditText
-            android:id="@+id/shrValue"
+        <LinearLayout
+            android:id="@+id/selectSLR"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="收料人"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/shrValue"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:text="请选择收料人"
+                android:textColor="@color/divide_dark_gray_color"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/next"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -112,15 +126,29 @@
             android:layout_height="30dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/person"/>
-
-        <EditText
-            android:id="@+id/shfzrValue"
+        <LinearLayout
+            android:id="@+id/selectSLFZR"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="收料负责人"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/shfzrValue"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:text="请选择收料负责人"
+                android:textColor="@color/divide_dark_gray_color"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/next"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -140,15 +168,29 @@
             android:layout_height="30dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/person"/>
-
-        <EditText
-            android:id="@+id/thfzrValue"
+        <LinearLayout
+            android:id="@+id/selectTLFZR"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="退料负责人"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/thfzrValue"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:text="请选择退料负责人"
+                android:textColor="@color/divide_dark_gray_color"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/next"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
