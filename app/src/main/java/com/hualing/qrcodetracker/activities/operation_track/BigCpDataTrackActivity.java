@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
-import com.hualing.qrcodetracker.activities.main.ScanActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.BigCpTrackResult;
@@ -18,7 +17,6 @@ import com.hualing.qrcodetracker.bean.WlTrackParam;
 import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.TheApplication;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
-import com.hualing.qrcodetracker.util.IntentUtil;
 import com.hualing.qrcodetracker.widget.TitleBar;
 
 import butterknife.BindView;
@@ -115,8 +113,6 @@ public class BigCpDataTrackActivity extends BaseActivity {
                         progressDialog.dismiss();
                         if (result.getCode() != 0) {
                             Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
-                            IntentUtil.openActivity(BigCpDataTrackActivity.this, ScanActivity.class);
-                            AllActivitiesHolder.removeAct(BigCpDataTrackActivity.this);
                             return;
                         } else {
                             BigCpTrackResult dataResult = result.getResult();

@@ -14,7 +14,7 @@
     <color name="layout_back">#EDEDED</color>
     <color name="black">#000000</color>
     <color name="drawLeftBack">#CAE1FF</color>
-    <color name="drawLeftBottomBack">#BCD2EE</color>
+    <color name="drawLeftBottomBack">#0BB7F5</color>
     <color name="drawerleft_text">#5B5B5B</color>
 
 </resources>

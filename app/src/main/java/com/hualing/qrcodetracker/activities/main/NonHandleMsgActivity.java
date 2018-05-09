@@ -45,6 +45,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public class NonHandleMsgActivity extends BaseActivity {
 
+    private static final int REQUEST_CODE = 111;
+    public static final int RETURN_AND_REFRESH = 112;
+
     @BindView(R.id.title)
     TitleBar mTitle;
     @BindView(R.id.listView)
@@ -203,7 +206,7 @@ public class NonHandleMsgActivity extends BaseActivity {
                             }
                             if (intent!=null) {
                                 intent.putExtra("dh", dh);
-                                startActivity(intent);
+                                startActivityForResult(intent,REQUEST_CODE);
                             }
                         }
                     });
@@ -223,6 +226,16 @@ public class NonHandleMsgActivity extends BaseActivity {
                 ButterKnife.bind(this, view);
             }
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==REQUEST_CODE){
+            if (resultCode == RETURN_AND_REFRESH) {
+                mRefresher.autoRefresh();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     /**

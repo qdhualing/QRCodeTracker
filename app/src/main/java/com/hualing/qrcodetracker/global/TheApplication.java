@@ -51,6 +51,21 @@ public class TheApplication extends Application {
 
     public static String ImagePath;
 
+    public static int getScreenWidth() {
+        return screenWidth;
+    }
+
+    public static void setScreenWidth(int screenWidth) {
+        TheApplication.screenWidth = screenWidth;
+    }
+
+    public static int getScreenHeight() {
+        return screenHeight;
+    }
+
+    public static void setScreenHeight(int screenHeight) {
+        TheApplication.screenHeight = screenHeight;
+    }
 
     @Override
     public void onCreate() {

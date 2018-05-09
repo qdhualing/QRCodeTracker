@@ -111,7 +111,7 @@ public class ModifyDataActivity extends BaseActivity {
         Observable.create(new ObservableOnSubscribe<ActionResult<NonCheckResult>>() {
             @Override
             public void subscribe(ObservableEmitter<ActionResult<NonCheckResult>> e) throws Exception {
-                ActionResult<NonCheckResult> nr = mainDao.getNonCheckData(params);
+                ActionResult<NonCheckResult> nr = mainDao.getCanModifyData(params);
                 e.onNext(nr);
             }
         }).subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程

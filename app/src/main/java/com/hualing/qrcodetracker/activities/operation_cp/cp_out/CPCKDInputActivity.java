@@ -189,7 +189,7 @@ public class CPCKDInputActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.selectBM, R.id.commitBtn})
+    @OnClick({R.id.selectBM, R.id.commitBtn,R.id.selectSHR,R.id.selectSHFZR,R.id.selectJHFZR})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.selectBM:

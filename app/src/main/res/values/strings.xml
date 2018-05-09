@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QRCodeTracker</string>
+    <string name="app_name">二维码追溯</string>
     <string name="open">打开侧滑栏</string>
     <string name="close">关闭侧滑栏</string>
 

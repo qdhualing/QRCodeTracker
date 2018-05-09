@@ -307,4 +307,7 @@ public interface MainDao {
 
     @ActionRequest(func = GlobalData.Service.GET_PERSON_INFO)
     ActionResult<PersonResult> getAllPerson();
+
+    @ActionRequest(func = GlobalData.Service.GET_CAN_MODIFY_DATA)
+    ActionResult<NonCheckResult> getCanModifyData(MainParams params);
 }

@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
-import com.hualing.qrcodetracker.activities.main.ScanActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.WlTrackParam;
@@ -15,7 +14,6 @@ import com.hualing.qrcodetracker.bean.WlTrackResult;
 import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.TheApplication;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
-import com.hualing.qrcodetracker.util.IntentUtil;
 import com.hualing.qrcodetracker.widget.TitleBar;
 
 import butterknife.BindView;
@@ -107,8 +105,6 @@ public class WlDataTrackActivity extends BaseActivity {
                         progressDialog.dismiss();
                         if (result.getCode() != 0) {
                             Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
-                            IntentUtil.openActivity(WlDataTrackActivity.this, ScanActivity.class);
-                            AllActivitiesHolder.removeAct(WlDataTrackActivity.this);
                             return;
                         } else {
                             WlTrackResult dataResult = result.getResult();

@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -144,7 +145,10 @@ public class EmployeeMainActivity extends BaseActivity {
 
         mUnreadState = findViewById(R.id.unreadState);
 
-        mToolBar.setTitle("二维码追溯员工端");//设置Toolbar标题
+        getScreenSize();
+
+
+        mToolBar.setTitle(getResources().getString(R.string.app_name));//设置Toolbar标题
         //        mToolBar.setTitle("二维码追溯-员工模式");//设置Toolbar标题
         mToolBar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(mToolBar);
@@ -242,6 +246,12 @@ public class EmployeeMainActivity extends BaseActivity {
         //            }
         //        });
 
+    }
+
+    private void getScreenSize() {
+        Display display = getWindowManager().getDefaultDisplay();
+        TheApplication.setScreenHeight(display.getHeight());
+        TheApplication.setScreenWidth(display.getWidth());
     }
 
     //    private void initFunctionData() {
@@ -573,9 +583,11 @@ public class EmployeeMainActivity extends BaseActivity {
 
 
         public MyPagerAdapter() {
+            int size = (int) (TheApplication.getScreenWidth()/3.3);
             views = new ArrayList<>();
             view1 = View.inflate(EmployeeMainActivity.this, R.layout.banner_layout_one_pager, null);
             CardView wlIn = view1.findViewById(R.id.wlIn);
+            wlIn.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             wlIn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -590,6 +602,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView wlOut = view1.findViewById(R.id.wlOut);
+            wlOut.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             wlOut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -604,6 +617,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView wlThrow = view1.findViewById(R.id.wlThrow);
+            wlThrow.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             wlThrow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -618,6 +632,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView wlReturn = view1.findViewById(R.id.wlReturn);
+            wlReturn.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             wlReturn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -632,6 +647,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView bcpIn = view1.findViewById(R.id.bcpIn);
+            bcpIn.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             bcpIn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -646,6 +662,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView bcpThrow = view1.findViewById(R.id.bcpThrow);
+            bcpThrow.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             bcpThrow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -664,6 +681,7 @@ public class EmployeeMainActivity extends BaseActivity {
 
             view2 = View.inflate(EmployeeMainActivity.this, R.layout.banner_layout_two_pager, null);
             CardView bcpReturn = view2.findViewById(R.id.bcpReturn);
+            bcpReturn.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             bcpReturn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -678,6 +696,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView cpIn = view2.findViewById(R.id.cpIn);
+            cpIn.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             cpIn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -692,6 +711,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView cpOut = view2.findViewById(R.id.cpOut);
+            cpOut.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             cpOut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -706,6 +726,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView track = view2.findViewById(R.id.track);
+            track.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             track.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -720,6 +741,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView verify = view2.findViewById(R.id.verify);
+            verify.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             verify.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -734,6 +756,7 @@ public class EmployeeMainActivity extends BaseActivity {
                 }
             });
             CardView check = view2.findViewById(R.id.check);
+            check.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -751,6 +774,7 @@ public class EmployeeMainActivity extends BaseActivity {
 
             view3 = View.inflate(EmployeeMainActivity.this, R.layout.banner_layout_three_pager, null);
             CardView modifyBtn = view3.findViewById(R.id.modifyData);
+            modifyBtn.setLayoutParams(new LinearLayout.LayoutParams(size,size));
             modifyBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

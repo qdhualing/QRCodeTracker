@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.hualing.qrcodetracker.R;
 import com.hualing.qrcodetracker.activities.BaseActivity;
-import com.hualing.qrcodetracker.activities.main.ScanActivity;
 import com.hualing.qrcodetracker.aframework.yoni.ActionResult;
 import com.hualing.qrcodetracker.aframework.yoni.YoniClient;
 import com.hualing.qrcodetracker.bean.BcpTrackResult;
@@ -21,7 +20,6 @@ import com.hualing.qrcodetracker.dao.MainDao;
 import com.hualing.qrcodetracker.global.TheApplication;
 import com.hualing.qrcodetracker.model.TrackType;
 import com.hualing.qrcodetracker.util.AllActivitiesHolder;
-import com.hualing.qrcodetracker.util.IntentUtil;
 import com.hualing.qrcodetracker.widget.MyListView;
 import com.hualing.qrcodetracker.widget.TitleBar;
 
@@ -136,8 +134,6 @@ public class BcpDataTrackActivity extends BaseActivity {
                         progressDialog.dismiss();
                         if (result.getCode() != 0) {
                             Toast.makeText(TheApplication.getContext(), result.getMessage(), Toast.LENGTH_SHORT).show();
-                            IntentUtil.openActivity(BcpDataTrackActivity.this, ScanActivity.class);
-                            AllActivitiesHolder.removeAct(BcpDataTrackActivity.this);
                             return;
                         } else {
                             BcpTrackResult dataResult = result.getResult();
@@ -210,7 +206,7 @@ public class BcpDataTrackActivity extends BaseActivity {
             } else
                 viewHolder = (ViewHolder) convertView.getTag();
 
-            ComponentBean bean = mData.get(position);
+            final ComponentBean bean = mData.get(position);
             viewHolder.name.setText(bean.getName());
             String sort = bean.getQrCodeId().substring(START_INDEX, END_INDEX);
             String sortName = "";
@@ -240,7 +236,7 @@ public class BcpDataTrackActivity extends BaseActivity {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    finalIntent.putExtra("qrCodeId", mQrcodeId);
+                    finalIntent.putExtra("qrCodeId", bean.getQrCodeId());
                     startActivity(finalIntent);
                 }
             });

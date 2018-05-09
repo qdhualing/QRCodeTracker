@@ -13,7 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_drawleft_top_back"
+        android:background="#EFF3F2"
         android:paddingBottom="50dp"
         android:paddingTop="50dp">
 
@@ -116,7 +116,7 @@
             android:layout_marginRight="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="#CD3700"
+            app:cardBackgroundColor="@android:color/holo_red_light"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:cardUseCompatPadding="true"
